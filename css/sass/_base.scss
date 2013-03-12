@@ -1,0 +1,32 @@
+@import 'compass';
+
+// $breakpoint-smallest: 480px;
+// $breakpoint-small: 600px;
+// $breakpoint-medium: 768px;
+// $breakpoint-medium-2: 780px;
+// $breakpoint-large: 992px;
+// $breakpoint-largest: 1024px;
+// $breakpoint-max-width-medium: max-width 768px;
+// $breakpoint-max-width-medium-2: max-width 780px;
+
+// Colors
+
+$color-background: #F4E7B7;
+$color-link: #f77916;
+$color-link-active: #403e35;
+$color-text: #5B5541;
+$color-black-text: #333;
+$color-heading: #403e35;
+$color-box-shadow: #B7B19C;
+$color-grey-contrast: #ececda;
+
+// Fonts
+
+$font: "ff-dagny-web-pro", sans-serif;
+$font-logo: "omnes-pro-i9", "omnes-pro", sans-serif;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// MIXINS ----------

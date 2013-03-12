@@ -1,0 +1,6 @@
+gzip_assets: off
+
+stylesheets:
+  common:
+    - css/vendor/normalize.css
+    - css/stylesheets/main.css
