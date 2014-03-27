@@ -8,7 +8,7 @@ body_class: home
 
 <h1>Kollegorna Labs</h1>
 
-<p>We build stuff with Drupal and Rails.</p>
+<p>We build stuff with Drupal and Rails. This is our messy labs…</p>
 
 <ul>
   <li><a href="https://github.com/kollegorna">GitHub</a></li>
@@ -21,8 +21,11 @@ body_class: home
 <h2>Projects</h2>
 
 <ul>
-  <li><a href="/fieldvariables">Field Variables</a></li>
+  <li><a href="https://github.com/kollegorna/fieldvariables">Field Variables</a></li>
+  <li><a href="https://github.com/kollegorna/griddo">Griddo</a></li>
 </ul>
+
+<hr>
 
 <h2>Blog posts</h2>
 <ul>
@@ -30,14 +33,4 @@ body_class: home
   <li><a href="{{ post.url }}">{{ post.title }}</a><br><time pubdate>{{ post.date | date_to_string }}</time></li>
 {% endfor %}
 </ul>
-<!--
-<hr>
 
-<h2>Blog posts</h2>
-
-<ul>
-  {% for post in site.posts %}
-    <li><time>{{ post.date | date_to_string }}</time> <a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
--->
