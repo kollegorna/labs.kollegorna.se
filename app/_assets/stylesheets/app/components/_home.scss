@@ -1,0 +1,28 @@
+
+.labs-page {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.labs-list {
+  @extend %t-list-unstyled;
+  margin-bottom: 40px;
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  a {
+    font-weight: $ds-font-weight-bold;
+  }
+
+  p {
+    margin: 0;
+    padding-left: $ds-margin;
+  }
+}
+
+.footer-border {
+  @include background-image(linear-gradient(left top, $ds-color-orange, $ds-color-orange-dark));
+  height: 20px;
+}
