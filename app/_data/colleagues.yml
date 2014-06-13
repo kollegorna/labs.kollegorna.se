@@ -1,0 +1,60 @@
+# The Colleagues!
+per:
+  firstname: Per
+  lastname: Sandström
+  title: Designer + Partner
+  email: per@kollegorna.se
+  twitter: persand
+  github: persand
+  linkedin: "https://www.linkedin.com/in/psandstrom"
+  phone: 070 - 242 07 50
+  does: "webb- & interaktionsdesign, front end, Drupal"
+henrik:
+  firstname: Henrik
+  lastname: Sjökvist
+  title: Utvecklare + Partner
+  email: henrik@kollegorna.se
+  twitter: henrrrik
+  github: henrrrik
+  phone: 073 – 505 29 29
+  does: "Ruby, Rails, Go, JavaScript"
+samuel:
+  firstname: Samuel
+  lastname: Carlsson
+  title: Utvecklare + Partner
+  email: samuel@kollegorna.se
+  twitter: ksamc
+  github: ksamc
+  phone: 070 - 695 10 92
+  does: "Ruby, Rails, Symfony, JavaScript"
+joakim:
+  firstname: Joakim
+  lastname: Lundberg
+  email: joakim@kollegorna.se
+  title: Utvecklare
+  github: fyra3or
+  does: "design, front end, Drupal"
+stai:
+  firstname: Joakim
+  lastname: Stai
+  email: stai@kollegorna.se
+  title: Utvecklare
+  twitter: joakimstai
+  github: joakim
+  linkedin: "https://www.linkedin.com/in/joakimstai"
+  phone: 08 - 519 710 85
+  does: "Drupal, JavaScript, serverkonfigurering och optimering"
+filippos:
+  firstname: Filippos
+  lastname: Vasilakis
+  email: filippos@kollegorna.se
+  title: Utvecklare
+  twitter: vasilakisfil
+  github: vasilakisfil
+  does: "Ruby, Rails"
+kobot:
+  firstname: Kobot
+  lastname:
+  email: kobot@kollegorna.se
+  title: Byrårobot
+  does: "övervakning, automatisering, service, analys, gif-bilder"

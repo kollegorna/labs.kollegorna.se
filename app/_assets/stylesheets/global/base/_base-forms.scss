@@ -1,0 +1,92 @@
+
+fieldset {
+  border: 1px solid $ds-color-border;
+  border-bottom-width: 2px;
+  border-top-width: 2px;
+  margin: 0 0 $ds-margin;
+  padding: $ds-padding;
+}
+
+legend {
+  font-size: $ds-h3-font-size;
+  font-weight: $ds-font-weight-bold;
+  line-height: 1.3333;
+  padding: $ds-padding;
+}
+
+label {
+  color: $ds-color-text-dark;
+  display: block;
+  font-weight: $ds-font-weight-bold;
+  margin: 0 0 ($ds-margin/2);
+}
+
+input,
+textarea,
+select {
+  background: $ds-color-background-light;
+  border: 1px solid $ds-color-border;
+  color: $ds-color-text;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0 0 $ds-margin;
+  padding: ds-em-calc(7px) ds-em-calc(10px);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background: $ds-color-background-light;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  overflow: visible;
+  width: auto;
+}
+
+button,
+input[type="submit"] {
+  @include ds-border-radius;
+  @include ds-transition;
+  background: $ds-color-link;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: $ds-font-weight-bold;
+  margin: 0 0 ($ds-margin/2);
+  padding: ds-em-calc(7px) ds-em-calc(14px);
+  text-align: center;
+  vertical-align: baseline;
+}
+
+button:hover,
+button:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
+  @include background-image(linear-gradient($ds-color-link, $ds-color-link-vibrant));
+}
+
+button:active,
+input[type=submit]:active {
+  position: relative;
+  top: 1px;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: $ds-font-weight-bold;
+}

@@ -1,0 +1,33 @@
+/**
+ * shame.css
+ * Credits: http://csswizardry.com/2013/04/shame-css/
+ *
+ * The Rules:
+ *
+ * 1. If it’s a hack, it goes in shame.css.
+ * 2. Document all hacks fully:
+ *    a) What part of the codebase does it relate to?
+ *    b) Why was this needed?
+ *    c) How does this fix it?
+ *    d) How might you fix it properly, given more time?
+ * 3. Do not blame the developer; if they explained why they had to do it then
+ *    their reasons are probably (hopefully) valid.
+ * 4. Try and clean shame.css up when you have some down time.
+ *    a) Even better, get a tech-debt story in which you can dedicate actual
+ *    sprint time to it.
+ * 5. If there are much shame consider putting it in separate files related to
+ *    the component in question. E.g. _typography-shame.scss.
+ */
+
+/**
+ * EXAMPLE:
+ *
+ * Nav specificity fix.
+ *
+ * Someone used an ID in the header code (`#header a{}`) which trumps the
+ * nav selectors (`.site-nav a{}`). Use !important to override it until I
+ * have time to refactor the header stuff.
+ */
+.site-nav a {
+   color: #BADA55 !important;
+}

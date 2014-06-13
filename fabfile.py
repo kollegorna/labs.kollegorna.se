@@ -12,7 +12,7 @@ env.remote_dir = '/mnt/persist/www/labs.kollegorna.se'
 def deploy(where=None):
   rsync_project(
     env.remote_dir,
-    '_site/',
-    ['.git', '.git*', '.sass-cache', 'fabfile.py*', '.DS_Store', 'Users/'],
+    'dist/',
+    ['.git', '.git*', '.DS_Store', '.sass-cache*'],
     True
   )

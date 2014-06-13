@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// Button mixins
+// -----------------------------------------------------------------------------
+
+@mixin ds-button {
+  @include background-image(linear-gradient($ds-color-orange, darken($ds-color-orange, 10%)));
+  @include border-radius(3px);
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  font-size: .8em;
+  font-weight: $ds-font-weight-bold;
+  line-height: 1;
+  padding: 6px 8px 4px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+
+  &:hover,
+  &:focus {
+    @include background-image(linear-gradient($ds-color-orange, darken($ds-color-orange, 14%)));
+    color: #fff;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+
+.cta-button {
+  @include border-radius(14px);
+  @include ds-transition;
+  background: $ds-color-link;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  font-size: .8em;
+  line-height: normal;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.button {
+  @include ds-button;
+}
+
+.button-large {
+  @include ds-button;
+  padding: 8px 12px;
+}
+
+.button-largest {
+  @include ds-button;
+  padding: 10px 12px;
+}

@@ -1,0 +1,398 @@
+// -----------------------------------------------------------------------------
+// Setup
+// -----------------------------------------------------------------------------
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  background: $ds-color-background;
+  font-size: $ds-font-size;
+}
+
+html {
+  direction: $ds-text-direction;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: $ds-color-text-dark;
+  font-family: $ds-font-family;
+  font-style: $ds-font-style;
+  font-weight: $ds-font-weight;
+  margin: 0;
+  padding: 0;
+  line-height: $ds-line-height;
+  position: relative;
+}
+
+// -----------------------------------------------------------------------------
+// Links
+// -----------------------------------------------------------------------------
+
+a,
+a:active {
+  @include ds-transition;
+  //border-bottom: 1px solid $ds-color-link;
+  color: $ds-color-link;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  outline: none;
+}
+
+a:focus,
+a:hover {
+  border-color: $ds-color-link-hover;
+  color: $ds-color-link-hover;
+}
+
+a:link {
+  -webkit-tap-highlight-color: #CC0016;
+}
+
+// -----------------------------------------------------------------------------
+// Headings
+// -----------------------------------------------------------------------------
+
+%h1-6 {
+  color: $ds-color-heading;
+  font-weight: $ds-font-weight-bold;
+  line-height: $ds-headings-line-height;
+  margin: .5em 0 .2em;
+
+  a {
+    color: $ds-color-heading-dark;
+    border: 0;
+  }
+
+  small {
+    display: block;
+  }
+}
+
+%h1 {
+  @extend %h1-6;
+  font-size: $ds-h1-font-size;
+  font-weight: $ds-font-weight-black;
+  line-height: 1.2;
+  margin-bottom: .75em;
+  text-transform: none;
+}
+h1 {
+  @extend %h1;
+}
+
+%h2 {
+  @extend %h1-6;
+  font-size: $ds-h2-font-size;
+  font-weight: $ds-font-weight-black;
+  text-transform: uppercase;
+}
+h2 {
+  @extend %h2;
+}
+
+%h3 {
+  @extend %h1-6;
+  font-size: $ds-h3-font-size;
+  font-weight: $ds-font-weight-black;
+  text-transform: none;
+}
+h3 {
+  @extend %h3;
+}
+
+%h4 {
+  @extend %h1-6;
+  font-size: $ds-h4-font-size;
+  margin: 0;
+  text-transform: uppercase;
+}
+h4 {
+  @extend %h4;
+}
+
+%h5 {
+  @extend %h1-6;
+  font-size: $ds-h5-font-size;
+  margin: 0;
+  text-transform: none;
+}
+h5 {
+  @extend %h5;
+}
+
+%h6 {
+  @extend %h1-6;
+  font-size: $ds-h6-font-size;
+  margin: 0;
+  text-transform: uppercase;
+}
+h6 {
+  @extend %h6;
+}
+
+// -----------------------------------------------------------------------------
+// Body text
+// -----------------------------------------------------------------------------
+
+p {
+  margin: 0 0 $ds-margin;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-width: 1px 0 0;
+  clear: both;
+  margin: ($ds-margin*2) 0 (($ds-margin*2) - ds-em-calc(1px));
+  height: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+q:before {
+  content: '“';
+}
+
+blockquote:after,
+q:after {
+  content: '”';
+}
+
+blockquote {
+  font-size: 1.4em;
+  font-weight: $ds-font-weight;
+  line-height: 1.6;
+  margin: 0 0 $ds-margin;
+  position: relative;
+
+  &:before,
+  &:after {
+    font-size: 1.5em;
+    font-weight: $ds-font-weight-black;
+    position: absolute;
+  }
+
+  &:after {
+    bottom: -.2em;
+  }
+
+  &:before {
+    left: -.63em;
+    top: -.3em;
+  }
+
+  cite {
+    display: block;
+  }
+
+  a,
+  a:visited {
+    color: #666;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+q {
+  font-style: italic;
+}
+
+strong,
+b {
+  color: $ds-color-text-dark;
+  font-weight: $ds-font-weight-bold;
+  line-height: inherit;
+}
+
+em,
+dfn,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+dfn {
+  font-weight: $ds-font-weight-bold;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted $ds-color-border;
+  color: $ds-color-text;
+  cursor: help;
+  text-transform: uppercase;
+}
+
+abbr {
+  text-transform: none;
+}
+
+cite {
+  font-style: normal;
+  position: relative;
+
+  &:before {
+    content: "—";
+    font-weight: $ds-font-weight-black;
+    left: -1.1em;
+    position: absolute;
+  }
+}
+
+del {
+  color: $ds-color-text-light;
+  text-decoration: line-through;
+}
+
+mark {
+  background: rgba($ds-color-link, .5);
+  color: $ds-color-text;
+  font-weight: $ds-font-weight;
+  padding: 0 ds-em-calc(3px);
+}
+
+ins {
+  background: rgba($ds-color-link, .8);
+  color: $ds-color-text;
+  font-style: italic;
+  font-weight: $ds-font-weight;
+  padding: 0 ds-em-calc(3px);
+  text-decoration: none;
+}
+
+pre {
+  margin: $ds-margin 0;
+  padding: ds-em-calc(12px);
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+pre,
+code,
+tt,
+kbd,
+samp {
+  font-family: monospace, sans-serif;
+  font-weight: normal;
+}
+
+sup,
+sub {
+  line-height: 90%;
+}
+
+sub {
+  font-size: smaller;
+  vertical-align: sub;
+}
+
+sup {
+  font-size: smaller;
+  vertical-align: super;
+}
+
+small {
+  font-size: 80%;
+}
+
+kbd {
+  background: rgba($ds-color-link, .5);
+  border: 1px solid $ds-color-link;
+  border-radius: ds-em-calc(4px);
+  font: normal normal 0.8em/90% sans-serif;
+  margin: 0 ds-em-calc(4px);
+  padding: ds-em-calc(2px) ds-em-calc(6px);
+}
+
+address {
+  font-style: normal;
+}
+
+::selection {
+  background: #000;
+  background: rgba(0, 0, 0, .7);
+  color: $ds-color-background;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: #000;
+  background: rgba(0, 0, 0, .7);
+  color: $ds-color-background;
+  text-shadow: none;
+}
+
+// -----------------------------------------------------------------------------
+// Lists
+// -----------------------------------------------------------------------------
+
+ul,
+ol {
+  list-style: disc outside;
+  margin: 0 0 $ds-margin;
+  padding: 0;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+li ul,
+li ol {
+  margin-#{$ds-float}: $ds-margin;
+  margin-bottom: 0;
+}
+
+dl {
+  margin: 0 0 $ds-margin;
+}
+
+dt {
+  font-weight: $ds-font-weight-bold;
+}
+
+dd {
+  margin: 0 0 $ds-margin;
+
+  dl &:last-child {
+    margin: 0;
+  }
+}
+
+nav {
+  ul,
+  ol {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-#{$ds-float-opposite}: $ds-margin;
+
+    &:last-child {
+      margin-#{$ds-float-opposite}: 0;
+    }
+  }
+}

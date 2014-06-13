@@ -1,0 +1,98 @@
+//
+// EM CALCULATOR
+// This function must be here since it's used below.
+$ds-em: 18px !default;
+@function ds-em-calc($pixels, $em-size: $ds-em) {
+  @return $pixels / $em-size * 1em;
+}
+
+//
+// GLOBALS
+//
+
+// Breakpoints
+$ds-breakpoint-smartphone: ds-em-calc(480px) !default;
+$ds-breakpoint-tablet-small: ds-em-calc(600px) !default;
+$ds-breakpoint-tablet: ds-em-calc(768px) !default;
+$ds-breakpoint-laptop: ds-em-calc(992px) !default;
+$ds-breakpoint-desktop: ds-em-calc(1200px) !default;
+$ds-breakpoint-desktop-large: ds-em-calc(1600px) !default;
+$ds-breakpoint-cinema: ds-em-calc(2146px) !default;
+
+// Breakpoints: Device specifc
+$ds-breakpoint-iphone-portrait: ds-em-calc(320px) !default;
+$ds-breakpoint-iphone-landscape: ds-em-calc(480px) !default;
+$ds-breakpoint-ipad-portrait: ds-em-calc(768px) !default;
+$ds-breakpoint-ipad-landscape: ds-em-calc(1024px) !default;
+
+// Colors
+$ds-color-orange: #F77916 !default;
+$ds-color-orange-dark: #b55015 !default;
+$ds-color-orange-darkest: #a64912 !default;
+$ds-color-green: #25C480 !default;
+
+$ds-color-background: #F4E7B7 !default;
+$ds-color-background-light: #fff !default;
+$ds-color-border: #CEBD80 !default;
+$ds-color-box-shadow: #B7B19C !default;
+$ds-color-heading: #403E35 !default;
+$ds-color-heading-dark: #333 !default;
+$ds-color-highlight: #F9B57A !default;
+$ds-color-link: $ds-color-orange !default;
+$ds-color-link-hover: #403E35 !default;
+$ds-color-link-vibrant: #E86F12 !default;
+$ds-color-text: #5B5541 !default;
+$ds-color-text-dark: #403E35 !default;
+$ds-color-text-light: #93875D !default;
+
+$ds-color-box-shadow: #B7B19C;
+$ds-color-grey-contrast: #ececda;
+
+// Directions
+$ds-float: left !default;
+$ds-float-opposite: right !default;
+$ds-text-direction: ltr !default;
+
+// Fonts
+$ds-font-logo: "omnes-pro-i9", "omnes-pro", sans-serif !default;
+$ds-font-family: "Source Sans Pro", "ff-dagny-web-pro", "Helvetica Neue", sans-serif !default;
+$ds-font-size: 20px !default;
+$ds-font-smoothing: antialiased !default;
+$ds-font-style: normal !default;
+$ds-font-weight: 400 !default;
+$ds-font-weight-bold: 700 !default;
+$ds-font-weight-black: 900 !default;
+
+// Headings
+$ds-h1-font-size: ds-em-calc(56px) !default;
+$ds-h2-font-size: 2.4em !default;
+$ds-h3-font-size: 1.7em !default;
+$ds-h4-font-size: 1em !default;
+$ds-h5-font-size: 1em !default;
+$ds-h6-font-size: .8em !default;
+$ds-headings-line-height: 1.4 !default;
+
+// Measure
+$ds-line-height: 1.3 !default;
+$ds-margin: ds-em-calc(20px) !default;
+$ds-padding: ds-em-calc(20px) !default;
+$ds-radius: ds-em-calc(5px);
+
+$ds-padding-smartphone-h: ds-em-calc(20px);
+$ds-padding-smartphone-v: ds-em-calc(20px);
+$ds-padding-smartphone: $ds-padding-smartphone-h $ds-padding-smartphone-v;
+
+$ds-padding-tablet-h: ds-em-calc(30px);
+$ds-padding-tablet-v: ds-em-calc(30px);
+$ds-padding-tablet: $ds-padding-tablet-h $ds-padding-tablet-v;
+
+$ds-padding-laptop-h: ds-em-calc(40px);
+$ds-padding-laptop-v: ds-em-calc(40px);
+$ds-padding-laptop: $ds-padding-laptop-h $ds-padding-laptop-v;
+
+//
+// GRIDDO
+//
+
+$griddo-gutter: ds-em-calc(60px) !default;
+$griddo-row-width: ds-em-calc(1200px) !default;

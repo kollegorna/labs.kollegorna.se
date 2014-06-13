@@ -1,0 +1,9 @@
+{
+  "name": "labs-kollegorna-se",
+  "version": "1.0.0",
+  "devDependencies": {
+    "bower": "~1.3.5",
+    "grunt": "~0.4.5",
+    "grunt-exec": "*"
+  }
+}

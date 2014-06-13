@@ -1,0 +1,35 @@
+/* TEAM */
+  Designer: Per Sandström
+  Contact: per [at] kollegorna.se
+  Twitter: @persand
+  From: Stockholm, Sweden
+
+  Developer: Henrik Sjökvist
+  Contact: henrik [at] kollegorna.se
+  Twitter: @henrrrik
+  From: Stockholm, Sweden
+
+  Developer: Samuel Carlsson
+  Contact: samuel [at] kollegorna.se
+  From: Stockholm, Sweden
+
+  Developer: Joakim Lundberg
+  Contact: jocke [at] kollegorna.se
+  Twitter: @jockelund
+  From: Stockholm, Sweden
+
+  Developer: Joakim Stai
+  Contact: stai [at] kollegorna.se
+  Twitter: @joakimstai
+  From: Valencia, Spain
+
+  Developer: Filippos Vasilakis
+  Contact: filippos [at] kollegorna.se
+  Twitter: @vasilakisfil
+  From: Stockholm, Sweden
+
+/* SITE */
+  Language: Swedish
+  Doctype: HTML5
+  IDE: Sublime Text 2
+  Platform: Jekyll
