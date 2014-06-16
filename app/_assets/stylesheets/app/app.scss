@@ -1,6 +1,10 @@
 // Global Design System
 @import "../global/global";
 
+body {
+  padding-bottom: 80px;
+}
+
 // Sections/Pages
 @import "components/home";
 @import "components/blog";

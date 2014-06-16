@@ -3,10 +3,6 @@
   @include griddo-container;
   max-width: 800px;
   margin-bottom: 40px;
-
-  @include breakpoint($ds-breakpoint-laptop) {
-    margin-bottom: 80px;
-  }
 }
 
 .home-content {
