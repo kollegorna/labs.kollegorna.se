@@ -1,15 +1,35 @@
 
-.labs-page {
-  margin: 0 auto;
+.home-intro {
+  @include griddo-container;
   max-width: 800px;
+  margin-bottom: 40px;
+
+  @include breakpoint($ds-breakpoint-laptop) {
+    margin-bottom: 80px;
+  }
 }
 
-.labs-list {
+.home-content {
+  @include griddo-row;
+}
+
+.home-projects,
+.home-blog {
+  @include griddo-column;
+  padding-bottom: 40px;
+
+  @include breakpoint($ds-breakpoint-laptop) {
+    @include griddo-width(6);
+  }
+}
+
+.home-list {
   @extend %t-list-unstyled;
+  line-height: 28px;
   margin-bottom: 40px;
 
   li {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
   }
 
   a {
@@ -17,12 +37,20 @@
   }
 
   p {
-    margin: 0;
+    margin-bottom: 28px;
     padding-left: $ds-margin;
+
+    li &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 .footer-border {
   @include background-image(linear-gradient(left top, $ds-color-orange, $ds-color-orange-dark));
+  bottom: 0;
   height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }

@@ -6,44 +6,94 @@ meta_description: "Web agency extra ordinarie building stuff with Drupal and Rai
 body_class: home
 ---
 
-<div class="labs-page">
+<div class="home-intro">
 
   <h1 class="t-hero"><span class="gradient-border">Kollegorna</span><br><span class="gradient-border">Labs</span></h1>
 
   <p class="t-lead">We build stuff with Drupal and Rails. This is our messy labs…<br>
     See more of use on <a href="https://github.com/kollegorna">GitHub</a>, <a href="https://twitter.com/kollegorna">Twitter</a> or <a href="http://www.kollegorna.se">Kollegorna.se</a>.
   </p>
-
-  <hr>
-
-  <h2><span class="gradient-border gradient-border--thin">Projects</span></h2>
-
-  <ul class="labs-list">
-    <li>
-      <a href="https://github.com/kollegorna/fieldvariables">Field Variables</a>
-      <p>Sets field values as variables in the template files of your Drupal theme.</p>
-
-    </li>
-    <li>
-      <a href="https://github.com/kollegorna/griddo">Griddo</a>
-      <p>A collection of Sass mixins that helps you build grids.</p>
-    </li>
-  </ul>
-
-  <br><br><br><br><br><br>
-  <br><br><br><br><br><br>
-  <br><br><br><br><br><br>
-
-  <!--
-  <hr>
-
-  <h2><span class="gradient-border gradient-border--thin">Blog posts</span></h2>
-
-  <ul class="labs-list">
-  {% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a><br><time pubdate>{{ post.date | date_to_string }}</time></li>
-  {% endfor %}
-  </ul>
-  -->
-
 </div>
+
+
+<div class="home-content">
+  <div class="home-projects">
+    <h2><span class="gradient-border gradient-border--thin">Projects</span></h2>
+
+    <ul class="home-list">
+      <li>
+        <a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a>
+        <p>ActiveRecord adapter for RubyCAS Server Core (RubyCAS2.0).</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/griddo">Griddo</a>
+        <p>A collection of Sass mixins that helps you build grids.</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/jekyll-boilerplate">Jekyll Boilerplate</a>
+        <p>This is the boilerplate for our Jekyll projects.</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/oompaloompa">Oompa Loompa</a>
+        <p>Ooompa Loopma is a simple web service that listens to POST hooks from Bitbucket or GitHub</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/hubspot_informer">HubSpot Informer</a>
+        <p>A simple Ruby API wrapper for the HubSpot form submission API</p>
+      </li>
+      <li>
+        <a href="https://drupal.org/project/livechat">LiveChat module for Drupal</a>
+        <p>Drupal 7 module that integrates with the <a href="http://www.livechat.com">LiveChat</a> service.</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/fieldvariables">Field Variables</a>
+        <p>Sets field values as variables in the template files of your Drupal theme.</p>
+      </li>
+      <li>
+        <a href="https://github.com/joakim/git-easy">Git Easy</a>
+        <p>Smart git commands to make life a little bit easier.</p>
+      </li>
+      <li>
+        <a href="https://github.com/henrrrik/lita-imgflip">lita-imgflip</a>,
+        <a href="https://github.com/henrrrik/lita-pugbomb">lita-pugbomb</a>,
+        <a href="https://github.com/henrrrik/lita-holmstrom">lita-holmstrom</a>,
+        <a href="https://github.com/henrrrik/lita-nerd">lita-nerd</a>,
+        <a href="https://github.com/henrrrik/lita-likeaboss">lita-likeaboss</a>
+        <p>Various Lita handlers.</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/apsis-ruby">APSIS API wrapper for Ruby</a>
+        <p>A simple API wrapper for the APSIS mail marketing service. Currently only supports adding subscribers to a mailing list.</p>
+      </li>
+      <li>
+        <a href="https://github.com/kollegorna/campfire_alerts">Campfire Alerts for Drupal</a>
+        <p>A Drupal module and Drush command that alerts a Campfire room when something is amiss configuration-wise on a site.</p>
+      </li>
+      <li>
+        <a href="https://drupal.org/project/feeds_ffffound">Feeds: FFFFOUND! parser</a>
+        <p>A Feeds parser for <a href="http://ffffound.com">FFFFOUND!</a> for Drupal 7.</p>
+      </li>
+      <li>
+        <a href="https://github.com/persand/blaskan">Blaskan</a>
+        <p>A responsive and accessible WordPress theme.</p>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="home-blog">
+    <h2><span class="gradient-border gradient-border--thin">Blog posts</span></h2>
+
+    <ul class="home-list">
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>
+          <time pubdate>{{ post.date | date_to_string }}</time>
+        </p>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+<!-- / .home-content -->
