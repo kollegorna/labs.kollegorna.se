@@ -25,6 +25,18 @@ body {
     line-height: inherit;
   }
 
+  .home-blog h2,
+  .home-projects h2 {
+    font-size: 1.5em;
+    margin-bottom: 1.2em;
+    text-transform: none;
+  }
+
+  .blog-header h2 {
+    font-size: 2em;
+    text-transform: none;
+  }
+
   .post {
     h1 {
       font-size: 2.2em;

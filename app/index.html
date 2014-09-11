@@ -17,6 +17,21 @@ body_class: home
 
 
 <div class="home-content">
+  <div class="home-blog">
+    <h2><span class="gradient-border gradient-border--thin">Blog posts</span></h2>
+
+    <ul class="home-list">
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>
+          <time pubdate>{{ post.date | date_to_string }}</time>
+        </p>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+
   <div class="home-projects">
     <h2><span class="gradient-border gradient-border--thin">Projects</span></h2>
 
@@ -78,21 +93,6 @@ body_class: home
         <p>A responsive and accessible WordPress theme.</p>
       </li>
 
-    </ul>
-  </div>
-
-  <div class="home-blog">
-    <h2><span class="gradient-border gradient-border--thin">Blog posts</span></h2>
-
-    <ul class="home-list">
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <p>
-          <time pubdate>{{ post.date | date_to_string }}</time>
-        </p>
-      </li>
-    {% endfor %}
     </ul>
   </div>
 </div>
