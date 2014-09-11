@@ -1,0 +1,33 @@
+body {
+  padding: 0 0 80px;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: .8em;
+  }
+
+  .page-blog-post {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .t-hero {
+    font-size: 2.5em;
+
+    .gradient-border:after {
+      height: 10px;
+    }
+  }
+
+  .t-lead {
+    font-size: 1em;
+    line-height: inherit;
+  }
+
+  .post {
+    h1 {
+      font-size: 2.2em;
+    }
+  }
+}
