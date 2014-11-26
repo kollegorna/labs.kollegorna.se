@@ -278,6 +278,38 @@ ins {
   text-decoration: none;
 }
 
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+/*
 pre {
   margin: $ds-margin 0;
   padding: ds-em-calc(12px);
@@ -295,6 +327,7 @@ samp {
   font-family: monospace, sans-serif;
   font-weight: normal;
 }
+*/
 
 sup,
 sub {

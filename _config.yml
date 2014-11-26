@@ -7,8 +7,15 @@ name: Kollegorna Labs
 permalink: /blog/:year/:month/:title/
 url: http://labs.kollegorna.se
 gems: [sass, compass, breakpoint, uglifier, jekyll-assets, jekyll-assets/compass]
-markdown: redcarpet
-pygments: true
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: nil
+    coderay_css: style
+
 paginate: 9
 paginate_path: "blog/page:num"
 
