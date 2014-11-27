@@ -169,20 +169,21 @@ q:before {
   content: '“';
 }
 
-//blockquote:after,
+blockquote:after,
 q:after {
-  content: '”';
+  //content: '”';
 }
 
 blockquote {
-  font-size: 1.4em;
-  font-weight: $ds-font-weight;
-  line-height: 1.6;
+  //font-size: 1.2em;
+  font-weight: $ds-font-weight-bold;
+  //line-height: 1.6;
   margin: 0 0 $ds-margin;
   position: relative;
 
   &:before,
   &:after {
+    display: inline-block;
     font-size: 1.5em;
     font-weight: $ds-font-weight-black;
     position: absolute;
@@ -193,8 +194,14 @@ blockquote {
   }
 
   &:before {
-    left: -.63em;
+    @include border-radius(50%);
+    background: rgba($ds-color-border, .8);
+    height: 30px;
+    left: -1.3em;
+    line-height: 37px;
+    text-align: center;
     top: -.3em;
+    width: 30px;
   }
 
   cite {
@@ -204,6 +211,10 @@ blockquote {
   a,
   a:visited {
     color: #666;
+  }
+
+  p:first-child {
+    display: inline-block;
   }
 
   p:last-child {

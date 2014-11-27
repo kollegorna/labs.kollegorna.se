@@ -43,3 +43,8 @@ body {
     }
   }
 }
+
+pre {
+  @include ds-polaroid;
+  overflow: scroll;
+}

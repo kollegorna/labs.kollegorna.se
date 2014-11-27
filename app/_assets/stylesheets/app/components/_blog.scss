@@ -69,6 +69,12 @@
   }
 }
 
+.post--post {
+  img {
+    @include ds-polaroid;
+  }
+}
+
 .post--link {
   h1 {
     a {
