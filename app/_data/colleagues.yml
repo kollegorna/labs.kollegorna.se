@@ -52,6 +52,14 @@ filippos:
   twitter: vasilakisfil
   github: vasilakisfil
   does: "Ruby, Rails"
+ivan:
+  firstname: Ivan
+  lastname: Novosad
+  email: ivan@kollegorna.se
+  title: Utvecklare
+  twitter: ivannovosad
+  github: ivannovosad
+  does: "Ruby, Rails, Javascript"
 kobot:
   firstname: Kobot
   lastname:
