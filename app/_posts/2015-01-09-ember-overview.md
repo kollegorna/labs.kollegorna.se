@@ -41,6 +41,7 @@ And some tips:
     });
 ```
 This lets Ember to push the actual changes of the object in the store _before_ you transition to the index route of your model. If you transition immediately, the model won't have the updated attributes (returned from the backend) in the index route.
+
 * When talking to ember-data, consider everything as a promise
 * Minimize code in `beforeModel`, `afterModel`, `model` hooks.. not only everything stalls inside there if an error occurs but you also don't get ANY error messages in the console from ember :(
 * RESTAdapter expects a body in any request, even on DELETE. It makes sense, you return the deleted resource.
