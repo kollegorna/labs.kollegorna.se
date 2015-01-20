@@ -9,7 +9,7 @@ grunt.initConfig({
       cmd: 'bundle exec jekyll serve --watch'
     },
     deploy: {
-      cmd: 'fab deploy'
+      cmd: "rsync -avz --delete --exclude '.git*' --exclude '.DS_Store' --exclude '.sass-cache*' dist/ root@178.62.13.136:/var/www/labs.kollegorna.se"
     }
   }
 });

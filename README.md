@@ -1,4 +1,4 @@
-This is [our website](http://www.kollegorna.se).
+This is [our labs](http://labs.kollegorna.se).
 
 ### Setup locally
 
