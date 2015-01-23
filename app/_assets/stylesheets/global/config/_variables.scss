@@ -1,9 +1,18 @@
 //
 // EM CALCULATOR
 // This function must be here since it's used below.
-$ds-em: 18px !default;
-@function ds-em-calc($pixels, $em-size: $ds-em) {
-  @return $pixels / $em-size * 1em;
+$ds-rem-base: 20px !default;
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function ds-strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function ds-rem($value, $base-value: $ds-rem-base)  {
+  $value: ds-strip-unit($value) / ds-strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
 }
 
 //
@@ -11,19 +20,19 @@ $ds-em: 18px !default;
 //
 
 // Breakpoints
-$ds-breakpoint-smartphone: ds-em-calc(480px) !default;
-$ds-breakpoint-tablet-small: ds-em-calc(600px) !default;
-$ds-breakpoint-tablet: ds-em-calc(768px) !default;
-$ds-breakpoint-laptop: ds-em-calc(992px) !default;
-$ds-breakpoint-desktop: ds-em-calc(1200px) !default;
-$ds-breakpoint-desktop-large: ds-em-calc(1600px) !default;
-$ds-breakpoint-cinema: ds-em-calc(2146px) !default;
+$ds-breakpoint-smartphone: ds-rem(480px) !default;
+$ds-breakpoint-tablet-small: ds-rem(600px) !default;
+$ds-breakpoint-tablet: ds-rem(768px) !default;
+$ds-breakpoint-laptop: ds-rem(992px) !default;
+$ds-breakpoint-desktop: ds-rem(1200px) !default;
+$ds-breakpoint-desktop-large: ds-rem(1600px) !default;
+$ds-breakpoint-cinema: ds-rem(2146px) !default;
 
 // Breakpoints: Device specifc
-$ds-breakpoint-iphone-portrait: ds-em-calc(320px) !default;
-$ds-breakpoint-iphone-landscape: ds-em-calc(480px) !default;
-$ds-breakpoint-ipad-portrait: ds-em-calc(768px) !default;
-$ds-breakpoint-ipad-landscape: ds-em-calc(1024px) !default;
+$ds-breakpoint-iphone-portrait: ds-rem(320px) !default;
+$ds-breakpoint-iphone-landscape: ds-rem(480px) !default;
+$ds-breakpoint-ipad-portrait: ds-rem(768px) !default;
+$ds-breakpoint-ipad-landscape: ds-rem(1024px) !default;
 
 // Colors
 $ds-color-orange: #F77916 !default;
@@ -55,44 +64,44 @@ $ds-text-direction: ltr !default;
 
 // Fonts
 $ds-font-logo: "omnes-pro-i9", "omnes-pro", sans-serif !default;
-$ds-font-family: "Source Sans Pro", "ff-dagny-web-pro", "Helvetica Neue", sans-serif !default;
+$ds-font-family: "Source Sans Pro", "Helvetica Neue", sans-serif !default;
 $ds-font-size: 20px !default;
 $ds-font-smoothing: antialiased !default;
 $ds-font-style: normal !default;
-$ds-font-weight: 400 !default;
+$ds-font-weight: 300 !default;
 $ds-font-weight-bold: 700 !default;
 $ds-font-weight-black: 900 !default;
 
 // Headings
-$ds-h1-font-size: ds-em-calc(56px) !default;
-$ds-h2-font-size: 2.4em !default;
-$ds-h3-font-size: 1.7em !default;
-$ds-h4-font-size: 1em !default;
-$ds-h5-font-size: 1em !default;
-$ds-h6-font-size: .8em !default;
+$ds-h1-font-size: ds-rem(60px) !default;
+$ds-h2-font-size: ds-rem(32px) !default;
+$ds-h3-font-size: ds-rem(26px) !default;
+$ds-h4-font-size: 1rem !default;
+$ds-h5-font-size: 1rem !default;
+$ds-h6-font-size: 1rem !default;
 $ds-headings-line-height: 1.4 !default;
 
 // Measure
-$ds-line-height: 1.3 !default;
-$ds-margin: ds-em-calc(20px) !default;
-$ds-padding: ds-em-calc(20px) !default;
-$ds-radius: ds-em-calc(5px);
+$ds-line-height: 1.45 !default;
+$ds-margin: ds-rem(35px) !default;
+$ds-padding: ds-rem(35px) !default;
+$ds-radius: ds-rem(5px);
 
-$ds-padding-smartphone-h: ds-em-calc(20px);
-$ds-padding-smartphone-v: ds-em-calc(20px);
+$ds-padding-smartphone-h: ds-rem(20px);
+$ds-padding-smartphone-v: ds-rem(20px);
 $ds-padding-smartphone: $ds-padding-smartphone-h $ds-padding-smartphone-v;
 
-$ds-padding-tablet-h: ds-em-calc(30px);
-$ds-padding-tablet-v: ds-em-calc(30px);
+$ds-padding-tablet-h: ds-rem(30px);
+$ds-padding-tablet-v: ds-rem(30px);
 $ds-padding-tablet: $ds-padding-tablet-h $ds-padding-tablet-v;
 
-$ds-padding-laptop-h: ds-em-calc(40px);
-$ds-padding-laptop-v: ds-em-calc(40px);
+$ds-padding-laptop-h: ds-rem(40px);
+$ds-padding-laptop-v: ds-rem(40px);
 $ds-padding-laptop: $ds-padding-laptop-h $ds-padding-laptop-v;
 
 //
 // GRIDDO
 //
 
-$griddo-gutter: ds-em-calc(60px) !default;
-$griddo-row-width: ds-em-calc(1200px) !default;
+$griddo-gutter: ds-rem(60px) !default;
+$griddo-row-width: ds-rem(1200px) !default;

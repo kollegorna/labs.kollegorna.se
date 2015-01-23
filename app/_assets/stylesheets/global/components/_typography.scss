@@ -5,7 +5,6 @@
 
 %t-hero {
   font-size: 5em;
-  font-weight: $ds-font-weight-black;
   line-height: 1.2;
 }
 .t-hero {
@@ -25,15 +24,15 @@
 }
 
 .t-h4 {
-  @extend %h4;
+  @extend %h3;
 }
 
 .t-h5 {
-  @extend %h5;
+  @extend %h3;
 }
 
 .t-h6 {
-  @extend %h6;
+  @extend %h3;
 }
 
 // -----------------------------------------------------------------------------

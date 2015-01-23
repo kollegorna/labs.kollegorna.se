@@ -30,7 +30,7 @@ select {
   font-family: inherit;
   font-size: 1em;
   margin: 0 0 $ds-margin;
-  padding: ds-em-calc(7px) ds-em-calc(10px);
+  padding: ds-rem(7px) ds-rem(10px);
 }
 
 input:focus,
@@ -63,7 +63,7 @@ input[type="submit"] {
   font-size: 1em;
   font-weight: $ds-font-weight-bold;
   margin: 0 0 ($ds-margin/2);
-  padding: ds-em-calc(7px) ds-em-calc(14px);
+  padding: ds-rem(7px) ds-rem(14px);
   text-align: center;
   vertical-align: baseline;
 }

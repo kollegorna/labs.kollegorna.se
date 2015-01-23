@@ -2,6 +2,12 @@
 .home-intro {
   @include griddo-container;
   margin-bottom: 40px;
+  padding-top: 80px;
+
+  h1 {
+    font-size: $ds-h2-font-size;
+    text-align: left;
+  }
 }
 
 .home-content {
@@ -25,10 +31,6 @@
 
   li {
     margin-bottom: 28px;
-  }
-
-  a {
-    font-weight: $ds-font-weight-bold;
   }
 
   p {
