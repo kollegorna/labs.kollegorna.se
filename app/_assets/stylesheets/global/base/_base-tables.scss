@@ -10,7 +10,7 @@ table {
 
 caption {
   color: $ds-color-text-dark;
-  font-size: ds-em-calc(24px);
+  font-size: ds-rem(24px);
   font-weight: $ds-font-weight-bold;
   line-height: 1.3333;
   padding: 0 0 $ds-padding;
@@ -28,7 +28,7 @@ th {
   border-right: 1px solid $ds-color-border;
   border-top: 1px solid $ds-color-border;
   font-weight: $ds-font-weight-bold;
-  padding: ds-em-calc(7px);
+  padding: ds-rem(7px);
 }
 
 th,
@@ -39,7 +39,7 @@ thead th {
 td {
   border-bottom: 1px solid $ds-color-border;
   border-right: 1px solid $ds-color-border;
-  padding: ds-em-calc(4px) ds-em-calc(7px);
+  padding: ds-rem(4px) ds-rem(7px);
 }
 
 td,

@@ -1,7 +1,11 @@
 
 .blog-header {
-  margin: 0 auto 40px;
-  max-width: 760px;
+  padding: 60px 0 100px;
+  text-align: center;
+
+  a {
+    color: rgba(0, 0, 0, .5);
+  }
 }
 
 .pagination {
@@ -13,7 +17,7 @@
     @include border-radius(50%);
     height: 30px;
     line-height: 30px;
-    padding: 0 ds-em-calc(8px);
+    padding: 0 ds-rem(8px);
     width: 30px;
   }
 }
@@ -33,7 +37,7 @@
 
 // A .post-item class wraps .post in blog post listing.
 .post-item {
-  padding: ds-em-calc(40px) 0;
+  padding: ds-rem(40px) 0;
 
   &:nth-child(odd) {
     background: rgba(0, 0, 0, .03);
@@ -43,29 +47,6 @@
     //@extend %ds-wrapper;
     margin: 0 auto;
     max-width: 760px;
-  }
-}
-
-.post {
-  h1 {
-    margin-top: 0;
-  }
-
-  h2 {
-    font-size: 1.3em;
-    margin: .75em 0 .25em;
-    text-transform: none;
-  }
-
-  h3 {
-    font-size: 1em;
-    margin-bottom: 0;
-  }
-
-  h4 {
-    font-size: .7em;
-    margin-bottom: 0;
-    text-transform: uppercase;
   }
 }
 
@@ -118,15 +99,15 @@
 }
 
 .post-read-more {
-  padding-top: ds-em-calc(15px);
+  padding-top: ds-rem(15px);
 
 }
 
 .post-footer {
   border-top: 1px solid rgba(0, 0, 0, .1);
   display: inline-block;
-  margin-top: ds-em-calc(22px);
-  padding-top: ds-em-calc(15px);
+  margin-top: ds-rem(22px);
+  padding-top: ds-rem(15px);
   position: relative;
   width: 100%;
 
@@ -151,7 +132,7 @@
   img {
     @include ds-polaroid;
     @include border-radius(50%);
-    margin-right: ds-em-calc(15px);
+    margin-right: ds-rem(15px);
     max-width: 50px;
     padding: 3px;
   }
@@ -197,7 +178,7 @@
 }
 
 .blog-post {
-  //padding-top: ds-em-calc(120px);
+  //padding-top: ds-rem(120px);
 
   .post {
     margin: 0 auto;

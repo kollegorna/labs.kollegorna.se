@@ -49,7 +49,7 @@
     @include gradient-border;
     content: " ";
     display: block;
-    height: 20px;
+    height: 3px;
     overflow: hidden;
   }
 }
@@ -59,7 +59,7 @@
 
 %gradient-border--thin {
   &:after {
-    height: 10px;
+    height: 3px;
   }
 }
 /*span*/.gradient-border--thin {
@@ -73,75 +73,4 @@
 }
 /*span*/.gradient-border--fat {
   @extend %gradient-border--fat;
-}
-
-// -----------------------------------------------------------------------------
-// Spotlight
-//
-// A highlighted blurb
-// -----------------------------------------------------------------------------
-
-.spotlight {
-  padding: $ds-margin 0;
-
-  &:hover {
-    @include background-image(linear-gradient(#EADDAF, $ds-color-background));
-    @include border-radius(3px 3px 0 0);
-  }
-
-  p {
-    margin: 0;
-  }
-
-  small {
-    color: rgba(0,0,0,.6);
-  }
-}
-
-.spotlight__image {
-  @include ds-polaroid;
-  @include ds-transition;
-  margin-bottom: 6px;
-}
-
-.spotlight__info {
-  @include clearfix;
-  padding: 0 8px;
-}
-
-.spotlight__title {
-  @extend %h4;
-  margin: 14px 0 0;
-  text-transform: none;
-
-  .spotlight--large & {
-    @extend %h3;
-    margin-bottom: 0;
-  }
-}
-
-.spotlight__meta {
-  color: $ds-color-text-light;
-  font-size: .8em;
-  font-weight: $ds-font-weight;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.spotlight__description {
-  font-size: .8em;
-  padding: 6px 0 20px;
-
-  p {
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
-
-.spotlight__cta {
-  @include ds-transition;
-  float: right;
-  opacity: 0;
-  width: 200px;
 }

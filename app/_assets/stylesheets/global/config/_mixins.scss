@@ -13,14 +13,14 @@
   @include ds-border-radius;
   background: #fff;
   color: #333;
-  margin: 0 (-(ds-em-calc(20px))) ds-em-calc(20px);
-  padding: ds-em-calc(20px);
+  margin: 0 (-(ds-rem(20px))) ds-rem(20px);
+  padding: ds-rem(20px);
 }
 
 
 @mixin ds-paper-large {
   @include ds-paper;
-  padding: ds-em-calc(40px);
+  padding: ds-rem(40px);
 }
 
 @mixin ds-polaroid {
@@ -29,7 +29,7 @@
   @include box-shadow(0 1px 2px $ds-color-box-shadow);
   background: #fff;
   margin: 0 0 16px;
-  padding: ds-em-calc(12px);
+  padding: ds-rem(12px);
 
   img {
     float: left;

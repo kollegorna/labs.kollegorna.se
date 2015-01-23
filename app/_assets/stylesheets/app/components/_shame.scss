@@ -48,3 +48,16 @@ pre {
   @include ds-polaroid;
   overflow: scroll;
 }
+
+.blog-header {
+
+}
+
+.gradient-break {
+  @extend %gradient-border;
+  @extend %gradient-border--thin;
+  border: 0;
+  display: block;
+  margin: 0 auto ($ds-margin*1.66);
+  width: 200px;
+}

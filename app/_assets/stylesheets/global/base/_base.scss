@@ -6,7 +6,7 @@
 *:before,
 *:after {
   @include box-sizing(border-box);
-  -webkit-font-smoothing: antialiased;
+  //-webkit-font-smoothing: $ds-font-smoothing;
 }
 
 html,
@@ -67,9 +67,8 @@ a:link {
 
 %h1-6 {
   color: $ds-color-heading;
-  font-weight: $ds-font-weight-bold;
   line-height: $ds-headings-line-height;
-  margin: .5em 0 .2em;
+  margin: $ds-margin 0;
 
   a {
     color: $ds-color-heading-dark;
@@ -84,10 +83,14 @@ a:link {
 %h1 {
   @extend %h1-6;
   font-size: $ds-h1-font-size;
-  font-weight: $ds-font-weight-black;
+  font-weight: 300;
   line-height: 1.2;
   margin-bottom: .75em;
+  position: relative;
+  text-align: center;
   text-transform: none;
+
+
 }
 h1 {
   @extend %h1;
@@ -96,8 +99,7 @@ h1 {
 %h2 {
   @extend %h1-6;
   font-size: $ds-h2-font-size;
-  font-weight: $ds-font-weight-black;
-  text-transform: uppercase;
+  font-weight: 300;
 }
 h2 {
   @extend %h2;
@@ -106,41 +108,10 @@ h2 {
 %h3 {
   @extend %h1-6;
   font-size: $ds-h3-font-size;
-  font-weight: $ds-font-weight-black;
-  text-transform: none;
+  font-weight: $ds-font-weight;
 }
-h3 {
+h3, h4, h5, h6 {
   @extend %h3;
-}
-
-%h4 {
-  @extend %h1-6;
-  font-size: $ds-h4-font-size;
-  margin: 0;
-  text-transform: uppercase;
-}
-h4 {
-  @extend %h4;
-}
-
-%h5 {
-  @extend %h1-6;
-  font-size: $ds-h5-font-size;
-  margin: 0;
-  text-transform: none;
-}
-h5 {
-  @extend %h5;
-}
-
-%h6 {
-  @extend %h1-6;
-  font-size: $ds-h6-font-size;
-  margin: 0;
-  text-transform: uppercase;
-}
-h6 {
-  @extend %h6;
 }
 
 // -----------------------------------------------------------------------------
@@ -155,7 +126,7 @@ hr {
   border: 1px solid rgba(0, 0, 0, .2);
   border-width: 1px 0 0;
   clear: both;
-  margin: ($ds-margin*2) 0 (($ds-margin*2) - ds-em-calc(1px));
+  margin: ($ds-margin*2) 0 (($ds-margin*2) - ds-rem(1px));
   height: 0;
 }
 
@@ -166,7 +137,7 @@ q {
 
 blockquote:before,
 q:before {
-  content: '“';
+  //content: '“';
 }
 
 blockquote:after,
@@ -175,33 +146,18 @@ q:after {
 }
 
 blockquote {
-  //font-size: 1.2em;
-  font-weight: $ds-font-weight-bold;
-  //line-height: 1.6;
+  font-size: $ds-h3-font-size;
+  font-style: italic;
   margin: 0 0 $ds-margin;
   position: relative;
 
-  &:before,
-  &:after {
-    display: inline-block;
-    font-size: 1.5em;
-    font-weight: $ds-font-weight-black;
-    position: absolute;
-  }
-
-  &:after {
-    bottom: -.2em;
-  }
-
   &:before {
-    @include border-radius(50%);
-    background: rgba($ds-color-border, .8);
-    height: 30px;
-    left: -1.3em;
-    line-height: 37px;
-    text-align: center;
-    top: -.3em;
-    width: 30px;
+    content: "”";
+    font-size: ds-rem(60px);
+    font-weight: 200;
+    position: absolute;
+    left: -39px;
+    top: -11px;
   }
 
   cite {
@@ -229,7 +185,7 @@ q {
 strong,
 b {
   color: $ds-color-text-dark;
-  font-weight: $ds-font-weight-bold;
+  font-weight: 500;
   line-height: inherit;
 }
 
@@ -277,7 +233,7 @@ mark {
   background: rgba($ds-color-link, .5);
   color: $ds-color-text;
   font-weight: $ds-font-weight;
-  padding: 0 ds-em-calc(3px);
+  padding: 0 ds-rem(3px);
 }
 
 ins {
@@ -285,7 +241,7 @@ ins {
   color: $ds-color-text;
   font-style: italic;
   font-weight: $ds-font-weight;
-  padding: 0 ds-em-calc(3px);
+  padding: 0 ds-rem(3px);
   text-decoration: none;
 }
 
@@ -323,7 +279,7 @@ pre {
 /*
 pre {
   margin: $ds-margin 0;
-  padding: ds-em-calc(12px);
+  padding: ds-rem(12px);
   white-space: pre;
   white-space: pre-wrap;
   white-space: pre-line;
@@ -362,10 +318,10 @@ small {
 kbd {
   background: rgba($ds-color-link, .5);
   border: 1px solid $ds-color-link;
-  border-radius: ds-em-calc(4px);
+  border-radius: ds-rem(4px);
   font: normal normal 0.8em/90% sans-serif;
-  margin: 0 ds-em-calc(4px);
-  padding: ds-em-calc(2px) ds-em-calc(6px);
+  margin: 0 ds-rem(4px);
+  padding: ds-rem(2px) ds-rem(6px);
 }
 
 address {
@@ -395,6 +351,10 @@ ol {
   list-style: disc outside;
   margin: 0 0 $ds-margin;
   padding: 0;
+
+  li {
+    margin-bottom: $ds-margin;
+  }
 }
 
 ol {
