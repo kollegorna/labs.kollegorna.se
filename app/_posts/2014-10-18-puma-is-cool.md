@@ -3,7 +3,9 @@ layout: post
 type: post
 title: "Puma is cool! (and Ruby 2.1.3)"
 created: 1413584683
-author: filippos
+author:
+  - filippos
+  - henrik
 comments: true
 ---
 
