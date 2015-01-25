@@ -27,13 +27,6 @@ samuel:
   github: ksamc
   phone: 070 - 695 10 92
   does: "Ruby, Rails, Symfony, JavaScript"
-joakim:
-  firstname: Joakim
-  lastname: Lundberg
-  email: joakim@kollegorna.se
-  title: Utvecklare
-  github: fyra3or
-  does: "design, front end, Drupal"
 stai:
   firstname: Joakim
   lastname: Stai

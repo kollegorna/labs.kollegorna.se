@@ -137,7 +137,9 @@
 
 .post-author {
   @include clearfix;
-  float: left;
+  //float: left;
+
+  margin-bottom: 15px;
 
   a {
     color: #403E35;
@@ -165,9 +167,11 @@
 }
 
 .post-meta {
-  left: 67px;
+  //left: 67px;
   position: absolute;
-  top: 40px;
+  //top: 40px;
+  top: 18px;
+  right: 0;
 }
 
 .post-date,
