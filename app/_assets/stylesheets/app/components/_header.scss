@@ -1,0 +1,19 @@
+.logo {
+  padding: 40px 0;
+  text-align: center;
+
+  @include breakpoint($ds-breakpoint-tablet) {
+    padding: 60px 0;
+  }
+
+  img {
+    max-width: 170px;
+
+  }
+
+  .page-blog-post & {
+    img {
+      max-width: 93px;
+    }
+  }
+}
