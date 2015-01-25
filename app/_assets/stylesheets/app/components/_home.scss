@@ -1,12 +1,18 @@
 
 .home-intro {
   @include griddo-container;
-  margin-bottom: 40px;
-  padding-top: 80px;
+  padding: 0 0 40px;
+  text-align: center;
 
   h1 {
     font-size: $ds-h2-font-size;
     text-align: left;
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
