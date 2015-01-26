@@ -3,7 +3,9 @@ layout: post
 type: post
 title: "SecretService"
 created: 1422263764
-author: filippos, henrik
+author:
+  - filippos
+  - henrik
 comments: true
 ---
 
