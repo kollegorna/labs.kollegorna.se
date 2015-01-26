@@ -1,7 +1,7 @@
 ---
 layout: post
 type: post
-title: "Ensure your secrets are set with secretservice"
+title: "Ensure your secrets are set with Secret Service"
 created: 1422263764
 author:
   - filippos
@@ -30,6 +30,6 @@ gem 'secretservice'
 
 If you wish to use it only on a specific environment you can specify that in the Gemfile when including the gem.
 
-That's all you need to do and secretservice will keep you notified in case you forget to initialize an ENV var.
+That's all you need to do and Secret Service will keep you notified in case you forget to initialize an ENV var.
 
 You can find it on [GitHub](https://github.com/kollegorna/secretservice) and [RubyGems.org](https://rubygems.org/gems/secretservice).
