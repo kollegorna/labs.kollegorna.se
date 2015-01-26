@@ -33,3 +33,12 @@ If you wish to use it only on a specific environment you can specify that in the
 That's all you need to do and Secret Service will keep you notified in case you forget to initialize an ENV var.
 
 You can find it on [GitHub](https://github.com/kollegorna/secretservice) and [RubyGems.org](https://rubygems.org/gems/secretservice).
+
+## Update
+
+Mike Burns has pointed out that you can accomplish more or less the same thing by using `ENV.fetch` to pull in your environment variables in secrets.yml, e.g.
+
+```ruby
+production:
+  mailchimp_api_key: <%= ENV.fetch("MAILCHIMP_API_KEY") %>
+```
