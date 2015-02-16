@@ -9,7 +9,7 @@ comments: true
 
 Every six weeks we're having Personal Development Days. It's usually 3 days - Thursday, Friday and Monday when we don't work on clients' projects but we can work on our own stuff - learning news skills, working on our personal projects, etc. 
 
-I decided to learn something new that I can potentially use at work but also deploy to the Raspberry Pi 2 Model B, I accidentally received a day before my first PDD (Thanks Kollegorna!).
+I decided to learn something new that I can potentially use at work but also deploy to the Raspberry Pi 2 Model B, which I accidentally received a day before my first PDD (Thanks Kollegorna!).
 
 I wanted to learn some Node.js for a while, but didn't have time to do so.
 Until now.
