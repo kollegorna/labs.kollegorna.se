@@ -27,3 +27,5 @@ The result is a completely revamped version. Some highlights:
 We've published everything on our Github account. For more in depth information and how to use it see the [README](https://github.com/kollegorna/kong-tictail-theme/blob/master/README.md). Feel free to fork and/or improve it!
 
 [kollegorna/kong-tictail-theme](https://github.com/kollegorna/kong-tictail-theme)
+
+_Since we started building this Tictail has released [gulp-tictail](https://github.com/tictail/gulp-tictail) and a [theme example](https://github.com/tictail/theme-example) that also simplifies things when building Tictail themes._
