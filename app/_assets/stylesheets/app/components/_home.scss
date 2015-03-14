@@ -52,7 +52,7 @@
 .footer-border {
   @include background-image(linear-gradient(left top, $ds-color-orange, $ds-color-orange-dark));
   bottom: 0;
-  height: 20px;
+  height: 3px;
   left: 0;
   position: absolute;
   width: 100%;
