@@ -1,0 +1,131 @@
+.index {
+  @include clearfix;
+  height: 100vh;
+  padding: 0;
+  position: relative;
+
+  h2 {
+    position: relative;
+  }
+
+  ul {
+    @extend %t-list-unstyled;
+    line-height: 28px;
+    margin-bottom: 40px;
+
+    /*figure {
+      @include clearfix;
+      background: #fff;
+      box-shadow: 0 1px 2px #b7b19c;
+      border-radius: 3px;
+      margin: 0 -8px 12px;
+      padding: 8px;
+    }*/
+
+    li {
+      border-bottom: 1px dashed $ds-color-border;
+      margin-bottom: 28px;
+    }
+
+    p {
+      @extend %t-small;
+      margin-bottom: 28px;
+
+      li &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.index__intro,
+.index__blog,
+.index__projects,
+.index__about {
+  height: 100vh;
+  overflow: auto;
+  padding: 40px;
+}
+
+.index__intro {
+  border-left: 1px dashed $ds-color-border;
+  float: right;
+  text-align: center;
+  width: 25%;
+}
+
+.index__logo {
+  -webkit-animation: index__logo 8s ease infinite;
+  -moz-animation: index__logo 8s ease infinite;
+  animation: index__logo 8s ease infinite;
+  background: linear-gradient(270deg, $ds-color-orange, darken($ds-color-orange, 15%));
+  background-size: 400% 400%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto $ds-margin;
+  padding: 3px;
+  width: 166px;
+  span {
+    background: $ds-color-background;
+    border-radius: 50%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  img {
+    float: none;
+    max-width: 123px;
+  }
+}
+
+@-webkit-keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+@-moz-keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+@keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.index__blog {
+  float: left;
+  width: 45%;
+}
+
+.index__blog__rss {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.index__projects {
+  border-left: 1px dashed $ds-color-border;
+  float: left;
+  width: 30%;
+}
+
+.index__about {
+  float: left;
+  width: 75%;
+
+  .js & {
+    display: none;
+  }
+}
+
+.index__footer {
+  background: rgba(0, 0, 0, .05);
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  width: 25%;
+}

@@ -74,3 +74,18 @@
 /*span*/.gradient-border--fat {
   @extend %gradient-border--fat;
 }
+
+.shame-button {
+  border: 1px solid $ds-color-orange;
+  border-radius: 30px;
+  color: $ds-color-orange;
+  display: inline-block;
+  padding: 9px 18px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:hover {
+    border-color: $ds-color-orange;
+    color: $ds-color-text;
+  }
+}

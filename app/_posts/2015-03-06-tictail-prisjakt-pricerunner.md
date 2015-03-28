@@ -5,6 +5,7 @@ title: "Integrating Tictail with Prisjakt and PriceRunner"
 created: 1425632493
 author: ivan
 comments: true
+image: "/images/!test.jpg"
 ---
 
 When launching our online snowboard store - [The Kong Initiative](http://www.konginitiative.com) (Bringing you the widest snowboards around) we also wanted our products to be listed on price comparison websites, namely [Prisjakt](http://www.prisjakt.nu/) and [PriceRunner](http://www.pricerunner.com).

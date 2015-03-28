@@ -1,115 +1,123 @@
 ---
-layout: default
+layout: index
 title: Kollegorna Labs
 meta_title: Kollegorna Labs
 meta_description: "Web agency extra ordinarie building stuff with Rails, Ember.js, Node.js and Go. This is our playground."
-body_class: home
+body_class: index
 ---
 
-<div class="home-intro">
-
-  <!--<h1 class="t-hero"><span class="gradient-border">Kollegorna</span><br><span class="gradient-border">Labs</span></h1>
-  -->
+<header class="index__intro">
+  <a href="/" class="index__logo">
+    <span>{% image labs-logo.svg %}</span>
+  </a>
 
   <p class="t-lead">Science and progress will lead to happiness.</p>
 
-  <p class="t-lead">We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…<br>
-    See more of us on <a href="https://github.com/kollegorna">GitHub</a>, <a href="https://twitter.com/kollegorna">Twitter</a> or <a href="http://www.kollegorna.se">Kollegorna.se</a>.
-  </p>
-</div>
+  <p class="t-small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
 
-<hr>
+  <a href="#about" class="shame-button index__about-toggle">About us</a>
+</header>
 
-<div class="home-content">
-  <div class="home-blog">
-    <h2><span class="gradient-border gradient-border--thin">Posts</span></h2>
+<section class="index__blog">
+  <h2>
+    <span class="gradient-border gradient-border--thin">Posts</span>
+    <a href="/feed.xml" class="index__blog__rss">[RSS]</a>
+  </h2>
 
-    <ul class="home-list">
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <p>
-          <time pubdate>{{ post.date | date_to_string }}</time>
-        </p>
-      </li>
-    {% endfor %}
-    </ul>
-  </div>
+  <ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <p>
+        <time pubdate>{{ post.date | date_to_string }}</time>
+      </p>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
 
-  <div class="home-projects">
-    <h2><span class="gradient-border gradient-border--thin">Projects</span></h2>
+<section class="index__projects">
+  <h2><span class="gradient-border gradient-border--thin">Projects + Play</span></h2>
 
-    <ul class="home-list">
-      <li>
-        <a href="https://github.com/kollegorna/kong-tictail-theme">Kong Tictail Theme</a>
-        <p>Makes it easier building Tictail themes (<a href="https://labs.kollegorna.se/blog/2015/03/kong-tictail-theme/">post</a>).</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/kong-integrations">Kong Integrations</a>
-        <p>A web app that provides Tictail products as csv for Prisjakt and Pricerunner (<a href="https://labs.kollegorna.se/blog/2015/03/tictail-prisjakt-pricerunner/">post</a>).</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/weatherbot">Weatherbot</a>
-        <p>Node.js app that fetches weather data from our team members’ work locations and posts it to our Slack channel (<a href="https://labs.kollegorna.se/blog/2015/02/weatherbot/">post</a>).</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a>
-        <p>ActiveRecord adapter for RubyCAS Server Core (RubyCAS2.0).</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/jekyll-boilerplate">Jekyll Boilerplate</a>
-        <p>This is the boilerplate for our Jekyll projects.</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/oompaloompa">Oompa Loompa</a>
-        <p>Ooompa Loopma is a simple web service that listens to POST hooks from Bitbucket or GitHub</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/griddo">Griddo</a>
-        <p>A collection of Sass mixins that helps you build grids.</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/hubspot_informer">HubSpot Informer</a>
-        <p>A simple Ruby API wrapper for the HubSpot form submission API</p>
-      </li>
-      <li>
-        <a href="https://drupal.org/project/livechat">LiveChat module for Drupal</a>
-        <p>Drupal 7 module that integrates with the <a href="http://www.livechat.com">LiveChat</a> service.</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/fieldvariables">Field Variables</a>
-        <p>Sets field values as variables in the template files of your Drupal theme.</p>
-      </li>
-      <li>
-        <a href="https://github.com/joakim/git-easy">Git Easy</a>
-        <p>Smart git commands to make life a little bit easier.</p>
-      </li>
-      <li>
-        <a href="https://github.com/henrrrik/lita-imgflip">lita-imgflip</a>,
-        <a href="https://github.com/henrrrik/lita-pugbomb">lita-pugbomb</a>,
-        <a href="https://github.com/henrrrik/lita-holmstrom">lita-holmstrom</a>,
-        <a href="https://github.com/henrrrik/lita-nerd">lita-nerd</a>,
-        <a href="https://github.com/henrrrik/lita-likeaboss">lita-likeaboss</a>
-        <p>Various Lita handlers.</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/apsis-ruby">APSIS API wrapper for Ruby</a>
-        <p>A simple API wrapper for the APSIS mail marketing service. Currently only supports adding subscribers to a mailing list.</p>
-      </li>
-      <li>
-        <a href="https://github.com/kollegorna/campfire_alerts">Campfire Alerts for Drupal</a>
-        <p>A Drupal module and Drush command that alerts a Campfire room when something is amiss configuration-wise on a site.</p>
-      </li>
-      <li>
-        <a href="https://drupal.org/project/feeds_ffffound">Feeds: FFFFOUND! parser</a>
-        <p>A Feeds parser for <a href="http://ffffound.com">FFFFOUND!</a> for Drupal 7.</p>
-      </li>
-      <li>
-        <a href="https://github.com/persand/blaskan">Blaskan</a>
-        <p>A responsive and accessible WordPress theme.</p>
-      </li>
+  <ul>
+    <li>
+      <a href="https://github.com/kollegorna/kong-tictail-theme">Kong Tictail Theme</a>
+      <p>Makes it easier building Tictail themes (<a href="https://labs.kollegorna.se/blog/2015/03/kong-tictail-theme/">post</a>).</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/kong-integrations">Kong Integrations</a>
+      <p>A web app that provides Tictail products as csv for Prisjakt and Pricerunner (<a href="https://labs.kollegorna.se/blog/2015/03/tictail-prisjakt-pricerunner/">post</a>).</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/weatherbot">Weatherbot</a>
+      <p>Node.js app that fetches weather data from our team members’ work locations and posts it to our Slack channel (<a href="https://labs.kollegorna.se/blog/2015/02/weatherbot/">post</a>).</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a>
+      <p>ActiveRecord adapter for RubyCAS Server Core (RubyCAS2.0).</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/jekyll-boilerplate">Jekyll Boilerplate</a>
+      <p>This is the boilerplate for our Jekyll projects.</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/oompaloompa">Oompa Loompa</a>
+      <p>Ooompa Loopma is a simple web service that listens to POST hooks from Bitbucket or GitHub</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/griddo">Griddo</a>
+      <p>A collection of Sass mixins that helps you build grids.</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/hubspot_informer">HubSpot Informer</a>
+      <p>A simple Ruby API wrapper for the HubSpot form submission API</p>
+    </li>
+    <li>
+      <a href="https://drupal.org/project/livechat">LiveChat module for Drupal</a>
+      <p>Drupal 7 module that integrates with the <a href="http://www.livechat.com">LiveChat</a> service.</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/fieldvariables">Field Variables</a>
+      <p>Sets field values as variables in the template files of your Drupal theme.</p>
+    </li>
+    <li>
+      <a href="https://github.com/joakim/git-easy">Git Easy</a>
+      <p>Smart git commands to make life a little bit easier.</p>
+    </li>
+    <li>
+      <a href="https://github.com/henrrrik/lita-imgflip">lita-imgflip</a>,
+      <a href="https://github.com/henrrrik/lita-pugbomb">lita-pugbomb</a>,
+      <a href="https://github.com/henrrrik/lita-holmstrom">lita-holmstrom</a>,
+      <a href="https://github.com/henrrrik/lita-nerd">lita-nerd</a>,
+      <a href="https://github.com/henrrrik/lita-likeaboss">lita-likeaboss</a>
+      <p>Various Lita handlers.</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/apsis-ruby">APSIS API wrapper for Ruby</a>
+      <p>A simple API wrapper for the APSIS mail marketing service. Currently only supports adding subscribers to a mailing list.</p>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna/campfire_alerts">Campfire Alerts for Drupal</a>
+      <p>A Drupal module and Drush command that alerts a Campfire room when something is amiss configuration-wise on a site.</p>
+    </li>
+    <li>
+      <a href="https://drupal.org/project/feeds_ffffound">Feeds: FFFFOUND! parser</a>
+      <p>A Feeds parser for <a href="http://ffffound.com">FFFFOUND!</a> for Drupal 7.</p>
+    </li>
+    <li>
+      <a href="https://github.com/persand/blaskan">Blaskan</a>
+      <p>A responsive and accessible WordPress theme.</p>
+    </li>
 
-    </ul>
-  </div>
-</div>
-<!-- / .home-content -->
+  </ul>
+</section>
+
+<section class="index__about" id="about">
+  <h1>Foo</h1>
+</section>
+
+<section class="index__footer">
+  <a href="#">GitHub</a>
+  <a href="#">Twitter</a>
+  <a href="#">Kollegorna.se</a>
+</section>
