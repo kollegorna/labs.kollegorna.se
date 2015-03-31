@@ -1,56 +1,78 @@
 ---
-layout: default
+layout: index
 title: Kollegorna Labs
 meta_title: Kollegorna Labs
 meta_description: "Web agency extra ordinarie building stuff with Rails, Ember.js, Node.js and Go. This is our playground."
-body_class: home
+body_class: index
 ---
 
-<div class="home-intro">
-
-  <!--<h1 class="t-hero"><span class="gradient-border">Kollegorna</span><br><span class="gradient-border">Labs</span></h1>
-  -->
+<header class="index__intro">
+  <h1>
+    <a href="/" class="index__logo">
+      <span>{% image labs-logo.svg alt="Kollegorna Labs" %}</span>
+    </a>
+  </h1>
 
   <p class="t-lead">Science and progress will lead to happiness.</p>
 
-  <p class="t-lead">We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…<br>
-    See more of us on <a href="https://github.com/kollegorna">GitHub</a>, <a href="https://twitter.com/kollegorna">Twitter</a> or <a href="http://www.kollegorna.se">Kollegorna.se</a>.
-  </p>
-</div>
+  <p class="t-small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
 
-<hr>
+  <a href="#about" class="shame-button index__about-toggle">About us</a>
+</header>
 
-<div class="home-content">
-  <div class="home-blog">
-    <h2><span class="gradient-border gradient-border--thin">Posts</span></h2>
+<section class="index__blog" id="blog">
+  <div class="index__list">
+    <h2>
+      <span class="gradient-border gradient-border--thin">Blog</span>
+      <!--<a href="/feed.xml" class="index__blog__rss">RSS</a>-->
+    </h2>
 
-    <ul class="home-list">
+    <ul>
     {% for post in site.posts %}
       <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         <p>
           <time pubdate>{{ post.date | date_to_string }}</time>
+          –
+          {% for authors in post.author %}
+            {% assign author = site.data.colleagues[authors] %}
+            {% if author %}
+              <span property="author" vocab="http://schema.org/" typeof="Person">
+                <span property="givenName">{{ author.firstname }}</span>
+                <span property="familyName">{{ author.lastname }}</span>
+              </span>
+            {% endif %}
+
+          {% endfor %}
         </p>
       </li>
     {% endfor %}
     </ul>
+
+    <!--<div class="t-center">
+      <a href="/blog" class="shame-button">All posts</a>
+    </div>-->
   </div>
+</section>
 
-  <div class="home-projects">
-    <h2><span class="gradient-border gradient-border--thin">Projects</span></h2>
+<section class="index__projects">
+  <div class="index__list">
+    <h2>
+      <span class="gradient-border gradient-border--thin">Projects + Play</span>
+    </h2>
 
-    <ul class="home-list">
+    <ul>
       <li>
         <a href="https://github.com/kollegorna/kong-tictail-theme">Kong Tictail Theme</a>
-        <p>Makes it easier building Tictail themes (<a href="https://labs.kollegorna.se/blog/2015/03/kong-tictail-theme/">post</a>).</p>
+        <p>Makes it easier building Tictail themes (<a href="/blog/2015/03/kong-tictail-theme/">post</a>).</p>
       </li>
       <li>
         <a href="https://github.com/kollegorna/kong-integrations">Kong Integrations</a>
-        <p>A web app that provides Tictail products as csv for Prisjakt and Pricerunner (<a href="https://labs.kollegorna.se/blog/2015/03/tictail-prisjakt-pricerunner/">post</a>).</p>
+        <p>A web app that provides Tictail products as csv for Prisjakt and Pricerunner (<a href="/blog/2015/03/tictail-prisjakt-pricerunner/">post</a>).</p>
       </li>
       <li>
         <a href="https://github.com/kollegorna/weatherbot">Weatherbot</a>
-        <p>Node.js app that fetches weather data from our team members’ work locations and posts it to our Slack channel (<a href="https://labs.kollegorna.se/blog/2015/02/weatherbot/">post</a>).</p>
+        <p>Node.js app that fetches weather data from our team members’ work locations and posts it to our Slack channel (<a href="/blog/2015/02/weatherbot/">post</a>).</p>
       </li>
       <li>
         <a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a>
@@ -110,6 +132,29 @@ body_class: home
       </li>
 
     </ul>
+
+    <!--<div class="t-center">
+      <a href="/projects" class="shame-button">All projects</a>
+    </div>-->
   </div>
-</div>
-<!-- / .home-content -->
+</section>
+
+<section class="index__about" id="about">
+  <h2 class="t-h1">
+    About<br>
+    Kollegorna
+    <small>(“The Colleagues”)</small>
+  </h2>
+
+  <hr class="gradient-break">
+
+  <p class="t-lead">We're a distributed digital agency spread from Santo Domingo to Seoul with our HQ in Stockholm. Welcome to our laboratory.<br>Put on your lab coat!</p>
+
+  <p>
+    <a class="shame-button" href="https://www.kollegorna.se">Kollegorna.se</a>
+    <a class="shame-button" href="https://github.com/kollegorna">GitHub</a>
+    <a class="shame-button" href="https://twitter.com/kollegorna">Twitter</a>
+  </p>
+
+  <a href="#blog" class="index__about-toggle">{% image icon-close.svg %}<span class="visuallyhidden">Back to blog posts list</span></a>
+</section>

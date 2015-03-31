@@ -1,0 +1,415 @@
+// Layout
+
+// .index
+%_l-index {
+  padding: 20px 0;
+  position: relative;
+
+  @include breakpoint($app-breakpoint-large) {
+    @include clearfix;
+    height: 100vh;
+    padding: 0;
+  }
+
+  @include breakpoint ($app-breakpoint-xxlarge) {
+    max-width: $app-breakpoint-xxlarge;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// .index__intro,
+// .index__blog,
+// .index__projects,
+// .index__about
+%_l-index__content-setup {
+  @include breakpoint($app-breakpoint-medium) {
+    padding: 25px;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    height: 100vh;
+    overflow: auto;
+  }
+
+  @include breakpoint($app-breakpoint-xlarge) {
+    padding: 40px;
+  }
+}
+
+// .index__intro
+%_l-index__intro {
+  border-bottom: 1px dashed $ds-color-border;
+  margin-bottom: 40px;
+  //margin-left: -20px;
+  //margin-right: -20px;
+  text-align: center;
+
+  @include breakpoint($app-breakpoint-medium) {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    border-bottom: 0;
+    border-left: 1px dashed $ds-color-border;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    width: 25%;
+  }
+}
+
+// .index__blog
+%_l-index__blog {
+  @include breakpoint($app-breakpoint-medium) {
+    float: left;
+    width: 50%;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    width: 45%;
+  }
+}
+
+%_l-index__projects {
+  @include breakpoint($app-breakpoint-medium) {
+    border-left: 1px dashed $ds-color-border;
+    float: left;
+    width: 50%;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    width: 30%;
+  }
+}
+
+%_l-index__about {
+  border-top: 1px dashed $ds-color-border;
+  clear: both;
+  //margin-left: -20px;
+  //margin-right: -20px;
+
+  @include breakpoint($app-breakpoint-large) {
+    border-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    .js & {
+      display: none;
+    }
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    float: left;
+    width: 75%;
+  }
+}
+
+
+// Styles
+
+.index {
+  @extend %_l-index;
+  -ms-overflow-style: none;
+}
+
+.index__intro,
+.index__blog,
+.index__projects,
+.index__about {
+  @extend %_l-index__content-setup;
+  -ms-overflow-style: none;
+
+  // http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
+  /*
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    position: relative;
+    width: 11px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 2px solid $ds-color-background; // should match background, can't be transparent
+      background-color: $ds-color-background;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &::-webkit-scrollbar-track {
+      background-color: $ds-color-background;
+      border-radius: 8px;
+  }
+  */
+}
+
+@supports (-webkit-appearance:none) {
+  .index,
+  .index__intro,
+  .index__blog,
+  .index__projects,
+  .index__about {
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.index__intro {
+  @extend %_l-index__intro;
+
+  h1 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  p {
+    @include breakpoint($app-breakpoint-large-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .t-lead {
+    @include breakpoint($app-breakpoint-large-max) {
+      margin-bottom: 0;
+    }
+  }
+
+  .index__about-toggle {
+    @include breakpoint($app-breakpoint-large-max) {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.index__logo {
+  -webkit-animation: index__logo 8s ease infinite;
+  -moz-animation: index__logo 8s ease infinite;
+  animation: index__logo 8s ease infinite;
+  background: linear-gradient(270deg, $ds-color-orange, darken($ds-color-orange, 15%));
+  background-size: 400% 400%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto $ds-margin;
+  padding: 3px;
+  width: 166px;
+  span {
+    background: $ds-color-background;
+    border-radius: 50%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  img {
+    float: none;
+    max-width: 123px;
+  }
+}
+
+@-webkit-keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+@-moz-keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+@keyframes index__logo {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.index__list {
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+    position: relative;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: $ds-font-weight;
+    margin: 0;
+
+    a {
+      color: $ds-color-orange;
+
+      &:hover,
+      &:focus {
+        color: $ds-color-link-hover;
+      }
+    }
+  }
+
+  li {
+    border-bottom: 1px dashed $ds-color-border;
+    margin-bottom: 20px;
+
+    &:last-child {
+      border: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    @extend %t-small;
+  }
+
+  time {
+    color: $ds-color-text-light;
+  }
+
+  [property="author"] {
+    &:after {
+      content: " + ";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+
+  @include breakpoint($app-breakpoint-medium) {
+    line-height: 28px;
+    margin-bottom: 25px;
+
+    li {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
+  }
+
+  @include breakpoint($app-breakpoint-xlarge) {
+    margin-bottom: 40px;
+  }
+
+  /*figure {
+    @include clearfix;
+    background: #fff;
+    box-shadow: 0 1px 2px #b7b19c;
+    border-radius: 3px;
+    margin: 0 -8px 12px;
+    padding: 8px;
+  }*/
+}
+
+.index__blog {
+  @extend %_l-index__blog;
+
+  .index__list {
+    @include breakpoint($app-breakpoint-medium-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.index__blog__rss {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.index__projects {
+  @extend %_l-index__projects;
+
+  .index__list {
+    @include breakpoint($app-breakpoint-medium-max) {
+      border-top: 1px dashed $ds-color-border;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 40px;
+    }
+  }
+}
+
+.index__about {
+  @extend %_l-index__about;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint($app-breakpoint-medium-max) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    position: absolute;
+  }
+
+  h2 {
+    small {
+      display: block;
+      color: $ds-color-text-light;
+      font-size: .8rem;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shame-button {
+    margin: 0 5px 20px;
+
+    @include breakpoint ($app-breakpoint-medium) {
+      margin: 0 10px;
+    }
+
+    @include breakpoint ($app-breakpoint-large) {
+      margin: 0 15px;
+    }
+  }
+
+  .js & .index__about-toggle {
+    display: none;
+
+    @include breakpoint($app-breakpoint-large) {
+      border: 1px solid $ds-color-orange;
+      border-radius: 50%;
+      display: block;
+      height: 50px;
+      width: 50px;
+      padding: 10px;
+      position: absolute;
+      left: 40px;
+      top: 40px;
+
+      img {
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+}

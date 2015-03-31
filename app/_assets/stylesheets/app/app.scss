@@ -1,10 +1,12 @@
 // Global Design System
 @import "../global/global";
 
+@import "config/layout";
+
 @import "components/header";
 
 // Sections/Pages
-@import "components/home";
+@import "components/index";
 @import "components/blog";
 @import "components/shame";
 @import "components/print";
