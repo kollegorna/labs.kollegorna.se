@@ -18,26 +18,39 @@ body_class: index
   <a href="#about" class="shame-button index__about-toggle">About us</a>
 </header>
 
-<section class="index__blog">
+<section class="index__blog index__list">
   <h2>
-    <span class="gradient-border gradient-border--thin">Posts</span>
+    <a href="/blog"><span class="gradient-border gradient-border--thin">Blog</span></a>
     <a href="/feed.xml" class="index__blog__rss">[RSS]</a>
   </h2>
 
   <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
       <p>
         <time pubdate>{{ post.date | date_to_string }}</time>
+        –
+        {% for authors in post.author %}
+          {% assign author = site.data.colleagues[authors] %}
+          {% if author %}
+            <span property="author" vocab="http://schema.org/" typeof="Person">
+              <span property="givenName">{{ author.firstname }}</span>
+              <span property="familyName">{{ author.lastname }}</span>
+            </span>
+          {% endif %}
+
+        {% endfor %}
       </p>
     </li>
   {% endfor %}
   </ul>
 </section>
 
-<section class="index__projects">
-  <h2><span class="gradient-border gradient-border--thin">Projects + Play</span></h2>
+<section class="index__projects index__list">
+  <h2>
+    <a href="/projects"><span class="gradient-border gradient-border--thin">Projects + Play</span></a>
+  </h2>
 
   <ul>
     <li>

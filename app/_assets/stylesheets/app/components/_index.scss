@@ -1,57 +1,98 @@
-.index {
-  @include clearfix;
-  height: 100vh;
-  padding: 0;
-  position: relative;
+// Layout
 
-  h2 {
+// .index
+%_l-index {
+  padding: 20px;
+
+  @include breakpoint($app-breakpoint-large) {
+    @include clearfix;
+    height: 100vh;
+    padding: 0;
     position: relative;
   }
+}
 
-  ul {
-    @extend %t-list-unstyled;
-    line-height: 28px;
-    margin-bottom: 40px;
+// .index__intro,
+// .index__blog,
+// .index__projects,
+// .index__about
+%_l-index__content-setup {
+  @include breakpoint($app-breakpoint-medium) {
+    padding: 25px;
+  }
+  @include breakpoint($app-breakpoint-large) {
+    height: 100vh;
+    overflow: auto;
+  }
 
-    /*figure {
-      @include clearfix;
-      background: #fff;
-      box-shadow: 0 1px 2px #b7b19c;
-      border-radius: 3px;
-      margin: 0 -8px 12px;
-      padding: 8px;
-    }*/
+  @include breakpoint($app-breakpoint-xlarge) {
+    padding: 40px;
+  }
+}
 
-    li {
-      border-bottom: 1px dashed $ds-color-border;
-      margin-bottom: 28px;
-    }
+// .index__intro
+%_l-index__intro {
+  @include breakpoint($app-breakpoint-large) {
+    border-left: 1px dashed $ds-color-border;
+    float: right;
+    text-align: center;
+    width: 25%;
+  }
+}
 
-    p {
-      @extend %t-small;
-      margin-bottom: 28px;
+// .index__blog
+%_l-index__blog {
+  @include breakpoint($app-breakpoint-medium) {
+    float: left;
+    width: 50%;
+  }
 
-      li &:last-child {
-        margin-bottom: 0;
-      }
+  @include breakpoint($app-breakpoint-large) {
+    width: 45%;
+  }
+}
+
+%_l-index__projects {
+  @include breakpoint($app-breakpoint-medium) {
+    border-left: 1px dashed $ds-color-border;
+    float: left;
+    width: 50%;
+  }
+
+  @include breakpoint($app-breakpoint-large) {
+    width: 30%;
+  }
+}
+
+%_l-index__about {
+  @include breakpoint($app-breakpoint-medium) {
+    .js & {
+      display: none;
     }
   }
+
+  @include breakpoint($app-breakpoint-large) {
+    float: left;
+    width: 75%;
+  }
+}
+
+
+// Styles
+
+.index {
+  @extend %_l-index;
 }
 
 .index__intro,
 .index__blog,
 .index__projects,
 .index__about {
-  height: 100vh;
-  overflow: auto;
-  padding: 40px;
+  @extend %_l-index__content-setup;
 }
 
 .index__intro {
-  border-left: 1px dashed $ds-color-border;
-  float: right;
-  text-align: center;
-  width: 25%;
+  @extend %_l-index__intro;
 }
 
 .index__logo {
@@ -94,9 +135,87 @@
     100% { background-position: 0% 50% }
 }
 
+.index__list {
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+    position: relative;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: $ds-font-weight;
+    margin: 0;
+
+    a {
+      color: $ds-color-orange;
+
+      &:hover,
+      &:focus {
+        color: $ds-color-link-hover;
+      }
+    }
+  }
+
+  li {
+    border-bottom: 1px dashed $ds-color-border;
+  }
+
+  p {
+    @extend %t-small;
+  }
+
+  time {
+    color: $ds-color-text-light;
+  }
+
+  [property="author"] {
+    &:after {
+      content: " + ";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+
+  @include breakpoint($app-breakpoint-medium) {
+    line-height: 28px;
+    margin-bottom: 25px;
+
+    li {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
+  }
+
+  @include breakpoint($app-breakpoint-xlarge) {
+    margin-bottom: 40px;
+  }
+
+  /*figure {
+    @include clearfix;
+    background: #fff;
+    box-shadow: 0 1px 2px #b7b19c;
+    border-radius: 3px;
+    margin: 0 -8px 12px;
+    padding: 8px;
+  }*/
+}
+
 .index__blog {
-  float: left;
-  width: 45%;
+  @extend %_l-index__blog;
 }
 
 .index__blog__rss {
@@ -108,18 +227,11 @@
 }
 
 .index__projects {
-  border-left: 1px dashed $ds-color-border;
-  float: left;
-  width: 30%;
+  @extend %_l-index__projects;
 }
 
 .index__about {
-  float: left;
-  width: 75%;
-
-  .js & {
-    display: none;
-  }
+  @extend %_l-index__about;
 }
 
 .index__footer {
@@ -128,4 +240,6 @@
   position: absolute;
   right: 0;
   width: 25%;
+
+  display: none;
 }
