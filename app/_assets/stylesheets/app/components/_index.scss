@@ -41,8 +41,8 @@
 %_l-index__intro {
   border-bottom: 1px dashed $ds-color-border;
   margin-bottom: 40px;
-  margin-left: -20px;
-  margin-right: -20px;
+  //margin-left: -20px;
+  //margin-right: -20px;
   text-align: center;
 
   @include breakpoint($app-breakpoint-medium) {
@@ -87,8 +87,8 @@
 %_l-index__about {
   border-top: 1px dashed $ds-color-border;
   clear: both;
-  margin-left: -20px;
-  margin-right: -20px;
+  //margin-left: -20px;
+  //margin-right: -20px;
 
   @include breakpoint($app-breakpoint-large) {
     border-top: 0;
@@ -320,6 +320,13 @@
 
 .index__blog {
   @extend %_l-index__blog;
+
+  .index__list {
+    @include breakpoint($app-breakpoint-medium-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
 
 .index__blog__rss {
@@ -336,9 +343,9 @@
   .index__list {
     @include breakpoint($app-breakpoint-medium-max) {
       border-top: 1px dashed $ds-color-border;
-      margin-left: -20px;
-      margin-right: -20px;
       padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 40px;
     }
   }
 }
@@ -347,6 +354,11 @@
   @extend %_l-index__about;
   position: relative;
   text-align: center;
+
+  @include breakpoint($app-breakpoint-medium-max) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   @include breakpoint($app-breakpoint-large) {
     position: absolute;
@@ -369,10 +381,14 @@
   }
 
   .shame-button {
-    margin-right: 30px;
+    margin: 0 5px 20px;
 
-    &:last-child {
-      margin-right: 0;
+    @include breakpoint ($app-breakpoint-medium) {
+      margin: 0 10px;
+    }
+
+    @include breakpoint ($app-breakpoint-large) {
+      margin: 0 15px;
     }
   }
 
