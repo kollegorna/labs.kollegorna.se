@@ -5,3 +5,9 @@ $app-breakpoint-medium: 768px !default;
 $app-breakpoint-large: 1024px !default;
 $app-breakpoint-xlarge: 1280px !default;
 $app-breakpoint-xxlarge: 1600px !default;
+
+$app-breakpoint-small-max: (max-width: $app-breakpoint-small) !default;
+$app-breakpoint-medium-max: (max-width: $app-breakpoint-medium) !default;
+$app-breakpoint-large-max: (max-width: $app-breakpoint-large) !default;
+$app-breakpoint-xlarge-max: (max-width: $app-breakpoint-xlarge) !default;
+$app-breakpoint-xxlarge-max: (max-width: $app-breakpoint-xxlarge) !default;

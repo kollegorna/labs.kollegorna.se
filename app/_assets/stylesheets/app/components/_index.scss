@@ -10,6 +10,12 @@
     padding: 0;
     position: relative;
   }
+
+  @include breakpoint ($app-breakpoint-xxlarge) {
+    max-width: $app-breakpoint-xxlarge;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 // .index__intro,
@@ -32,10 +38,18 @@
 
 // .index__intro
 %_l-index__intro {
+  border-bottom: 1px dashed $ds-color-border;
+  margin-left: -20px;
+  margin-right: -20px;
+  text-align: center;
+
   @include breakpoint($app-breakpoint-large) {
+    border-bottom: 0;
     border-left: 1px dashed $ds-color-border;
     float: right;
-    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
     width: 25%;
   }
 }
@@ -93,6 +107,30 @@
 
 .index__intro {
   @extend %_l-index__intro;
+
+  h1 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  p {
+    @include breakpoint($app-breakpoint-large-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .t-lead {
+    @include breakpoint($app-breakpoint-large-max) {
+      margin-bottom: 0;
+    }
+  }
+
+  .index__about-toggle {
+    @include breakpoint($app-breakpoint-large-max) {
+      margin-bottom: 25px;
+    }
+  }
 }
 
 .index__logo {
@@ -163,6 +201,7 @@
 
   li {
     border-bottom: 1px dashed $ds-color-border;
+    margin-bottom: 20px;
   }
 
   p {
@@ -189,10 +228,6 @@
 
     li {
       margin-bottom: 25px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
 
     p {
@@ -232,10 +267,56 @@
 
 .index__about {
   @extend %_l-index__about;
+  position: relative;
+  text-align: center;
+
+  h2 {
+    small {
+      display: block;
+      color: $ds-color-text-light;
+      font-size: .8rem;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shame-button {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .js & .index__about-toggle {
+    display: none;
+
+    @include breakpoint($app-breakpoint-large) {
+      border: 1px solid $ds-color-orange;
+      border-radius: 50%;
+      display: block;
+      height: 50px;
+      width: 50px;
+      padding: 10px;
+      position: absolute;
+      left: 40px;
+      top: 40px;
+
+      img {
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
 }
 
 .index__footer {
-  background: rgba(0, 0, 0, .05);
   bottom: 0;
   position: absolute;
   right: 0;
