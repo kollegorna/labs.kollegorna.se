@@ -11,3 +11,7 @@ $app-breakpoint-medium-max: (max-width: $app-breakpoint-medium) !default;
 $app-breakpoint-large-max: (max-width: $app-breakpoint-large) !default;
 $app-breakpoint-xlarge-max: (max-width: $app-breakpoint-xlarge) !default;
 $app-breakpoint-xxlarge-max: (max-width: $app-breakpoint-xxlarge) !default;
+
+html {
+  //overflow: hidden; // @TODO SHAME
+}
