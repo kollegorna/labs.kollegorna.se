@@ -122,11 +122,11 @@
   -ms-overflow-style: none;
 
   // http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
-  /*
+
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
-
+  /*
   &::-webkit-scrollbar:vertical {
     position: relative;
     width: 11px;
@@ -153,6 +153,7 @@
   */
 }
 
+/*
 @supports (-webkit-appearance:none) {
   .index,
   .index__intro,
@@ -164,6 +165,7 @@
     }
   }
 }
+*/
 
 .index__intro {
   @extend %_l-index__intro;
