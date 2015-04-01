@@ -57,3 +57,22 @@ pre {
   margin: 0 auto ($ds-margin*1.66);
   width: 200px;
 }
+
+
+.license {
+  padding: 40px 0 20px;
+  text-align: center;
+
+  img {
+    max-width: 100px;
+  }
+}
+
+.footer-border {
+  @include background-image(linear-gradient(left top, $ds-color-orange, $ds-color-orange-dark));
+  bottom: 0;
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
