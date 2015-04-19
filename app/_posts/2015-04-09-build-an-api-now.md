@@ -470,4 +470,4 @@ Next time we will take a look on how to have fine-grained permissions on resourc
 Until then, take a look on other articles published here that have to do with APIs:
 
 * [Export your db as a searchable API in Rails](/blog/2015/02/active-hash-relation/)
-* [Challenges faced in a little larger Rails API project](/blog/2015/02/active-hash-relation/)
+* [Challenges faced in a little larger Rails API project](/blog/2014/11/rails-api/)
