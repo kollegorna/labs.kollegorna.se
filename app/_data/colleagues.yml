@@ -53,6 +53,14 @@ ivan:
   twitter: ivannovosad
   github: ivannovosad
   does: "Ruby, Rails, Javascript"
+urban:
+    firstname: Urban
+    lastname: Sandén
+    email: urban@kollegorna.se
+    title: Frondend-utvecklare
+    twitter: urre
+    github: urre
+    does: "Webb- & interaktionsdesign, front end, Javascript"
 kobot:
   firstname: Kobot
   lastname:
