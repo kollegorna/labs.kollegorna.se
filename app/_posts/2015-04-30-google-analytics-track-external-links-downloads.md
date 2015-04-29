@@ -1,7 +1,7 @@
 ---
 layout: post
 type: post
-title: "How to track clicks on external links and count file downloads in Universal Analytics"
+title: "How to track clicks on external links and count file downloads in Google Analytics"
 created: 1430386305
 author: per
 comments: true
