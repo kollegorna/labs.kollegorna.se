@@ -51,3 +51,5 @@ We'll need a worker, that requests the recrawl:
 And finally tell the worker to perform the job when a blog post changes, in active admin's resource:
 {% gist ivannovosad/d77a0e8e2953eea5eeac %}
 
+
+That's it! Now our blog posts are recrawled on every update!
