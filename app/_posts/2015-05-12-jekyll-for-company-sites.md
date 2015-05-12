@@ -48,7 +48,7 @@ gulp.task("jekyll-build", function (done) {
 });
 ```
 
-This is what the rebuild, watch and default tasks look like:
+An example of what the ``jekyll-rebuild``, ``watch`` and ``default`` tasks could look like:
 
 ```javascript
 
@@ -57,7 +57,7 @@ gulp.task("jekyll-rebuild", ["jekyll-build"], function () {
 });
 
 gulp.task("watch", function () {
-    gulp.watch("_sass/**/*.scss", ["sass"]);
+    gulp.watch("_scss/**/*.scss", ["sass"]);
     gulp.watch(["js/app.js"], ["js"], ["bs-reload"]);
     gulp.watch(["index.html", "_layouts/*.html", "_includes/*.html", "_posts/*"], ["jekyll-rebuild"]);
 });
