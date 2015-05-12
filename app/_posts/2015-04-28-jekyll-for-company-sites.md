@@ -18,10 +18,11 @@ GitHub Pages are public web pages hosted for free through [GitHub](https://githu
 + Speed - fast response time
 + Backup - source code always safe in git
 + Private repos - private repos is now supported.
++ Fast and easy deployment
 
 ### Any downsides?
 + [Not all Jekyll plugins are supported](https://pages.github.com/versions/). Such as our favorite plugin [Jekyll Assets](https://github.com/ixti/jekyll-assets). 
-+ SSL is not supported (yet).
++ SSL is not fully supported. You can use https on project pages with the ``*.github.io`` domain. But you can't use a custom domain name with a fully secured HTTPS connection. At least not yet.
 
 ## gh-pages branch
 
