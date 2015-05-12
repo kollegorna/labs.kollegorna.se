@@ -7,9 +7,7 @@ author: urban
 comments: true
 ---
 
-Recently we made two small company websites for Blendow Group – [blendow.se](http://www.blendow.se/) and [bgpublishing.se](http://www.bgpublishing.se).
-
-We decided to build them using [Jekyll](http://jekyllrb.com/) and host them on [GitHub Pages](https://pages.github.com/). Since our client is pretty tech-savvy and knows their way around Markdown and HTML we could choose this solution knowing they could update and edit their sites easily themselves. Both sites also require very little change as they're basically just promoting the digital products that Blendow offers (like [BG Play](https://www.bgplay.se) and [Legal Career](https://www.legalcareer.se) that we've previously built for them).
+Recently we made two small company websites for Blendow Group – [blendow.se](http://www.blendow.se/) and [bgpublishing.se](http://www.bgpublishing.se). We decided to build them using [Jekyll](http://jekyllrb.com/) and host them on [GitHub Pages](https://pages.github.com/). Since our client is pretty tech-savvy and knows their way around Markdown and HTML we could choose this solution knowing they could update and edit their sites easily themselves. Both sites also require very little change as they're basically just promoting the digital products that Blendow offers (like [BG Play](https://www.bgplay.se) and [Legal Career](https://www.legalcareer.se) that we've previously built for them).
 
 ## GitHub pages
 GitHub Pages are public web pages hosted for free through [GitHub](https://github.com/). In add-on to supporting regular HTML pages, GitHub pages also supports Jekyll - the simple static site generator.
@@ -22,7 +20,7 @@ GitHub Pages are public web pages hosted for free through [GitHub](https://githu
 + Private repos - private repos is now supported.
 
 ### Any downsides?
-+ Right now custom Jekyll plugins such as our favorite plugin [Jekyll Assets](https://github.com/ixti/jekyll-assets) are not supported. 
++ [Not all Jekyll plugins are supported](https://pages.github.com/versions/). Such as our favorite plugin [Jekyll Assets](https://github.com/ixti/jekyll-assets). 
 + SSL is not supported (yet).
 
 ## gh-pages branch
@@ -100,3 +98,7 @@ When finished, clicking the "commit changes" will commit directly to the ``gh-pa
 [Prose](http://prose.io/) is another alternative – a content editor for GitHub. Prose provides a beatifully simple content authoring environment for CMS-free websites Prose has advanced support for Jekyll sites and Markdown content. Prose detects Markdown posts in Jekyll sites and provides syntax highlighting, a formatting toolbar, and draft previews in the site's full layout.
 
 ![Prose](/images/2015/2015-04-28-jekyll-for-company-sites-prose.png)
+
+Overall we're very happy with what we get by using Jekyll directly on GitHub Pages. This is not the last time we'll be using it as we're big fans of static site generators like Jekyll and Middleman.
+
+Last but not least: check out our [Jekyll boilerplate](https://github.com/kollegorna/jekyll-boilerplate) and [Middleman boilerplate](https://github.com/kollegorna/middleman-boilerplate) on GitHub.
