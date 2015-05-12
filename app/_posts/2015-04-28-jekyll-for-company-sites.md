@@ -91,7 +91,7 @@ For editing content Markdown and HTML files, we just edit the files in our text 
 
 GitHub has a good editor for this, making this easy. Clicking the pencil icon takes us to the editor. 
 
-![Screenshot](https://raw.githubusercontent.com/blendow/blendow.se/gh-pages/_documentation/images/file-edit.png?token=AASx3EAmGNFBpG-ieHKcRj_GqUcIJ5GLks5VSJpWwA%3D%3D)
+![Screenshot](/images/2015/2015-04-28-jekyll-for-company-sites-icon-edit.png)
 
 When finished, clicking the "commit changes" will commit directly to the ``gh-pages`` branch. 
 
