@@ -2,7 +2,7 @@
 layout: post
 type: post
 title: "Parsely - request a recrawl"
-created: 1430985853
+created: 1433329500
 author: ivan
 comments: true
 ---
