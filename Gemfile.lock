@@ -117,6 +117,7 @@ DEPENDENCIES
   compass
   jekyll
   jekyll-assets
+  jekyll-gist
   rake
   rubyzip
   sass
