@@ -12,37 +12,21 @@
   {% javascript modernizr %}
   {% stylesheet app %}
 
-  <meta name="title" content="{{ page.title }}">
-  <meta property="og:title" content="{{ page.title }}">
-
-  {% if page.meta_title %}
+{% if page.meta_title %}
   <meta name="title" content="{{ page.meta_title }}">
-  <meta property="og:title" content="{{ page.meta_title }}">
-  {% else if page.title %}
+{% else if page.title %}
   <meta name="title" content="{{ page.title }}">
-  <meta property="og:title" content="{{ page.title }}">
-  {% else %}
+{% else %}
   <meta name="title" content="{{ site.data.meta.title }}">
-  <meta property="og:title" content="{{ site.data.meta.title }}">
-  {% endif %}
-
-  {% if page.meta_description %}
+{% endif %}
+{% if page.meta_description %}
   <meta name="decription" content="{{ page.meta_description }}">
-  <meta property="og:description" content="{{ page.meta_description }}">
-  {% else %}
+{% else %}
   <meta name="decription" content="{{ site.data.meta.description }}">
-  <meta property="og:description" content="{{ site.data.meta.description }}">
-  {% endif %}
+{% endif %}
 
-
-  {% if page.meta_image %}
-  <meta property="og:image" content="{% asset_path {{ page.meta_image }} %}">
-  {% else %}
-  <meta property="og:image" content="https://www.kollegorna.se/images/kollegorna-facebook-avatar.png">
-  {% endif %}
-
-  <meta property="og:url" content="{{ site.url }}{{ page.url | remove:'index.html' }}">
-
+{% include global-meta-facebook.html %}
+{% include global-meta-twitter.html %}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 </head>
 <body class="{{ page.body_class }}">
