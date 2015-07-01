@@ -120,39 +120,31 @@
 .index__about {
   @extend %_l-index__content-setup;
   -ms-overflow-style: none;
+}
+.index__blog,
+.index__projects,
+.index__about {
+  overflow-y: scroll;
 
   // http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
 
   &::-webkit-scrollbar {
-    -webkit-appearance: none;
+    width: 10px;
   }
-  /*
-  &::-webkit-scrollbar:vertical {
-    position: relative;
-    width: 11px;
-  }
-
   &::-webkit-scrollbar:horizontal {
     height: 0;
   }
-
-  &::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      border: 2px solid $ds-color-background; // should match background, can't be transparent
-      background-color: $ds-color-background;
-  }
-
-  &:hover::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.5);
-  }
-
   &::-webkit-scrollbar-track {
-      background-color: $ds-color-background;
-      border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid $ds-color-background; // should match background, can't be transparent
+    background-color: darken($ds-color-background, 5);
   }
-  */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid $ds-color-background; // should match background, can't be transparent
+    background-color: $ds-color-orange;
+  }
 }
-
 /*
 @supports (-webkit-appearance:none) {
   .index,
