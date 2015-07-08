@@ -1,31 +1,133 @@
 <% wrap_layout :layout do %>
-  <article class="article" role="article" vocab="http://schema.org/" typeof="BlogPosting">
-    <header class="article__header">
-      <% if current_article.data.image %>
-        <figure>
-          <img src="<%= current_article.data.image %>" class="polaroid" alt="">
+  <main role="main" class="blog-post">
+  <article class="post post--<%= current_article.data.type %>" vocab="http://schema.org/" typeof="BlogPosting">
+    <% if current_article.data.type == "link" %>
+
+      <div property="articleBody" class="post-content">
+        <h1 property="name"><a href="<%= current_article.data.link_title %>"><%= current_article.data.link_title %></a></h1>
+        <%= yield %>
+      </div>
+
+    <% elsif current_article.data.type == "quote" %>
+
+      <div property="articleBody" class="post-content">
+        <blockquote class="post-quote">
+          <%= current_article.data.quote %>
+        </blockquote>
+
+        <% if current_article.data.cite %>
+          <cite class="post-cite">
+            <%= current_article.data.cite %>
+          </cite>
+        <% end %>
+        <%= yield %>
+      </div>
+
+    <% elsif current_article.data.type == "image" %>
+
+      <div property="articleBody" class="post-content">
+        <figure class="post-image">
+
+          <img src="<%= current_article.data.image %>" alt="">
+
+          <% if current_article.data.caption %>
+            <figcaption>
+            <%= current_article.data.caption %>
+            </figcaption>
+          <% end %>
         </figure>
-      <% end %>
+        <%= yield %>
+      </div>
 
-      <h1 property="name"><%= current_article.title %></h1>
 
-      <time class="article__date" property="datePublished" datetime="<%= current_article.date.strftime('%Y-%m-%d') %>">
-        <%= current_article.date.strftime('%Y-%m-%d') %>
-      </time>
+    <% elsif current_article.data.type == "video" %>
 
-      <hr class="hr-gradient hr-gradient--small">
-    </header>
+      <div property="articleBody" class="post-content">
+        <figure class="post-video">
+          <%= current_article.data.video_embed_code %>
 
-    <section class="article__body" property="articleBody">
-      <%= yield %>
-    </section>
+          <% if current_article.data.caption %>
+            <figcaption>
+            <%= current_article.data.caption %>
+            </figcaption>
+          <% end %>
+        </figure>
+        <%= yield %>
+      </div>
 
-    <!--<footer class="article__footer">
+    <% else %>
 
-    </footer>-->
+      <header class="post-header">
+        <% if current_article.data.image %>
+          <figure class="post-image">
+            <img src="<%= current_article.data.image %>" alt="">
+          </figure>
+        <% end %>
 
-    <%= partial :article_comments unless current_article.nil? || current_article.data.disable_comments %>
+        <h1 property="name">
+          <%= current_article.title %>
+        </h1>
+
+        <hr class="gradient-break"/>
+      </header>
+
+      <div property="articleBody" class="post-content">
+        <%= yield %>
+      </div>
+
+    <% end %>
+
+    <footer class="post-footer">
+      {% for authors in page.author %}
+      {% assign author = site.data.colleagues[authors] %}
+      {% if author %}
+      <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
+        <div class="post-author__image">
+          <img property="image" src="{{ author.email | to_gravatar }}" alt="Bild på {{ author.firstname }} {{ author.lastname }}" />
+        </div>
+        <div class="post-author__name">
+          <a property="email" href="mailto:{{ author.email }}">
+            <span property="givenName">{{ author.firstname }}</span>
+            <span property="familyName">{{ author.lastname }}</span>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+
+      {% endfor %}
+      <div class="post-meta">
+        <time class="post-date" property="dateCreated" pubdate><a property="url" href="{{ page.url }}"><%= current_article.date.strftime('%Y-%m-%d') %></a></time>
+        <!--<span class="post-tags">taggat <a href="#">kunder</a>, <a href="#">priser</a></span>-->
+      </div>
+
+      {% if page.source_url %}
+      <div class="post-via">
+        via
+        <a property="isBasedOnUrl" href="{{ page.source_url }}">
+          {% if page.source_title %}
+          {{ page.source_title }}
+          {% else %}
+          {{ page.source_url }}
+          {% endif %}
+        </a>
+      </div>
+      {% endif %}
+    </footer>
+    <!-- / .post-footer -->
+
+    {% if page.comments %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'kollegornalabs'; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+    </script>
+    {% endif %}
   </article>
-
-  <p class="t-center"><a href="/blogg" class="button">Alla inlägg</a></p>
+  </section>
 <% end %>

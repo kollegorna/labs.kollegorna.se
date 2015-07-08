@@ -5,3 +5,199 @@
 // -----------------------------------------------------------------------------
 @import "normalize-scss";
 @import "kollegorna-design-system";
+
+.blog-header {
+  padding: 60px 0 100px;
+  text-align: center;
+
+  a {
+    color: rgba(0, 0, 0, .5);
+  }
+}
+
+.pagination {
+  @extend %ds-clearfix;
+  text-align: center;
+
+  a {
+    @extend %ds-button;
+    //@extend %border-radius(50%);
+    height: 30px;
+    line-height: 30px;
+    padding: 0 ds-rem(8px);
+    width: 30px;
+  }
+}
+
+.pagination__previous {
+  float: left;
+}
+
+.pagination__page-number {
+  color: $ds-color-text-light;
+  font-size: .8em;
+}
+
+.pagination__next {
+  float: right;
+}
+
+// A .post-item class wraps .post in blog post listing.
+.post-item {
+  padding: ds-rem(40px) 0;
+
+  &:nth-child(odd) {
+    background: rgba(0, 0, 0, .03);
+  }
+
+  .post {
+    //@extend %ds-wrapper;
+    margin: 0 auto;
+    max-width: 760px;
+  }
+}
+
+.post--post {
+  img {
+    @extend .polaroid;
+  }
+}
+
+.post--post ul li,
+.post--post ol li {
+  margin-bottom: .5rem;
+}
+
+.post--link {
+  h1 {
+    a {
+      &:after {
+        //color: $ds-color-link;
+        content: " → ";
+      }
+
+      &:hover:after {
+        //color: darken($ds-color-link, 10);
+        display: inline-block;
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+.post-image {
+  img {
+    @extend .polaroid;
+  }
+}
+
+.post-video {
+  @extend .polaroid;
+}
+
+.post-content {
+  figure,
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .post--post & {
+    figure {
+      @extend .polaroid;
+    }
+  }
+}
+
+.post-read-more {
+  padding-top: ds-rem(15px);
+
+}
+
+.post-footer {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  display: inline-block;
+  margin-top: ds-rem(22px);
+  padding-top: ds-rem(15px);
+  position: relative;
+  width: 100%;
+
+  a {
+    border: 0;
+  }
+}
+
+.post-author {
+  @extend %ds-clearfix;
+  //float: left;
+
+  margin-bottom: 15px;
+
+  a {
+    color: #403E35;
+  }
+}
+
+.post-author__image {
+  float: left;
+  height: 50px;
+
+  img {
+    @extend .polaroid;
+    //@extend border-radius(50%);
+    margin-right: ds-rem(15px);
+    max-width: 50px;
+    padding: 3px;
+  }
+}
+
+.post-author__name {
+  float: left;
+  font-size: .8em;
+  height: 25px;
+  line-height: 30px;
+}
+
+.post-meta {
+  //left: 67px;
+  position: absolute;
+  //top: 40px;
+  top: 18px;
+  right: 0;
+}
+
+.post-date,
+.post-tags {
+  font-size: .8em;
+}
+
+.post-date {
+  a {
+    color: #403E35;
+  }
+}
+
+.post-tags {
+  color: $ds-color-text;
+}
+
+.post-via {
+  font-size: .8em;
+  position: absolute;
+  right: 0;
+  top: 43px;
+}
+
+#disqus_thread {
+  padding-top: 2em;
+}
+
+.blog-post {
+  //padding-top: ds-rem(120px);
+
+  .post {
+    margin: 0 auto;
+    max-width: 760px;
+  }
+}
