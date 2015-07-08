@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="<%= current_page.data.lang || "en" %>">
 <head>
   <meta charset="utf-8">
-
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,300italic,400italic" rel="stylesheet" type="text/css">
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width">
-  {% javascript modernizr %}
-  {% stylesheet app %}
 
+  <title><%= current_page.data.title || "Kollegorna Labs" %></title>
+  <%= javascript_include_tag "modernizr" %>
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,300italic,400italic" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag "application" %>
+
+<%#
 {% if page.meta_title %}
   <meta name="title" content="{{ page.meta_title }}">
 {% else if page.title %}
@@ -24,10 +23,8 @@
 {% else %}
   <meta name="decription" content="{{ site.data.meta.description }}">
 {% endif %}
-
-{% include global-meta-facebook.html %}
-{% include global-meta-twitter.html %}
+%>
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 </head>
-<body class="{{ page.body_class }}">
-{% include global-tracking.html %}
+<body class="<%= current_page.data.body_classes %>">
+<%= partial "global-tracking" %>
