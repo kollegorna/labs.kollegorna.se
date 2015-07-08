@@ -1,0 +1,24 @@
+---
+title: Kollegornas blogg
+body_classes: blog
+---
+
+<h1 class="t-center"><%= blog.articles.count %> blogginlägg</h1>
+<p class="t-center"><a class="button" href="/feed.xml">Prenumerera via RSS</a></p>
+<hr class="hr-gradient hr-gradient--small">
+
+<% blog.articles.each do |article| %>
+  <article class="article-summary" vocab="http://schema.org/" typeof="BlogPosting">
+    <h1 property="name">
+      <a property="url" href="<%= article.url %>"><%= article.title %></a>
+    </h1>
+    <time property="datePublished" datetime="<%= article.date.strftime('%Y-%m-%d') %>">
+      <%= article.date.strftime('%Y-%m-%d') %>
+    </time>
+
+    <p>
+      <%= article.data.description %>
+    </p>
+  </article>
+<% end %>
+

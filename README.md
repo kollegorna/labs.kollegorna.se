@@ -1,23 +1,32 @@
-This is [our labs](http://labs.kollegorna.se).
+This is [our labs website](https://labs.kollegorna.se).
 
-### Setup locally
+## Local setup
 
-1. Clone repository ``git clone git@github.com:kollegorna/labs.kollegorna.se.git``
-2. Make sure you have [Bundler](https://rubygems.org/gems/bundler) and [Node.js](http://nodejs.org) installed.
-2. ``$ bundle install``
-3. ``$ npm install``
-4. ``$ bower install``
+1. Make sure you have [the same Ruby version installed as the repo](https://github.com/kollegorna/kollegorna.se/blob/master/.ruby-version).
+2. Install [Bundler](https://rubygems.org/gems/bundler) and [Node.js](http://nodejs.org).
+3. Clone repository
+4. ``$ npm install && gulp install``
 
-### Serve locally
+### Gulp commands
 
-	$ grunt serve
+Runs bundle install and bower install
 
-### Deploy
+	$ gulp install
 
-	$ grunt deploy
+Builds Middleman and create a BrowserSync server that watches all changes
 
-### Tools and references
+	$ gulp serve
 
-* [Bower](http://www.bower.io)
-* [Grunt](http://www.gruntjs.com)
-’ [Bundler](https://rubygems.org/gems/bundler)
+Builds Middleman
+
+	$ gulp build
+
+Builds Middleman and deploys with rsync
+
+	$ gulp deploy
+
+## Writing posts
+
+    $ middleman article NAME
+
+Will generate a file in source/posts.

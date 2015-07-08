@@ -1,0 +1,31 @@
+<% wrap_layout :layout do %>
+  <article class="article" role="article" vocab="http://schema.org/" typeof="BlogPosting">
+    <header class="article__header">
+      <% if current_article.data.image %>
+        <figure>
+          <img src="<%= current_article.data.image %>" class="polaroid" alt="">
+        </figure>
+      <% end %>
+
+      <h1 property="name"><%= current_article.title %></h1>
+
+      <time class="article__date" property="datePublished" datetime="<%= current_article.date.strftime('%Y-%m-%d') %>">
+        <%= current_article.date.strftime('%Y-%m-%d') %>
+      </time>
+
+      <hr class="hr-gradient hr-gradient--small">
+    </header>
+
+    <section class="article__body" property="articleBody">
+      <%= yield %>
+    </section>
+
+    <!--<footer class="article__footer">
+
+    </footer>-->
+
+    <%= partial :article_comments unless current_article.nil? || current_article.data.disable_comments %>
+  </article>
+
+  <p class="t-center"><a href="/blogg" class="button">Alla inlägg</a></p>
+<% end %>

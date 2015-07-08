@@ -1,0 +1,378 @@
+@charset "utf-8";
+
+// -----------------------------------------------------------------------------
+// Libraries
+// -----------------------------------------------------------------------------
+@import "normalize-scss";
+@import "kollegorna-design-system";
+
+// -----------------------------------------------------------------------------
+// General stuff
+// -----------------------------------------------------------------------------
+
+body {
+  color: $ds-color-scrub;
+}
+
+%content-wrapper {
+  clear: both;
+  margin: 0 auto 80px;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+// -----------------------------------------------------------------------------
+// Footer
+// -----------------------------------------------------------------------------
+
+.header {
+  padding: 60px 0 40px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Footer
+// -----------------------------------------------------------------------------
+
+.footer {
+  color: $ds-color-text-light;
+  padding: 120px 20px 40px;
+  text-align: center;
+
+  img {
+    opacity: 0.6;
+  }
+}
+
+.footer__cc {
+  padding-top: 20px;
+}
+
+// -----------------------------------------------------------------------------
+// Home
+// -----------------------------------------------------------------------------
+
+.home__language {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  margin-top: -50px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+
+  span {
+    display: block;
+    font-size: $ds-font-size-body-copy;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+.home__intro,
+.home__projects,
+.home__labs,
+.home__blog,
+.home__more,
+.home__jobs,
+.home__clients {
+  @extend %content-wrapper;
+}
+
+.home__intro {
+  margin-bottom: 50px;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+
+    img {
+      max-width: 160px;
+    }
+  }
+
+  p {
+    @media (min-width: 600px) {
+      font-size: $ds-h3-font-size;
+    }
+  }
+}
+
+.home__colleagues {
+  @extend %ds-clearfix;
+  margin: 0 auto 60px;
+  max-width: 1280px;
+  padding: 0 20px;
+  text-align: center;
+
+  @media (min-width: 500px) {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin-bottom: ds-rem-calc(36);
+  }
+}
+
+.profile {
+  padding-bottom: 40px;
+
+  img {
+    max-width: 180px;
+  }
+
+  h1 {
+    @extend %h3;
+    font-size: $ds-h4-font-size;
+    margin: 0;
+    text-transform: none;
+  }
+
+  h2 {
+    @extend %h5;
+    color: $ds-color-text-light;
+    font-weight: $ds-font-weight;
+    margin: 0;
+  }
+
+  @media (min-width: 500px) {
+    float: left;
+    padding: 0 20px 40px;
+    width: 50%;
+
+    &:nth-child(2n+1) {
+      clear: both;
+    }
+  }
+
+  @media (min-width: 700px) {
+    width: 33.333%;
+
+    &:nth-child(2n+1) {
+      clear: none;
+    }
+
+    &:nth-child(3n+1) {
+      clear: both;
+    }
+
+    &:last-child {
+      margin-left: 33.333%;
+    }
+
+    img {
+      max-width: 140px;
+    }
+  }
+
+  @media (min-width: 940px) {
+    width: 25%;
+
+    &:nth-child(2n+1),
+    &:nth-child(3n+1) {
+      clear: none;
+    }
+
+    &:nth-child(4n+1) {
+      clear: both;
+    }
+
+    &:last-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(9) {
+      margin-left: 25%;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    width: 20%;
+
+    &:nth-child(2n+1),
+    &:nth-child(3n+1),
+    &:nth-child(4n+1) {
+      clear: none;
+    }
+
+    &:nth-child(5n+1) {
+      clear: both;
+    }
+
+    &:nth-child(9) {
+      margin-left: 0;
+    }
+  }
+}
+
+.profile__does {
+  @extend small;
+  margin: 5px 0 10px;
+}
+
+.profile__contact {
+  @extend small;
+  margin-bottom: 10px;
+}
+
+.profile__links {
+  a {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: inline-block;
+    height: 26px;
+    margin-right: 10px;
+    text-align: center;
+    transition: all 0.5s ease-in;
+    width: 26px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    img {
+      max-width: 12px;
+      opacity: 0.55;
+    }
+  }
+}
+
+.profile__tumblr {
+  img {
+    max-width: auto;
+    height: 12px;
+  }
+}
+
+.home__labs,
+.home__blog {
+  ul {
+    list-style: none;
+    margin: 0 0 25px;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  time {
+    display: block;
+  }
+}
+
+.home__labs__cta,
+.home__blog__cta {
+  text-align: center;
+}
+
+.home__clients {
+  ul {
+    @extend %ds-clearfix;
+    list-style: none;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 5px;
+    text-align: center;
+
+    @media (min-width: 400px) {
+      float: left;
+      text-align: left;
+      width: 50%;
+
+      &:nth-child(2n+1) {
+        clear: both;
+      }
+    }
+
+    @media (min-width: 600px) {
+      width: 33.333%;
+
+      &:nth-child(2n+1) {
+        clear: none;
+      }
+
+      &:nth-child(3n+1) {
+        clear: both;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// General pages
+// -----------------------------------------------------------------------------
+
+.page {
+  @extend %content-wrapper;
+}
+
+// -----------------------------------------------------------------------------
+// Blog
+// -----------------------------------------------------------------------------
+
+.blog {
+  @extend %content-wrapper;
+}
+
+.article-summary {
+  h1 {
+    font-size: $ds-font-size-body-copy;
+    margin: 0;
+  }
+
+  time {
+    color: $ds-color-text-light;
+    font-size: $ds-font-size-body-copy;
+  }
+
+  .blog & {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.article {
+  @extend %content-wrapper;
+
+  figure {
+    text-align: center;
+  }
+
+  img {
+    float: none;
+  }
+}
+
+.article__header {
+  text-align: center;
+
+  time {
+    color: $ds-color-text-light;
+    font-size: $ds-font-size-body-copy;
+  }
+}
+
+.article__body {
+  img,
+  .fluid-width-video-wrapper iframe {
+    @extend .polaroid;
+  }
+}

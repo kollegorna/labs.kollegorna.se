@@ -1,0 +1,57 @@
+<footer class="footer" role="contentinfo">
+  <% if current_page.data.lang == 'en' %>
+    <p>Get in touch and tell us about your next project.<br>Contact Henrik Sjökvist at <a href="mailto:henrik@kollegorna.se">henrik@kollegorna.se</a> or <a href="callto:+46735052929">+46 – 73 – 505 29 29</a>.</p>
+
+    <p>Come by our office: <a href="https://www.google.com/maps/place/Kollegorna+AB/@59.335975,18.051896,17z/data=!3m1!4b1!4m2!3m1!1s0x465f9d6417696cdd:0x2a488a80c7289bb9?hl=en">Wallingatan 37, Stockholm</a></p>
+  <% else %>
+    <p>Hör av dig och berätta om ditt nästa projekt.<br>Kontakta Henrik Sjökvist på <a href="mailto:henrik@kollegorna.se">henrik@kollegorna.se</a> eller <a href="callto:+46735052929">073 – 505 29 29</a>.</p>
+
+    <p>Hitta hit: <a href="https://www.google.se/maps/place/Kollegorna+AB/@59.335975,18.051896,17z/data=!3m1!4b1!4m2!3m1!1s0x465f9d6417696cdd:0x2a488a80c7289bb9?hl=en">Wallingatan 37, 4tr</a></p>
+  <% end %>
+
+  <ul class="t-list-inline">
+    <li>
+      <a href="https://twitter.com/kollegorna">
+        <%= image_tag 'icon-twitter.svg' %>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/kollegorna">
+        <%= image_tag 'icon-github.svg' %>
+      </a>
+    </li>
+    <li>
+      <a href="https://facebook.com/kollegorna">
+        <%= image_tag 'icon-facebook.svg' %>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com/kollegorna">
+        <%= image_tag 'icon-instagram.svg' %>
+      </a>
+    </li>
+  </ul>
+
+
+  <% if current_page.data.lang == 'en' %>
+    <p>Don't miss <a href="https://labs.kollegorna.se">our lab</a>.</p>
+  <% else %>
+    <p>Besök även <a href="https://labs.kollegorna.se">vårt labb</a>.</p>
+    <p>Information <a href="/english">in english</a>.</p>
+  <% end %>
+
+
+  <p class="footer__cc">
+    <% if current_page.data.lang == 'en' %>
+      <a href="https://creativecommons.org/licenses/by/2.5/deed.en_US" title="All content is licensed with Creative Commons Attribution 2.5.">
+        <%= image_tag 'icon-cc.svg' %>
+        <%= image_tag 'icon-cc-attribution.svg' %>
+      </a>
+    <% else %>
+      <a href="https://creativecommons.org/licenses/by/2.5/se/deed.en_US" title="Allt innehåll är licenserat med Creative Commons Attribution 2.5.">
+        <%= image_tag 'icon-cc.svg' %>
+        <%= image_tag 'icon-cc-attribution.svg' %>
+      </a>
+    <% end %>
+  </p>
+</footer>

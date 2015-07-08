@@ -1,24 +1,17 @@
-# Sass
-.sass-cache
-
-# Bundler config.
+# Bundler config
 /.bundle
 
-# Binaries
-bin/
-
-# Drafts
-app/_drafts/
-
 # Built site
-dist/
+/build
 
-# Node modules
-node_modules/
-
-# rbenv
-.rbenv-vars
+# Data
+/data
 
 # Vendor
 /vendor
-app/_assets/vendor
+
+# Node modules
+/node_modules
+
+# Misc
+.DS_Store
