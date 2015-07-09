@@ -1,9 +1,8 @@
 ---
-layout: post
-type: post
 title: "Integrating Tictail with Prisjakt and PriceRunner"
-created: 1425632493
+date: 2015-03-06 00:00 UTC
 author: ivan
+disable_comments: false
 comments: true
 ---
 

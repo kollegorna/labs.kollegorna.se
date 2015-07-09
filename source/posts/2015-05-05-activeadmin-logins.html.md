@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Tracking user logins and displaying results in Active Admin"
-created: 1430829242
+date: 2015-05-05 00:00 UTC
 author: ivan
-comments: true
+disable_comments: false
 ---
 
 In one of our web applications we needed to track user logins (when and from where a user logs in), and display them to the website admin.

@@ -1,12 +1,10 @@
 ---
-layout: post
-type: post
 title: "Ensure your secrets are set with Secret Service"
-created: 1422263764
+date: 2015-01-26 00:00 UTC
 author:
   - filippos
   - henrik
-comments: true
+disable_comments: false
 ---
 
 Rails 4.1 introduced secrets.yml, a file in which you can add your secret configuration variables per environment. This is typically API keys and similar things that you don't want to commit to your repository and potentially expose to the world. To avoid this, the file should not contain the actual values, but instead you should export the values in your ENV and just point to them in your secrets.yml, e.g.

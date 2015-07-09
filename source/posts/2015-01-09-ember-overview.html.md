@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Our experience with Ember"
-created: 1420416860
+date: 2015-01-09 00:00 UTC
 author: filippos
-comments: true
+disable_comments: false
 ---
 
 Our last project was built in Rails and Ember. Rails was acting mostly as an API while Ember was taking care of the whole user experience and some data manipulation. All in all it was a great experience. We summarize some of the stuff we crossed while building a whole web app in Ember.

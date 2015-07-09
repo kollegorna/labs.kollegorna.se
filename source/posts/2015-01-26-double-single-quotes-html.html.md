@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Consistent use of double or single quotes in HTML"
-created: 1422278412
+date: 2015-01-26 00:00 UTC
 author: per
-comments: true
+disable_comments: false
 meta_description: "Being consistent when using double or single quotes in HTML will result in smaller file size when gzipping. "
 ---
 

@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Jekyll for Company Websites"
-created: 1428577944
+date: 2015-05-12 00:00 UTC
 author: urban
-comments: true
+disable_comments: false
 ---
 
 Recently we made two small company websites for Blendow Group – [blendow.se](http://www.blendow.se/) and [bgpublishing.se](http://www.bgpublishing.se). We decided to build them using [Jekyll](http://jekyllrb.com/) and host them on [GitHub Pages](https://pages.github.com/). Since our client is pretty tech-savvy and knows their way around Markdown and HTML we could choose this solution knowing they could update and edit their sites easily themselves. Both sites also require very little change as they're basically just promoting the digital products that Blendow offers (like [BG Play](https://www.bgplay.se) and [Legal Career](https://www.legalcareer.se) that we've previously built for them).

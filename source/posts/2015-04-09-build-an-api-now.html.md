@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Build an API in your Rails app now!"
-created: 1428577944
+date: 2015-04-09 00:00 UTC
 author: filippos
-comments: true
+disable_comments: false
 ---
 
 Over the past months we have been building various APIs here in Kollegorna using Rails. Although there has been a lot of fuzz about API frameworks in Ruby community like the sinatra-way and Grape the truth is that I never felt that Rails limits you when building APIs, especially if you have a large one.

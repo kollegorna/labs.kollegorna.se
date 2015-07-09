@@ -25,7 +25,7 @@ activate :blog do |blog|
   blog.default_extension = '.md'
   blog.new_article_template = 'article.erb'
   blog.paginate = true
-  blog.permalink = "blogg/{year}/{month}/{title}/index.html"
+  blog.permalink = "blog/{year}/{month}/{title}/index.html"
   blog.sources = "posts/{year}-{month}-{day}-{title}.html"
 end
 
@@ -47,5 +47,5 @@ configure :build do
   activate :minify_javascript
   activate :minify_html
   activate :asset_hash
-  activate :sitemap, :hostname => "https://www.kollegorna.se"
+  activate :sitemap, :hostname => "https://labs.kollegorna.se"
 end

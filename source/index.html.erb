@@ -47,7 +47,7 @@ body_classes: home
       </li>
     {% endfor %}
   %>
-      <% blog.articles[0...3].each do |article| %>
+      <% blog.articles[0...10].each do |article| %>
         <li vocab="http://schema.org/" typeof="BlogPosting">
           <a property="url" href="<%= article.url %>"><%= article.title %></a>
           <time class="t-meta t-meta--small" property="datePublished" datetime="<%= article.date.strftime('%Y-%m-%d') %>">

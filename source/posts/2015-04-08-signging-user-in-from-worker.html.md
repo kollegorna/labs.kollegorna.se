@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Signing a user in from a worker"
-created: 1428566640
+date: 2015-04-08 00:00 UTC
 author: filippos
-comments: true
+disable_comments: false
 ---
 
 In one of our projects we had the following requirement: create a "confirm" endpoint (like /confirm/:id) that when a user browses and the token is correct user should automatically be signed in and redirected to profile whereas when the token is incorrect user shouldn't be signed in and should get a redirect to the login page.

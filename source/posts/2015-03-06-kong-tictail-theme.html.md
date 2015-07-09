@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Building Tictail themes with Grunt, Bower and other modern development tools and techniques"
-created: 1425632525
+date: 2015-03-06 00:00 UTC
 author: per
-comments: true
+disable_comments: false
 ---
 
 Are you building a theme for a Tictail store? In this blog post we'll share how with we did when building our online snowboard store [The Kong Initiative](http://www.konginitiative.com) ([more info](http://blog.konginitiative.com/post/112780967221/no-business-like-snow-business)).

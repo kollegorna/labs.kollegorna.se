@@ -1,13 +1,11 @@
 ---
-layout: post
-type: post
 title: "My first Personal Development Days"
-created: 1424101296
+date: 2015-02-16 00:00 UTC
 author: ivan
-comments: true
+disable_comments: false
 ---
 
-Every six weeks we're having Personal Development Days. It's usually 3 days - Thursday, Friday and Monday when we don't work on clients' projects but we can work on our own stuff - learning news skills, working on our personal projects, etc. 
+Every six weeks we're having Personal Development Days. It's usually 3 days - Thursday, Friday and Monday when we don't work on clients' projects but we can work on our own stuff - learning news skills, working on our personal projects, etc.
 
 I decided to learn something new that I can potentially use at work but also deploy to the Raspberry Pi 2 Model B, which I accidentally received a day before my first PDD (Thanks Kollegorna!).
 

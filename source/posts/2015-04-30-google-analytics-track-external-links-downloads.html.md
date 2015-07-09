@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "How to track clicks on external links and count file downloads in Google Analytics"
-created: 1430386305
+date: 2015-04-30 00:00 UTC
 author: per
-comments: true
+disable_comments: false
 ---
 
 To follow up on what I wrote yesterday ([Tracking external links in Google Analytics and browser behaviour](/blog/2015/04/google-analytics-external-links/)) about how event.Preventdefault can break things I thought I'd share what I was working on when discovering that. 

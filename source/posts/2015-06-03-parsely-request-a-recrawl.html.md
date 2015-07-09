@@ -1,6 +1,6 @@
 ---
 title: "Parsely - request a recrawl"
-date: 2015-06-03 10:33:10 UTC
+date: 2015-06-03 00:00 UTC
 author: ivan
 disable_comments: false
 ---

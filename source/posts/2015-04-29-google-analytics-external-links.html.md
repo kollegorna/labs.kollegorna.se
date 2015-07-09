@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Tracking external links in Google Analytics and browser behaviour"
-created: 1430324341
+date: 2015-04-29 00:00 UTC
 author: per
-comments: true
+disable_comments: false
 ---
 
 Here are some thoughts on tracking clicks on external links in Google Analytics (and specifically Universal Analytics).

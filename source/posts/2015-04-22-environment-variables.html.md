@@ -1,10 +1,11 @@
 ---
-layout: post
-type: post
 title: "Environment variables"
-created: 1428577944
+date: 2015-04-22 00:00:00 UTC
 author: urban
-comments: true
+type: post
+description:
+image:
+disable_comments: false
 ---
 
 > "If Only I Had A Penny For Everytime I've been missing an API key."

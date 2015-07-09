@@ -1,10 +1,8 @@
 ---
-layout: post
-type: post
 title: "Export your db as a searchable API in Rails"
-created: 1423406108
+date: 2015-02-09 00:00 UTC
 author: filippos
-comments: true
+disable_comments: false
 ---
 
 In a previous [blog post](https://labs.kollegorna.se/blog/2014/11/rails-api/) we had talked about challenges faced when building large apis in Rails. One of them was that AR would limit you, especially in the index method (the /resources/ endpoint) where you `GET` all the resources but with some filters applied.
