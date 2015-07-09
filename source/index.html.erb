@@ -26,40 +26,23 @@ body_classes: home
     </h2>
 
     <ul>
-    <%#
-    {% for post in site.posts %}
-      <li>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-        <p>
-          <time pubdate>{{ post.date | date_to_string }}</time>
+      <% blog.articles.each do |article| %>
+        <li>
+          <h3><a href="<%= article.url %>"><%= article.title %></a></h3>
+          <p>
+          <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
           –
-          {% for authors in post.author %}
-            {% assign author = site.data.colleagues[authors] %}
-            {% if author %}
-              <span property="author" vocab="http://schema.org/" typeof="Person">
-                <span property="givenName">{{ author.firstname }}</span>
-                <span property="familyName">{{ author.lastname }}</span>
-              </span>
-            {% endif %}
-
-          {% endfor %}
-        </p>
-      </li>
-    {% endfor %}
-  %>
-      <% blog.articles[0...10].each do |article| %>
-        <li vocab="http://schema.org/" typeof="BlogPosting">
-          <a property="url" href="<%= article.url %>"><%= article.title %></a>
-          <time class="t-meta t-meta--small" property="datePublished" datetime="<%= article.date.strftime('%Y-%m-%d') %>">
-            <%= article.date.strftime('%Y-%m-%d') %>
-          </time>
+          <span property="author" vocab="http://schema.org/" typeof="Person">
+            <span property="givenName">AUTHORNAME</span>
+          </span>
+          </p>
         </li>
       <% end %>
     </ul>
 
     <!--<div class="t-center">
       <a href="/blog" class="shame-button">All posts</a>
-    </div>-->
+      </div>-->
   </div>
 </section>
 
@@ -147,7 +130,7 @@ body_classes: home
 
     <!--<div class="t-center">
       <a href="/projects" class="shame-button">All projects</a>
-    </div>-->
+      </div>-->
   </div>
 </section>
 
@@ -163,9 +146,9 @@ body_classes: home
   <p class="t-lead">We're a distributed digital agency spread from Santo Domingo to Seoul with our HQ in Stockholm.<br>Welcome to our laboratory. Put on your lab coat!</p>
 
   <p>
-    <a class="shame-button" href="https://www.kollegorna.se">Kollegorna.se</a>
-    <a class="shame-button" href="https://github.com/kollegorna">GitHub</a>
-    <a class="shame-button" href="https://twitter.com/kollegorna">Twitter</a>
+  <a class="shame-button" href="https://www.kollegorna.se">Kollegorna.se</a>
+  <a class="shame-button" href="https://github.com/kollegorna">GitHub</a>
+  <a class="shame-button" href="https://twitter.com/kollegorna">Twitter</a>
   </p>
 
   <a href="#blog" class="index__about-toggle"><%= image_tag "icon-close.svg" %><span class="visuallyhidden">Back to blog posts list</span></a>

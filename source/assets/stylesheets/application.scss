@@ -6,6 +6,417 @@
 @import "normalize-scss";
 @import "kollegorna-design-system";
 
+// -----------------------------------------------------------------------------
+// Index
+// -----------------------------------------------------------------------------
+// .index
+%_l-index {
+  padding: 20px 0;
+  position: relative;
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    padding: 0;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// .index__intro,
+// .index__blog,
+// .index__projects,
+// .index__about
+%_l-index__content-setup {
+  @media (min-width: 768px) {
+    padding: 25px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    overflow: auto;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 40px;
+  }
+}
+
+// .index__intro
+%_l-index__intro {
+  border-bottom: 1px dashed $ds-color-border;
+  margin-bottom: 40px;
+  //margin-left: -20px;
+  //margin-right: -20px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1024px) {
+    border-bottom: 0;
+    border-left: 1px dashed $ds-color-border;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    width: 25%;
+  }
+}
+
+// .index__blog
+%_l-index__blog {
+  @media (min-width: 768px) {
+    float: left;
+    width: 50%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 45%;
+  }
+}
+
+%_l-index__projects {
+  @media (min-width: 768px) {
+    border-left: 1px dashed $ds-color-border;
+    float: left;
+    width: 50%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+}
+
+%_l-index__about {
+  border-top: 1px dashed $ds-color-border;
+  clear: both;
+  //margin-left: -20px;
+  //margin-right: -20px;
+
+  @media (min-width: 1024px) {
+    border-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    .js & {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    float: left;
+    width: 75%;
+  }
+}
+
+
+// Styles
+
+.index {
+  @extend %_l-index;
+  -ms-overflow-style: none;
+}
+
+.index__intro,
+.index__blog,
+.index__projects,
+.index__about {
+  @extend %_l-index__content-setup;
+  -ms-overflow-style: none;
+}
+.index__blog,
+.index__projects {
+  overflow-y: scroll;
+
+  // http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 0;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 8px;
+    border: 2px solid $ds-color-background; // should match background, can't be transparent
+    background-color: darken($ds-color-background, 4);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid $ds-color-background; // should match background, can't be transparent
+    background-color: darken($ds-color-background, 8);
+  }
+}
+/*
+@supports (-webkit-appearance:none) {
+.index,
+.index__intro,
+.index__blog,
+.index__projects,
+.index__about {
+&::-webkit-scrollbar {
+-webkit-appearance: none;
+}
+}
+}
+ */
+
+.index__intro {
+  @extend %_l-index__intro;
+
+  h1 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  p {
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .t-lead {
+    @media (max-width: 1024px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .index__about-toggle {
+    @media (max-width: 1024px) {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.index__logo {
+  -webkit-animation: index__logo 8s ease infinite;
+  -moz-animation: index__logo 8s ease infinite;
+  animation: index__logo 8s ease infinite;
+  background: linear-gradient(270deg, $ds-color-orange, darken($ds-color-orange, 15%));
+  background-size: 400% 400%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto ds-rem(35px);
+  padding: 3px;
+  width: 166px;
+  span {
+    background: $ds-color-background;
+    border-radius: 50%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  img {
+    float: none;
+    max-width: 123px;
+  }
+}
+
+@-webkit-keyframes index__logo {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+@-moz-keyframes index__logo {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+@keyframes index__logo {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.index__list {
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+    position: relative;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: $ds-font-weight;
+    margin: 0;
+
+    a {
+      color: $ds-color-orange;
+
+      &:hover,
+      &:focus {
+        color: #403E35;
+      }
+    }
+  }
+
+  li {
+    border-bottom: 1px dashed $ds-color-border;
+    margin-bottom: 20px;
+
+    &:last-child {
+      border: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    @extend small;
+  }
+
+  time {
+    color: $ds-color-text-light;
+  }
+
+  [property="author"] {
+    &:after {
+      content: " + ";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+
+  @media (min-width: 768px) {
+    line-height: 28px;
+    margin-bottom: 25px;
+
+    li {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    margin-bottom: 40px;
+  }
+
+  /*figure {
+  @extend %ds-clearfix;
+  background: #fff;
+  box-shadow: 0 1px 2px #b7b19c;
+  border-radius: 3px;
+  margin: 0 -8px 12px;
+  padding: 8px;
+}*/
+}
+
+.index__blog {
+  @extend %_l-index__blog;
+
+  .index__list {
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.index__blog__rss {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.index__projects {
+  @extend %_l-index__projects;
+
+  .index__list {
+    @media (max-width: 768px) {
+      border-top: 1px dashed $ds-color-border;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 40px;
+    }
+  }
+}
+
+.index__about {
+  @extend %_l-index__about;
+  position: relative;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    position: absolute;
+  }
+
+  h2 {
+    small {
+      display: block;
+      color: $ds-color-text-light;
+      font-size: .8rem;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shame-button {
+    margin: 0 5px 20px;
+
+    @media (min-width: 768px) {
+      margin: 0 10px;
+    }
+
+    @media (min-width: 1024px) {
+      margin: 0 15px;
+    }
+  }
+
+  .js & .index__about-toggle {
+    display: none;
+
+    @media (min-width: 1024px) {
+      border: 1px solid $ds-color-orange;
+      border-radius: 50%;
+      display: block;
+      height: 50px;
+      width: 50px;
+      padding: 10px;
+      position: absolute;
+      left: 40px;
+      top: 40px;
+
+      img {
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// Blog
+// -----------------------------------------------------------------------------
 .blog-header {
   padding: 60px 0 100px;
   text-align: center;

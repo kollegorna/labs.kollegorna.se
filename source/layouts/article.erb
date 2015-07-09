@@ -65,7 +65,7 @@
         <% end %>
 
         <h1 property="name">
-          <%= current_article.title %>
+          <%= current_article.data.title %>
         </h1>
 
         <hr class="gradient-break"/>
@@ -78,44 +78,42 @@
     <% end %>
 
     <footer class="post-footer">
-      {% for authors in page.author %}
-      {% assign author = site.data.colleagues[authors] %}
-      {% if author %}
-      <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
-        <div class="post-author__image">
-          <img property="image" src="{{ author.email | to_gravatar }}" alt="Bild på {{ author.firstname }} {{ author.lastname }}" />
-        </div>
-        <div class="post-author__name">
-          <a property="email" href="mailto:{{ author.email }}">
-            <span property="givenName">{{ author.firstname }}</span>
-            <span property="familyName">{{ author.lastname }}</span>
-          </a>
-        </div>
-      </div>
-      {% endif %}
 
-      {% endfor %}
-      <div class="post-meta">
-        <time class="post-date" property="dateCreated" pubdate><a property="url" href="{{ page.url }}"><%= current_article.date.strftime('%Y-%m-%d') %></a></time>
-        <!--<span class="post-tags">taggat <a href="#">kunder</a>, <a href="#">priser</a></span>-->
+      <%#
+          <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
+      <div class="post-author__image">
+      <img property="image" src="{{ author.email | to_gravatar }}" alt="Bild på {{ author.firstname }} {{ author.lastname }}" />
+      </div>
+      <div class="post-author__name">
+      <a property="email" href="mailto:{{ author.email }}">
+      <span property="givenName">{{ author.firstname }}</span>
+      <span property="familyName">{{ author.lastname }}</span>
+      </a>
+      </div>
       </div>
 
-      {% if page.source_url %}
-      <div class="post-via">
-        via
-        <a property="isBasedOnUrl" href="{{ page.source_url }}">
-          {% if page.source_title %}
-          {{ page.source_title }}
-          {% else %}
-          {{ page.source_url }}
-          {% endif %}
-        </a>
-      </div>
-      {% endif %}
+    %>
+  <div class="post-meta">
+    <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
+    <!--<span class="post-tags">taggat <a href="#">kunder</a>, <a href="#">priser</a></span>-->
+  </div>
+
+  <% if current_article.data.source_url %>
+    <div class="post-via">
+      via
+      <a property="isBasedOnUrl" href="<%= current_article.data.source_url %>">
+        <% if current_article.data.source_title %>
+          <%= current_article.data.source_title %>
+        <% else %>
+          <%= current_article.data.source_title %>
+        <% end %>
+      </a>
+    </div>
+  <% end %>
     </footer>
     <!-- / .post-footer -->
 
-    {% if page.comments %}
+    <% if current_article.data.disable_comments %>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -127,7 +125,7 @@ var disqus_shortname = 'kollegornalabs'; // required: replace example with your 
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
     </script>
-    {% endif %}
+  <% end %>
   </article>
   </section>
 <% end %>
