@@ -48,9 +48,7 @@
 // .index__intro
 %_l-index__intro {
   border-bottom: 1px dashed $ds-color-border;
-  margin-bottom: 40px;
-  //margin-left: -20px;
-  //margin-right: -20px;
+  margin-bottom: ds-rem-calc(35px);
   text-align: center;
 
   @media (min-width: 768px) {
@@ -95,8 +93,6 @@
 %_l-index__about {
   border-top: 1px dashed $ds-color-border;
   clear: both;
-  //margin-left: -20px;
-  //margin-right: -20px;
 
   @media (min-width: 1024px) {
     border-top: 0;
@@ -121,7 +117,6 @@
   @extend %_l-index;
   -ms-overflow-style: none;
 }
-
 .index__intro,
 .index__blog,
 .index__projects,
@@ -134,7 +129,6 @@
   overflow-y: scroll;
 
   // http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-os-x-trackpad-users-in-webki
-
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -152,20 +146,6 @@
     background-color: darken($ds-color-background, 8);
   }
 }
-/*
-@supports (-webkit-appearance:none) {
-.index,
-.index__intro,
-.index__blog,
-.index__projects,
-.index__about {
-&::-webkit-scrollbar {
--webkit-appearance: none;
-}
-}
-}
- */
-
 .index__intro {
   @extend %_l-index__intro;
 
@@ -179,12 +159,13 @@
       padding-left: 20px;
       padding-right: 20px;
     }
+    @media (min-width: 1280px) {
+      padding-right: 40px;
+    }
   }
 
-  .t-lead {
-    @media (max-width: 1024px) {
-      margin-bottom: 0;
-    }
+  .small {
+    @extend small;
   }
 
   .index__about-toggle {
@@ -202,7 +183,7 @@
   background-size: 400% 400%;
   border-radius: 50%;
   display: block;
-  margin: 0 auto ds-rem(35px);
+  margin: 0 auto ds-rem-calc(35px);
   padding: 3px;
   width: 166px;
   span {
@@ -241,7 +222,9 @@
   }
 
   h2 {
+    font-size: 1.85rem;
     margin-top: 0;
+    margin-bottom: ds-rem-calc(35px);
     position: relative;
   }
 
@@ -308,15 +291,6 @@
   @media (min-width: 1280px) {
     margin-bottom: 40px;
   }
-
-  /*figure {
-  @extend %ds-clearfix;
-  background: #fff;
-  box-shadow: 0 1px 2px #b7b19c;
-  border-radius: 3px;
-  margin: 0 -8px 12px;
-  padding: 8px;
-}*/
 }
 
 .index__blog {
@@ -326,6 +300,9 @@
     @media (max-width: 768px) {
       padding-left: 20px;
       padding-right: 20px;
+    }
+    @media (min-width: 1280px) {
+      padding-left: 40px;
     }
   }
 }
@@ -381,18 +358,6 @@
     margin-right: auto;
   }
 
-  .shame-button {
-    margin: 0 5px 20px;
-
-    @media (min-width: 768px) {
-      margin: 0 10px;
-    }
-
-    @media (min-width: 1024px) {
-      margin: 0 15px;
-    }
-  }
-
   .js & .index__about-toggle {
     display: none;
 
@@ -435,7 +400,7 @@
     //@extend %border-radius(50%);
     height: 30px;
     line-height: 30px;
-    padding: 0 ds-rem(8px);
+    padding: 0 ds-rem-calc(8px);
     width: 30px;
   }
 }
@@ -455,7 +420,7 @@
 
 // A .post-item class wraps .post in blog post listing.
 .post-item {
-  padding: ds-rem(40px) 0;
+  padding: ds-rem-calc(40px) 0;
 
   &:nth-child(odd) {
     background: rgba(0, 0, 0, .03);
@@ -522,15 +487,15 @@
 }
 
 .post-read-more {
-  padding-top: ds-rem(15px);
+  padding-top: ds-rem-calc(15px);
 
 }
 
 .post-footer {
   border-top: 1px solid rgba(0, 0, 0, .1);
   display: inline-block;
-  margin-top: ds-rem(22px);
-  padding-top: ds-rem(15px);
+  margin-top: ds-rem-calc(22px);
+  padding-top: ds-rem-calc(15px);
   position: relative;
   width: 100%;
 
@@ -557,7 +522,7 @@
   img {
     @extend .polaroid;
     //@extend border-radius(50%);
-    margin-right: ds-rem(15px);
+    margin-right: ds-rem-calc(15px);
     max-width: 50px;
     padding: 3px;
   }
@@ -605,7 +570,7 @@
 }
 
 .blog-post {
-  //padding-top: ds-rem(120px);
+  padding-top: ds-rem-calc(120px);
 
   .post {
     margin: 0 auto;

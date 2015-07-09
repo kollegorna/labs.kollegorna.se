@@ -13,16 +13,15 @@ body_classes: home
 
   <p class="t-lead">Science and progress will lead to happiness.</p>
 
-  <p class="t-small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
+  <p class="small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
 
-  <a href="#about" class="shame-button index__about-toggle">About us</a>
+  <a href="#about" class="button index__about-toggle">About us</a>
 </header>
 
 <section class="index__blog" id="blog">
   <div class="index__list">
     <h2>
       <span class="gradient-border gradient-border--thin">Blog</span>
-      <!--<a href="/feed.xml" class="index__blog__rss">RSS</a>-->
     </h2>
 
     <ul>
@@ -33,16 +32,13 @@ body_classes: home
           <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
           –
           <span property="author" vocab="http://schema.org/" typeof="Person">
-            <span property="givenName">AUTHORNAME</span>
+            <%# @TODO need to figure this out with datafile %>
+            <span property="givenName">Authorname</span>
           </span>
           </p>
         </li>
       <% end %>
     </ul>
-
-    <!--<div class="t-center">
-      <a href="/blog" class="shame-button">All posts</a>
-      </div>-->
   </div>
 </section>
 
@@ -51,7 +47,7 @@ body_classes: home
     <h2>
       <span class="gradient-border gradient-border--thin">Projects + Play</span>
     </h2>
-
+    <%# @TODO should be moved to a data file %>
     <ul>
       <li>
         <a href="https://github.com/kollegorna/activeadmin-logins">Activeadmin::Logins</a>
@@ -127,15 +123,11 @@ body_classes: home
       </li>
 
     </ul>
-
-    <!--<div class="t-center">
-      <a href="/projects" class="shame-button">All projects</a>
-      </div>-->
   </div>
 </section>
 
 <section class="index__about" id="about">
-  <h2 class="t-h1">
+  <h2>
     About<br>
     Kollegorna
     <small>(“The Colleagues”)</small>
@@ -146,9 +138,9 @@ body_classes: home
   <p class="t-lead">We're a distributed digital agency spread from Santo Domingo to Seoul with our HQ in Stockholm.<br>Welcome to our laboratory. Put on your lab coat!</p>
 
   <p>
-  <a class="shame-button" href="https://www.kollegorna.se">Kollegorna.se</a>
-  <a class="shame-button" href="https://github.com/kollegorna">GitHub</a>
-  <a class="shame-button" href="https://twitter.com/kollegorna">Twitter</a>
+  <a class="button" href="https://www.kollegorna.se">Kollegorna.se</a>
+  <a class="button" href="https://github.com/kollegorna">GitHub</a>
+  <a class="button" href="https://twitter.com/kollegorna">Twitter</a>
   </p>
 
   <a href="#blog" class="index__about-toggle"><%= image_tag "icon-close.svg" %><span class="visuallyhidden">Back to blog posts list</span></a>
