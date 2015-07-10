@@ -26,7 +26,7 @@ GitHub Pages are public web pages hosted for free through [GitHub](https://githu
 
 For serving content via GitHub Pages you need to create a branch called ``gh-pages`` and set this as default.
 
-![Screenshot](/images/2015/2015-05-12-jekyll-for-company-sites-branch.png)
+![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-branch.png)
 
 This branch will hold all of your website files.
 
@@ -89,15 +89,15 @@ For editing content Markdown and HTML files, we just edit the files in our text 
 
 GitHub has a good editor for this, making this easy. Clicking the pencil icon takes us to the editor. 
 
-![Screenshot](2015-05-12-jekyll-for-company-sites-icon-edit.png)
+![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-icon-edit.png)
 
-![Screenshot](/images/2015/2015-05-12-jekyll-for-company-sites-file-edit.png)
+![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-file-edit.png)
 
 When finished, clicking the "commit changes" will commit directly to the ``gh-pages`` branch. 
 
 [Prose](http://prose.io/) is another alternative – a content editor for GitHub. Prose provides a beatifully simple content authoring environment for CMS-free websites Prose has advanced support for Jekyll sites and Markdown content. Prose detects Markdown posts in Jekyll sites and provides syntax highlighting, a formatting toolbar, and draft previews in the site's full layout.
 
-![Prose](/images/2015/2015-05-12-jekyll-for-company-sites-prose.png)
+![Prose](/posts/2015-05-12-jekyll-for-company-sites-prose.png)
 
 Overall we're very happy with what we get by using Jekyll directly on GitHub Pages. This is not the last time we'll be using it as we're big fans of static site generators like Jekyll and Middleman.
 
