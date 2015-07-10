@@ -49,7 +49,6 @@ gulp.task("jekyll-build", function (done) {
 An example of what the ``jekyll-rebuild``, ``watch`` and ``default`` tasks could look like:
 
 ```javascript
-
 gulp.task("jekyll-rebuild", ["jekyll-build"], function () {
     browserSync.reload();
 });
@@ -90,7 +89,7 @@ For editing content Markdown and HTML files, we just edit the files in our text 
 
 GitHub has a good editor for this, making this easy. Clicking the pencil icon takes us to the editor. 
 
-![Screenshot](/images/2015/2015-05-12-jekyll-for-company-sites-icon-edit.png)
+![Screenshot](2015-05-12-jekyll-for-company-sites-icon-edit.png)
 
 ![Screenshot](/images/2015/2015-05-12-jekyll-for-company-sites-file-edit.png)
 

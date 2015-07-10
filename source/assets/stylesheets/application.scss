@@ -5,7 +5,6 @@
 // -----------------------------------------------------------------------------
 @import "normalize-scss";
 @import "kollegorna-design-system";
-
 // -----------------------------------------------------------------------------
 // Index
 // -----------------------------------------------------------------------------
@@ -382,12 +381,17 @@
 // -----------------------------------------------------------------------------
 // Blog
 // -----------------------------------------------------------------------------
-.blog-header {
-  padding: 60px 0 100px;
-  text-align: center;
-
-  a {
-    color: rgba(0, 0, 0, .5);
+.logo {
+  margin: ds-rem-calc(64px) auto;
+  width: 92px;
+}
+.blog-post {
+  .post {
+    margin: 0 auto;
+    max-width: 768px;
+    h2 {
+      margin-top: ds-rem-calc(35px);
+    }
   }
 }
 
@@ -427,12 +431,13 @@
   }
 
   .post {
-    //@extend %ds-wrapper;
     margin: 0 auto;
     max-width: 760px;
   }
 }
-
+.post-header {
+  text-align: center;
+}
 .post--post {
   img {
     @extend .polaroid;
@@ -545,13 +550,11 @@
 
 .post-date,
 .post-tags {
-  font-size: .8em;
+  font-size: ds-rem-calc(16px);
 }
 
 .post-date {
-  a {
-    color: #403E35;
-  }
+  color: $ds-color-text-light;
 }
 
 .post-tags {
@@ -559,7 +562,7 @@
 }
 
 .post-via {
-  font-size: .8em;
+  font-size: ds-rem-calc(14px);
   position: absolute;
   right: 0;
   top: 43px;
@@ -569,11 +572,26 @@
   padding-top: 2em;
 }
 
-.blog-post {
-  padding-top: ds-rem-calc(120px);
+// code boxes
+pre,
+code {
+  font-size: $ds-font-size-small;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 3px 6px;
+}
+.highlight {
+  background: #fff;
+}
+pre {
+  overflow-x: scroll;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, .1);
+  border: 1px solid darken($ds-color-background, 10);
+  padding: ds-rem-calc(16px);
 
-  .post {
-    margin: 0 auto;
-    max-width: 760px;
+  code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 }

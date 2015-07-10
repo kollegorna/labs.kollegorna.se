@@ -39,15 +39,15 @@ Set environment variables (or put those environment variables to .envrc if you'r
 
 
 And this is what a crawler might look:
-{% gist ivannovosad/0270af6eea1bee499414 %}
+<p data-gist-id="0270af6eea1bee499414"></p>
 
 
 We'll need a worker, that requests the recrawl:
-{% gist ivannovosad/1a56636b11de9c7c696c %}
+<p data-gist-id="1a56636b11de9c7c696c"></p>
 
 
 And finally tell the worker to perform the job when a blog post changes, in active admin's resource:
-{% gist ivannovosad/d77a0e8e2953eea5eeac %}
+<p data-gist-id="d77a0e8e2953eea5eeac"></p>
 
 
 That's it! Now our blog posts are recrawled on every update!

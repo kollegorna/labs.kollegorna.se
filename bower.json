@@ -1,12 +1,11 @@
 {
-  "name": "kollegorna-se",
+  "name": "labs-kollegorna-se",
   "version": "1.0.0",
   "dependencies": {
     "modernizr": "~2.8.3",
     "jquery": "~2.1.4",
     "kollegorna-design-system": "kollegorna/design-system",
     "normalize-scss": "~3.0.0",
-    "fitvids": "~1.1.0",
-    "griddo": "~1.1.0"
+    "fitvids": "~1.1.0"
   }
 }

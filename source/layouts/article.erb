@@ -1,6 +1,9 @@
 <% wrap_layout :layout do %>
+  <header class="logo">
+    <% link_to '/' do %><%= image_tag "labs-logo.svg" %><% end %>
+  </header>
   <main role="main" class="blog-post">
-  <article class="post post--<%= current_article.data.type %>" vocab="http://schema.org/" typeof="BlogPosting">
+  <article class="post<% if current_article.data.type %> post--<%= current_article.data.type %><% end %>" vocab="http://schema.org/" typeof="BlogPosting">
     <% if current_article.data.type == "link" %>
 
       <div property="articleBody" class="post-content">
@@ -68,7 +71,9 @@
           <%= current_article.data.title %>
         </h1>
 
-        <hr class="gradient-break"/>
+        <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
+
+        <hr class="hr-gradient hr-gradient--medium">
       </header>
 
       <div property="articleBody" class="post-content">
@@ -78,6 +83,9 @@
     <% end %>
 
     <footer class="post-footer">
+      <div class="post-author__name">
+        <%= current_article.data.author %>
+      </div>
 
       <%#
           <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
@@ -95,7 +103,6 @@
     %>
   <div class="post-meta">
     <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
-    <!--<span class="post-tags">taggat <a href="#">kunder</a>, <a href="#">priser</a></span>-->
   </div>
 
   <% if current_article.data.source_url %>
@@ -113,7 +120,7 @@
     </footer>
     <!-- / .post-footer -->
 
-    <% if current_article.data.disable_comments %>
+    <% if current_article.data.disable_comments == false %>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
