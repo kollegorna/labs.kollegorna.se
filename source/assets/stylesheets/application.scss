@@ -172,6 +172,12 @@
       margin-bottom: 25px;
     }
   }
+  // SHAME
+  @media (max-width: 1024px) {
+    .index__about-toggle {
+      display: none;
+    }
+  }
 }
 
 .index__logo {
@@ -342,10 +348,10 @@
   }
 
   h2 {
+    @extend %h1;
     small {
       display: block;
       color: $ds-color-text-light;
-      font-size: .8rem;
       font-style: italic;
       margin-top: 20px;
     }
@@ -355,6 +361,13 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+
+    a {
+      margin-right: ds-rem-calc(35px);
+    }
+    a:last-child {
+      margin-right: none;
+    }
   }
 
   .js & .index__about-toggle {
@@ -370,13 +383,11 @@
       position: absolute;
       left: 40px;
       top: 40px;
-
-      img {
-        position: relative;
-        top: -3px;
-      }
     }
   }
+}
+.visuallyhidden {
+  @extend %ds-visuallyhidden;
 }
 // -----------------------------------------------------------------------------
 // Blog
