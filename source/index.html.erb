@@ -34,13 +34,23 @@ body_classes: home
           <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
           –
           <span property="author" vocab="http://schema.org/" typeof="Person">
-            <span property="givenName">
-              <% data.colleagues.each do |author| %>
-                <% if author['firstname'].downcase == article.data.author %>
-                  <%= author['firstname'] %> <%= author['lastname'] %>
+            <% data.colleagues.each do |author| %>
+              <% if article.data.author.is_a?(Array) %>
+                <% article.data.author.each do |multiple_authors| %>
+
+                  <% if author['firstname'].downcase == multiple_authors %>
+                    <span property="author">
+                      <%= author['firstname'] %> <%= author['lastname'] %> 
+                    </span>
+                  <% end %>
                 <% end %>
               <% end %>
-            </span>
+              <% if author['firstname'].downcase == article.data.author %>
+                <span property="author">
+                  <%= author['firstname'] %> <%= author['lastname'] %>
+                </span>
+              <% end %>
+            <% end %>
           </span>
           </p>
         </li>
