@@ -84,45 +84,44 @@
 
     <footer class="post-footer">
       <div class="post-author__name">
-        <%= current_article.data.author %>
-      </div>
-
-      <%#
-          <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
-      <div class="post-author__image">
-      <img property="image" src="{{ author.email | to_gravatar }}" alt="Bild på {{ author.firstname }} {{ author.lastname }}" />
-      </div>
-      <div class="post-author__name">
-      <a property="email" href="mailto:{{ author.email }}">
-      <span property="givenName">{{ author.firstname }}</span>
-      <span property="familyName">{{ author.lastname }}</span>
-      </a>
-      </div>
-      </div>
-
-    %>
-  <div class="post-meta">
-    <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
-  </div>
-
-  <% if current_article.data.source_url %>
-    <div class="post-via">
-      via
-      <a property="isBasedOnUrl" href="<%= current_article.data.source_url %>">
-        <% if current_article.data.source_title %>
-          <%= current_article.data.source_title %>
-        <% else %>
-          <%= current_article.data.source_title %>
+        <% data.colleagues.each do |author| %>
+          <% if author['firstname'].downcase == current_article.data.author %>
+            <div class="post-author" property="author" vocab="http://schema.org/" typeof="Person">
+              <div class="post-author__image">
+                <img property="image" src="<%= gravatar_for( author['email'] ) %>" alt="Bild på <%= author['firstname'] %> <%= author['lastname'] %>">
+              </div>
+              <div class="post-author__name">
+                <a property="email" href="mailto:<%= author['email'] %>">
+                  <span property="givenName"><%= author['firstname'] %></span>
+                  <span property="familyName"><%= author['lastname'] %></span>
+                </a>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      </a>
-    </div>
-  <% end %>
+
+        <div class="post-meta">
+          <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
+        </div>
+
+        <% if current_article.data.source_url %>
+          <div class="post-via">
+            via
+            <a property="isBasedOnUrl" href="<%= current_article.data.source_url %>">
+              <% if current_article.data.source_title %>
+                <%= current_article.data.source_title %>
+              <% else %>
+                <%= current_article.data.source_title %>
+              <% end %>
+            </a>
+          </div>
+        <% end %>
     </footer>
     <!-- / .post-footer -->
 
     <% if current_article.data.disable_comments == false %>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'kollegornalabs'; // required: replace example with your forum shortname
 /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -131,8 +130,9 @@ var disqus_shortname = 'kollegornalabs'; // required: replace example with your 
   dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
-    </script>
-  <% end %>
+      </script>
+    <% end %>
   </article>
+  <%= image_tag 'icon-cc-by.svg', class: 'center' %>
   </section>
 <% end %>

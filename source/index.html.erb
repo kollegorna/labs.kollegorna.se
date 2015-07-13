@@ -4,6 +4,8 @@ description: "We build stuff with Rails, Ember.js, Node.js and Go. This is our m
 meta_description: "We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…"
 body_classes: home
 ---
+
+
 <header class="index__intro">
   <h1>
     <a href="/" class="index__logo">
@@ -32,8 +34,13 @@ body_classes: home
           <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
           –
           <span property="author" vocab="http://schema.org/" typeof="Person">
-            <%# @TODO need to figure this out with datafile %>
-            <span property="givenName">Authorname</span>
+            <span property="givenName">
+              <% data.colleagues.each do |author| %>
+                <% if author['firstname'].downcase == article.data.author %>
+                  <%= author['firstname'] %> <%= author['lastname'] %>
+                <% end %>
+              <% end %>
+            </span>
           </span>
           </p>
         </li>
@@ -47,7 +54,6 @@ body_classes: home
     <h2>
       <span class="gradient-border gradient-border--thin">Projects + Play</span>
     </h2>
-    <%# @TODO should be moved to a data file %>
     <ul>
       <li>
         <a href="https://github.com/kollegorna/activeadmin-logins">Activeadmin::Logins</a>

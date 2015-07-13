@@ -170,12 +170,6 @@
       margin-bottom: 25px;
     }
   }
-  // SHAME
-  @media (max-width: 1024px) {
-    .index__about-toggle {
-      display: none;
-    }
-  }
 }
 
 .index__logo {
@@ -257,7 +251,7 @@
   }
 
   p {
-    @extend small;
+    font-size: 1rem;
   }
 
   time {
@@ -525,14 +519,14 @@
     margin-right: ds-rem-calc(15px);
     max-width: 50px;
     padding: 3px;
+    border-radius: 50px;
   }
 }
 
 .post-author__name {
   float: left;
-  font-size: .8em;
-  height: 25px;
-  line-height: 30px;
+  height: 50;
+  line-height: 50px;
 }
 
 .post-meta {
@@ -564,7 +558,10 @@
 #disqus_thread {
   padding-top: 2em;
 }
-
+.center {
+  display: block;
+  margin: ds-rem-calc(35px) auto;
+}
 // Code boxes
 pre,
 code {
