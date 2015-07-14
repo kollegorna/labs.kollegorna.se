@@ -1,23 +1,23 @@
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="{{ site.data.meta.twitter }}">
-{% if page.twitter %}
-  <meta name="twitter:creator" content="{{ page.twitter }}">
-{% endif %}
-{% if page.meta_title %}
-  <meta name="twitter:title" content="{{ page.meta_title }}">
-{% else if page.title %}
-  <meta name="twitter:title" content="{{ page.title }}">
-{% else %}
-  <meta name="twitter:title" content="{{ site.data.meta.title }}">
-{% endif %}
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url | remove:'index.html' }}">
-{% if page.meta_description %}
-  <meta name="twitter:decription" content="{{ page.meta_description }}">
-{% else %}
-  <meta name="twitter:decription" content="{{ site.data.meta.description }}">
-{% endif %}
-{% if page.meta_image %}
-  <meta name="twitter:image:src" content="{% asset_path {{ page.meta_image }} %}">
-{% else %}
-  <meta name="twitter:image:src" content="{{ site.url}}/images/twitter-image.jpg">
-{% endif %}
+    <meta name="twitter:site" content="@Kollegorna">
+  <% if current_page.data.twitter %>
+    <meta name="twitter:creator" content="<%= current_page.data.twitter %>">
+  <% end %>
+  <% if current_page.data.meta_title %>
+    <meta name="twitter:title" content="<%= current_page.data.meta_title %>">
+  <% elsif current_page.data.title %>
+    <meta name="twitter:title" content="<%= current_page.data.title %>">
+  <% else %>
+    <meta name="twitter:title" content="Kollegorna Labs">
+  <% end %>
+    <meta name="twitter:url" content="https://labs.kollegorna.se<%= current_page.url %>">
+  <% if current_page.data.meta_description %>
+    <meta name="twitter:decription" content="<%= current_page.data.meta_description %>">
+  <% else %>
+    <meta name="twitter:decription" content="We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…">
+  <% end %>
+  <% if current_page.data.meta_image %>
+    <meta name="twitter:image:src" content="https://labs.kollegorna.se<%= image_path 'twitter-image.jpg' %>">
+  <% else %>
+    <meta name="twitter:image:src" content="https://labs.kollegorna.se<%= image_path 'twitter-image.jpg' %>">
+  <% end %>

@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<%= current_page.data.lang || "en" %>">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
 
-  <title><%= current_page.data.title || "Kollegorna Labs" %></title>
-  <%= javascript_include_tag "modernizr" %>
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,300italic,400italic" rel="stylesheet" type="text/css">
-  <%= stylesheet_link_tag "syntax" %>
-  <%= stylesheet_link_tag "application" %>
+    <title><%= current_page.data.title || "Kollegorna Labs" %></title>
+    <%= javascript_include_tag "modernizr" %>
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,300italic,400italic" rel="stylesheet" type="text/css">
+    <%= stylesheet_link_tag "syntax" %>
+    <%= stylesheet_link_tag "application" %>
 
-<%#
-{% if page.meta_title %}
-  <meta name="title" content="{{ page.meta_title }}">
-{% else if page.title %}
-  <meta name="title" content="{{ page.title }}">
-{% else %}
-  <meta name="title" content="{{ site.data.meta.title }}">
-{% endif %}
-{% if page.meta_description %}
-  <meta name="decription" content="{{ page.meta_description }}">
-{% else %}
-  <meta name="decription" content="{{ site.data.meta.description }}">
-{% endif %}
-%>
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
-</head>
-<body class="<%= current_page.data.body_classes %>">
-<%= partial "global-tracking" %>
+  <% if current_page.data.meta_title %>
+    <meta name="title" content="<%= current_page.data.meta_title %>">
+  <% elsif current_page.data.title %>
+    <meta name="title" content="<%= current_page.data.title %>">
+  <% else %>
+    <meta name="title" content="Kollegorna Labs">
+  <% end %>
+  <% if current_page.data.meta_description %>
+    <meta name="decription" content="<%= current_page.data.meta_description %>">
+  <% else %>
+    <meta name="decription" content="We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…">
+  <% end %>
+
+  <%= partial "global-meta-facebook" %>
+  <%= partial "global-meta-twitter" %>
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+  </head>
+  <body class="<%= current_page.data.body_classes || "site" %>">
+    <%= partial "global-tracking" %>
