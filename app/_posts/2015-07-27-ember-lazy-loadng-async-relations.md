@@ -40,7 +40,7 @@ Started GET "/rack-reqorder/api/v1/exceptions/55ae0c7c4d616326884e0700" for 127.
 
 Ember here sees that you need the has many relation of fault and fetches all the exception ids that were found in the fault resource making the whole app slower.
 
-How can we mitigate this? It turns out that we can retrieve the exception ids of each fault model. They are hidden under `\_data.exceptions` (actually under `\_data` you can find all data that server returned for that resource). All you need to do is to add a computed property for that and with an Ember enumerator return an array of the ids.
+How can we mitigate this? It turns out that we can retrieve the exception ids of each fault model. They are hidden under `_data.exceptions` (actually under `_data` you can find all data that server returned for that resource). All you need to do is to add a computed property for that and with an Ember enumerator return an array of the ids.
 
 
 ``` javascript
