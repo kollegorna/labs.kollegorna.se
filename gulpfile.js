@@ -35,7 +35,7 @@ gulp.task('rsync', ['middleman-build'], function() {
   rsync({
     ssh: true,
     src: './build/',
-    dest: 'root@178.62.13.136:/var/www/kollegorna.se',
+    dest: 'root@178.62.13.136:/var/www/labs.kollegorna.se',
     recursive: true,
     syncDest: true,
     args: ['--verbose'],
