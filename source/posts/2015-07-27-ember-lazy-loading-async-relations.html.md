@@ -40,7 +40,6 @@ Ember here sees that you need the has many relation of fault and fetches all the
 
 How can we mitigate this? It turns out that we can retrieve the exception ids of each fault model. They are hidden under `_data.exceptions` (actually under `_data` you can find all data that server returned for that resource). All you need to do is to add a computed property for that and with an Ember enumerator return an array of the ids.
 
-
 ``` javascript
   exceptions: DS.hasMany('exception', {async: true}),
   exception_ids: function() {
