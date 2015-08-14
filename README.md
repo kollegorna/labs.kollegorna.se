@@ -30,3 +30,4 @@ Builds Middleman and deploys with rsync
     $ middleman article NAME
 
 Will generate a file in source/posts.
+
