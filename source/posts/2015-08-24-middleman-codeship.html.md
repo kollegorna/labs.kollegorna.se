@@ -1,6 +1,6 @@
 ---
 title: Middleman+Codeship
-date: 2015-08-17 00:00:00 UTC
+date: 2015-08-24 00:00:00 UTC
 author: dennis
 disable_comments: false
 ---
