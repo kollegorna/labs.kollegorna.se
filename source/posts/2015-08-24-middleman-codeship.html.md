@@ -8,7 +8,7 @@ disable_comments: false
 We are currently using [Middleman](https://middlemanapp.com) to generate our websites: [Kollegona.se](https://kollegorna.se), [Labs](https://labs.kollegorna.se) and [RTFM](https://rtfm.kollegorna.se).
 We also use Middleman to make static websites for clients and to quickly prototype ideas.
 
-For Testing and Deployment we use [Codeship](https://codeship.com). Codeship is a Continuous Delivery Service that will run automated tests and deploy for you. Our Middleman websites don't really need "Tests" more than just a clean build.
+For Testing and Deployment we use Codeship. [Codeship is a Continuous Delivery Service](https://codeship.com) that will run automated tests and deploy for you. Our Middleman websites don't really need "Tests" more than just a clean build.
 
 Lets go through our setup for a Middleman+Codeship project.
 
