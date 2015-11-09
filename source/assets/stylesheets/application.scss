@@ -135,12 +135,12 @@
   &::-webkit-scrollbar-track {
     border-radius: 8px;
     border: 2px solid $ds-color-background; // should match background, can't be transparent
-    background-color: darken($ds-color-background, 4);
+    background-color: none;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 8px;
     border: 2px solid $ds-color-background; // should match background, can't be transparent
-    background-color: darken($ds-color-background, 8);
+    background-color: darken($ds-color-background, 4);
   }
 }
 .index__intro {
