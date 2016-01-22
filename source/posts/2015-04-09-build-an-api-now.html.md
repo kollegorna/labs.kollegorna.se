@@ -38,7 +38,7 @@ end
 
 Now let's add our RESTFul resource. By the way, there is a long discussion about what REST means. Is just JSON rest? Or should we call an API REST only if it supported Hypermedia too.
 
-It turns out that the [initial REST definition](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) included the constrain of the APIs having hypermedia. However, having hypermedia in the API is not that easy, even the big players (Facebook, Twitter etc) have limited support of hypermedia. One of the main reasons that hypermedia is not easy is caching. When a client requests data from a hypermedia API, the API is supposed to return links for each of the returned resources and methods that are supported (GET, POST etc) fine grained to the client's permissions. How can you cache these links? It's almost impossible.
+It turns out that the [initial REST definition](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) included the constraint of the APIs having hypermedia. However, having hypermedia in the API is not that easy, even the big players (Facebook, Twitter etc) have limited support of hypermedia. One of the main reasons that hypermedia is not easy is caching. When a client requests data from a hypermedia API, the API is supposed to return links for each of the returned resources and methods that are supported (GET, POST etc) fine grained to the client's permissions. How can you cache these links? It's almost impossible.
 
 Yes hypermedia is the future and one day we all wish we build HATEOAS APIs but until they are sustainable, we stay non hypermedia APIs (also called low REST). If you build an API today which is not hypermedia you shouldn't feel guilty about it at all (unless of course you are a big player).
 
