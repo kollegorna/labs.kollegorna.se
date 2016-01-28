@@ -11,13 +11,13 @@ after_configuration do
   assets_dir = @bower_config["directory"] # "vendor/assets/bower_components"
   sprockets.append_path File.join "#{root}", assets_dir
 
-  masks = images_extensions.map { |ext| "#{assets_dir}/**/*.#{ext}" }
+#  masks = images_extensions.map { |ext| "#{assets_dir}/**/*.#{ext}" }
 
   # Import all the images from bower assets directory to build/assets/images
-  Dir[*masks].each do |file_path|
-    relative_path = file_path[("#{assets_dir}/".length)..-1] # e.g.: "open-iconic/png/resize-width.png"
-    sprockets.import_asset(relative_path) { "assets/images/#{relative_path}" }
-  end
+#  Dir[*masks].each do |file_path|
+#    relative_path = file_path[("#{assets_dir}/".length)..-1] # e.g.: "open-iconic/png/resize-width.png"
+#    sprockets.import_asset(relative_path) { "assets/images/#{relative_path}" }
+#  end
 end
 
 # Blog
