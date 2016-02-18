@@ -98,8 +98,6 @@ GEM
     middleman-minify-html (3.4.1)
       htmlcompressor (~> 0.2.0)
       middleman-core (>= 3.2)
-    middleman-sitemap (0.0.13)
-      middleman-core (>= 3.2.2)
     middleman-sprockets (4.0.0.rc.1)
       middleman-core (>= 4.0.0.rc.1)
       sprockets (~> 3.0)
@@ -156,7 +154,6 @@ DEPENDENCIES
   middleman-blog (~> 4.0.0)
   middleman-livereload
   middleman-minify-html (~> 3.4.1)
-  middleman-sitemap
   middleman-sprockets (~> 4.0.0.rc)
   middleman-syntax (~> 2.1.0)
   redcarpet (~> 3.2.3)
