@@ -1,4 +1,4 @@
-This is [our labs website](https://labs.kollegorna.se).
+Upgrade 2017 for [our labs website](https://labs.kollegorna.se).
 
 ## Local setup
 
@@ -30,4 +30,3 @@ Builds Middleman and deploys with rsync
     $ middleman article NAME
 
 Will generate a file in source/posts.
-
