@@ -5,146 +5,133 @@ meta_description: "We build stuff with Rails, Ember.js, Node.js and Go. This is 
 body_classes: home
 ---
 
-
 <header class="index__intro">
-  <h1>
-    <a href="/" class="index__logo">
-      <span><%= image_tag "labs-logo.svg" %></span>
-    </a>
-  </h1>
-
-  <p class="t-lead">Science and progress will lead to happiness.</p>
-
-  <p class="small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
-
-  <a href="#about" class="button index__about-toggle">About us</a>
+    <div class="index__intro__inner">
+        <h1 class="visuallyhidden"><%= current_page.data.title %></h1>
+        <p class="index__logo"><a href="/"><%= image_tag "labs-logo.svg", alt: current_page.data.title %></a></p>
+        <p class="index__lead">Science and progress will lead to happiness.</p>
+        <p class="small">We use our brains and hearts to build stuff with Rails, Ember.js, Node.js, Go and more…</p>
+        <a href="#about" class="button" id="about-button">About us</a>
+    </div>
 </header>
+
+<section class="index__about" id="about">
+    <a href="#about-button" class="index__about-toggle">
+        <svg viewBox="0 0 58 58"><title>Go back</title><use xlink:href="<%= image_path "icon-close.svg#i" %>"></use></svg>
+    </a>
+    <div class="index__about__inner">
+        <h2>About Kollegorna</h2>
+        <p><i>(“The Colleagues”)</i></p>
+        <hr>
+        <p>We're is a distributed team spread across the world from Santo Domingo to Plovdiv with the heart in Stockholm<br>Welcome to our laboratory. Put on your lab coat!</p>
+        <hr>
+        <p>
+          <a class="button" href="https://www.kollegorna.se">Kollegorna.se</a>
+          <a class="button" href="https://github.com/kollegorna">GitHub</a>
+          <a class="button" href="https://twitter.com/kollegorna">Twitter</a>
+        </p>
+    </div>
+</section>
 
 <section class="index__blog" id="blog">
   <div class="index__list">
-    <h2>
-      <span class="gradient-border gradient-border--thin">Blog</span>
-    </h2>
-
+    <h2>Blog</h2>
     <ul>
-      <% blog.articles.each do |article| %>
+        <% blog.articles.each do |article| %>
         <li>
-          <h3><a href="<%= article.url %>"><%= article.title %></a></h3>
-          <p>
-          <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
-          –
-          <span property="author" vocab="http://schema.org/" typeof="Person">
-            <% data.colleagues.each do |author| %>
-              <% if article.data.author.is_a?(Array) %>
-                <% article.data.author.each do |multiple_authors| %>
-
-                  <% if author['firstname'].downcase == multiple_authors %>
+            <h3><a href="<%= article.url %>"><%= article.title %></a></h3>
+            <p>
+              <time pubdate><%= article.date.strftime('%Y-%m-%d') %></time>
+              –
+              <span property="author" vocab="http://schema.org/" typeof="Person">
+                <% data.colleagues.each do |author| %>
+                  <% if article.data.author.is_a?(Array) %>
+                    <% article.data.author.each do |multiple_authors| %>
+                      <% if author['firstname'].downcase == multiple_authors %>
+                        <span property="author">
+                          <%= author['firstname'] %> <%= author['lastname'] %>
+                        </span>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  <% if author['firstname'].downcase == article.data.author %>
                     <span property="author">
                       <%= author['firstname'] %> <%= author['lastname'] %>
                     </span>
                   <% end %>
                 <% end %>
-              <% end %>
-              <% if author['firstname'].downcase == article.data.author %>
-                <span property="author">
-                  <%= author['firstname'] %> <%= author['lastname'] %>
-                </span>
-              <% end %>
-            <% end %>
-          </span>
-          </p>
+              </span>
+            </p>
         </li>
-      <% end %>
+
+        <% end %>
+
     </ul>
   </div>
 </section>
 
 <section class="index__projects">
   <div class="index__list">
-    <h2>
-      <span class="gradient-border gradient-border--thin">Projects + Play</span>
-    </h2>
+    <h2>Open Source</h2>
     <ul>
       <li>
-        <a href="https://github.com/kollegorna/active_hash_relation">active_hash_relation</a>
+        <h3><a href="https://github.com/kollegorna/active_hash_relation">active_hash_relation</a></h3>
         <p>Simple gem that allows you to run multiple ActiveRecord::Relation using hash. Perfect for APIs.</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/activeadmin-logins">Activeadmin::Logins</a>
+        <h3><a href="https://github.com/kollegorna/activeadmin-logins">Activeadmin::Logins</a></h3>
         <p>Tracks user logins and displays results in Active Admin (<a href="/blog/2015/05/activeadmin-logins/">post</a>).</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/middleman-boilerplate">middleman-boilerplate</a>
-        <p>
-          Our boilerplate for Middleman 4 projects.
-        </p>
+        <h3><a href="https://github.com/kollegorna/middleman-boilerplate">middleman-boilerplate</a></h3>
+        <p>Our boilerplate for Middleman 4 projects.</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a>
+        <h3><a href="https://github.com/kollegorna/rubycas-server-activerecord">Rubycas::Server::Activerecord</a></h3>
         <p>ActiveRecord adapter for RubyCAS Server Core (RubyCAS2.0).</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/kong-tictail-theme">Kong Tictail Theme</a>
+        <h3><a href="https://github.com/kollegorna/kong-tictail-theme">Kong Tictail Theme</a></h3>
         <p>Makes it easier building Tictail themes (<a href="/blog/2015/03/kong-tictail-theme/">post</a>).</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/kong-integrations">Kong Integrations</a>
+        <h3><a href="https://github.com/kollegorna/kong-integrations">Kong Integrations</a></h3>
         <p>A web app that provides Tictail products as csv for Prisjakt and Pricerunner (<a href="/blog/2015/03/tictail-prisjakt-pricerunner/">post</a>).</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/weatherbot">Weatherbot</a>
+        <h3><a href="https://github.com/kollegorna/weatherbot">Weatherbot</a></h3>
         <p>Node.js app that fetches weather data from our team members’ work locations and posts it to our Slack channel (<a href="/blog/2015/02/weatherbot/">post</a>).</p>
       </li>
-
       <li>
-        <a href="https://github.com/kollegorna/oompaloompa">Oompa Loompa</a>
+        <h3><a href="https://github.com/kollegorna/oompaloompa">Oompa Loompa</a></h3>
         <p>Ooompa Loopma is a simple web service that listens to POST hooks from Bitbucket or GitHub</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/griddo">Griddo</a>
+        <h3><a href="https://github.com/kollegorna/griddo">Griddo</a></h3>
         <p>A collection of Sass mixins that helps you build grids.</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/hubspot_informer">HubSpot Informer</a>
+        <h3><a href="https://github.com/kollegorna/hubspot_informer">HubSpot Informer</a></h3>
         <p>A simple Ruby API wrapper for the HubSpot form submission API</p>
       </li>
       <li>
-        <a href="https://github.com/henrrrik/lita-imgflip">lita-imgflip</a>,
-        <a href="https://github.com/henrrrik/lita-pugbomb">lita-pugbomb</a>,
-        <a href="https://github.com/henrrrik/lita-holmstrom">lita-holmstrom</a>,
-        <a href="https://github.com/henrrrik/lita-nerd">lita-nerd</a>,
-        <a href="https://github.com/henrrrik/lita-likeaboss">lita-likeaboss</a>
+        <h3>
+            <a href="https://github.com/henrrrik/lita-imgflip">lita-imgflip</a>,
+            <a href="https://github.com/henrrrik/lita-pugbomb">lita-pugbomb</a>,
+            <a href="https://github.com/henrrrik/lita-holmstrom">lita-holmstrom</a>,
+            <a href="https://github.com/henrrrik/lita-nerd">lita-nerd</a>,
+            <a href="https://github.com/henrrrik/lita-likeaboss">lita-likeaboss</a>
+        </h3>
         <p>Various Lita handlers.</p>
       </li>
       <li>
-        <a href="https://github.com/kollegorna/apsis-ruby">APSIS API wrapper for Ruby</a>
+        <h3><a href="https://github.com/kollegorna/apsis-ruby">APSIS API wrapper for Ruby</a></h3>
         <p>A simple API wrapper for the APSIS mail marketing service. Currently only supports adding subscribers to a mailing list.</p>
       </li>
       <li>
-        <a href="https://github.com/persand/blaskan">Blaskan</a>
+        <h3><a href="https://github.com/persand/blaskan">Blaskan</a></h3>
         <p>A responsive and accessible WordPress theme.</p>
       </li>
-
     </ul>
   </div>
-</section>
-
-<section class="index__about" id="about">
-  <h2>
-    About<br>
-    Kollegorna
-    <small>(“The Colleagues”)</small>
-  </h2>
-
-  <hr class="hr-gradient hr-gradient--medium">
-
-  <p class="t-lead">We're a distributed digital agency spread from Santo Domingo to Seoul with our HQ in Stockholm.<br>Welcome to our laboratory. Put on your lab coat!</p>
-
-  <p>
-  <a class="button" href="https://www.kollegorna.se">Kollegorna.se</a>
-  <a class="button" href="https://github.com/kollegorna">GitHub</a>
-  <a class="button" href="https://twitter.com/kollegorna">Twitter</a>
-  </p>
-
-  <a href="#blog" class="index__about-toggle"><%= image_tag "icon-close.svg" %><span class="visuallyhidden">Back to blog posts list</span></a>
 </section>
