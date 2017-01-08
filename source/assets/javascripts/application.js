@@ -1,3 +1,9 @@
-// TODO: vanilla fitvids
-// TODO: gist: https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.1/gist-embed.min.js: p[data-gist-id]
-// TODO: disqus
+//= require "jquery"
+//= require "gist-embed"
+//= require "disqusLoader.js/jquery.disqusloader.js"
+
+;( function( $ )
+{
+    $.disqusLoader( '.disqus', { scriptUrl: '//kollegornalabs.disqus.com/embed.js' });
+
+})( jQuery );

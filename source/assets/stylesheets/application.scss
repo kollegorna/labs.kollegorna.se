@@ -8,6 +8,9 @@
 @import "syntax";
 
 
+$img-url-about-hero: "about-hero.svg";
+
+
 .button {
 	border-color: currentColor;
 }
@@ -188,7 +191,7 @@ hr {
 }
 .index__intro {
   @extend %_l-index__intro;
-  background: url('http://www.kollegorna.se.s3-website-eu-west-1.amazonaws.com/assets/images/about-hero-616f606c.svg') repeat left top;
+  background: image-url('#{$img-url-about-hero}') repeat left top;
 
   &__inner {
       width: 100%;
@@ -405,7 +408,7 @@ hr {
 // Blog
 // -----------------------------------------------------------------------------
 .blog-wrapper {
-  background-image: url('http://www.kollegorna.se.s3-website-eu-west-1.amazonaws.com/assets/images/about-hero-616f606c.svg');
+  background-image: image-url('#{$img-url-about-hero}');
   background-repeat: repeat-x;
   background-size: auto 700px;
   background-position: left bottom -500px;
@@ -590,8 +593,16 @@ hr {
   top: 43px;
 }
 
-#disqus_thread {
-  padding-top: 2em;
+.disqus{
+	font-family: $ds-font-family-complementary;
+    font-style: italic;
+	color: $ds-color-text-light;
+	text-align: center;
+	padding-top: 2em;
+
+	.no-js & {
+		display: none;
+	}
 }
 .center {
   display: block;
