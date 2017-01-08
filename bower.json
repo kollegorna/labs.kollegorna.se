@@ -6,7 +6,6 @@
     "kollegorna-design-system": "kollegorna/design-system#2017",
     "normalize-scss": "~3.0.0",
     "disqusLoader.js": "osvaldasvalutis/disqusLoader.js",
-    "gist-embed": "^2.6.0",
-    "modernizr": "^3.3.1"
+    "gist-embed": "^2.6.0"
   }
 }
