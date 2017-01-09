@@ -9,21 +9,21 @@ Upgrade 2017 for [our labs website](https://labs.kollegorna.se).
 
 ### Gulp commands
 
-Runs bundle install and bower install
+Runs bundle install and bower install:
 
-	$ gulp install
+    $ gulp install
 
-Builds Middleman and create a BrowserSync server that watches all changes
+Runs bundle exec middleman:
 
-	$ gulp serve
+    $ gulp middleman
 
-Builds Middleman
+Builds Middleman and create a BrowserSync server that watches all changes:
 
-	$ gulp build
+    $ gulp serve
 
-Builds Middleman and deploys with rsync
+Builds Middleman:
 
-	$ gulp deploy
+    $ gulp build
 
 ## Writing posts
 
