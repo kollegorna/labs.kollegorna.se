@@ -35,4 +35,4 @@ Will generate a file in source/posts.
 
 The master branch is automatically deployed with Codeship with the following custom script:
 
-`rsync -avz -e "ssh" ./build/ user@ip:/var/www/labs.kollegorna.se`
+`rsync -avz -e "ssh" ./build/ user@ip:/var/www/labs.kollegorna.se --delete-before`
