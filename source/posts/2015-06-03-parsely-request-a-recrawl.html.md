@@ -7,16 +7,16 @@ disable_comments: false
 
 *[Parse.ly](http://www.parsely.com/) is an analytics platform designed specifically for online publishers. Parse.ly provides digital publishers with clear audience insights to answer questions about how readers are responding to content.*
 
-Once you [set it up](http://www.parsely.com/docs/integration/tracking/basic.html) for your website, Parse.ly Crawler will perform a crawl of the pages as the pageviews stream in from those URLs. 
+Once you [set it up](http://www.parsely.com/docs/integration/tracking/basic.html) for your website, Parse.ly Crawler will perform a crawl of the pages as the pageviews stream in from those URLs.
 
 The crawl is performed only once for a unique URL - when the article is published and traffic starts coming in.
 
 When the article changes a recrawl would be nice. To do that, you need API key and API secret, that you can access via [API Settings page](http://www.parsely.com/docs/integration/metadata/dash.parsely.com/to/settings/api).
 
 In order to request a recrawl, you have to submit a POST request to the following address, appending the <URL> to request a recrawl for:
-	
+
 	http://dash.parsely.com/<API_KEY>/ping_crawl?secret=<API_SECRET>&url=<URL>
-	
+
 
 ## This is how to do it in a Rails app.
 
@@ -24,7 +24,7 @@ In order to request a recrawl, you have to submit a POST request to the followin
 Add a ruby http client [http.rb](https://github.com/httprb/http.rb) to your Gemfile:
 
 	gem 'http'
-	
+
 
 Add your Parse.ly API credentials to secrets.yml:
 
@@ -39,15 +39,17 @@ Set environment variables (or put those environment variables to .envrc if you'r
 
 
 And this is what a crawler might look:
-<p data-gist-id="0270af6eea1bee499414"></p>
+
+<code data-gist-id="0270af6eea1bee499414"></code>
 
 
 We'll need a worker, that requests the recrawl:
-<p data-gist-id="1a56636b11de9c7c696c"></p>
+
+<code data-gist-id="1a56636b11de9c7c696c"></code>
 
 
 And finally tell the worker to perform the job when a blog post changes, in active admin's resource:
-<p data-gist-id="d77a0e8e2953eea5eeac"></p>
+<code data-gist-id="d77a0e8e2953eea5eeac"></code>
 
 
 That's it! Now our blog posts are recrawled on every update!

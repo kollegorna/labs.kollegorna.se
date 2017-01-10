@@ -3,14 +3,24 @@ var gutil = require('gulp-util');
 var rsync = require('rsyncwrapper').rsync;
 var browserSync = require('browser-sync');
 var cp = require('child_process');
+var svgmin = require('gulp-svgmin');
 var messages = {
   reload: 'Reloading...',
   build:  'Building Middleman...'
 };
 
+gulp.task('minify-svg', function (){
+    return gulp.src('build/assets/images/*.svg', {base: './'})
+        .pipe(svgmin())
+        .pipe(gulp.dest('./'));
+});
+
 gulp.task('middleman-build', function(done) {
-  browserSync.notify(messages.build);
-  cp.spawn('bundle', ['exec', 'middleman', 'build'], { stdio: 'inherit' }).on('close', done);
+    browserSync.notify(messages.build);
+    cp.spawn('bundle', ['exec', 'middleman', 'build'], { stdio: 'inherit' }).on('close', function()
+    {
+        cp.spawn('gulp', ['minify-svg'], { stdio: 'inherit' }).on('close', done);
+    });
 });
 
 gulp.task('browser-reload', ['middleman-build'], function() {
@@ -43,6 +53,10 @@ gulp.task('rsync', ['middleman-build'], function() {
   }, function(error, stdout, stderr, cmd) {
       gutil.log(stdout);
   });
+});
+
+gulp.task('middleman', function(done) {
+  cp.spawn('bundle', ['exec', 'middleman'], { stdio: 'inherit' }).on('close', done);
 });
 
 gulp.task('serve', ['browser-sync', 'watch']);

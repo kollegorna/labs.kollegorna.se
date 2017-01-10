@@ -1,22 +1,22 @@
-  <meta property="og:site_name" content="Kollegorna Labs">
-  <% if current_page.data.author %>
+    <meta property="og:site_name" content="Kollegorna Labs">
+    <% if current_page.data.author %>
     <meta property="og:type" content="article">
     <meta property="og:title" content="<%= current_page.data.title %>">
-  <% elsif current_page.data.title %>
+    <% elsif current_page.data.title %>
     <meta property="og:type" content="website">
     <meta property="og:title" content="<%= current_page.data.title %>">
-  <% else %>
+    <% else %>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Kollegorna Labs">
-  <% end %>
-  <% if current_page.data.meta_description %>
+    <% end %>
+    <% if current_page.data.meta_description %>
     <meta property="og:description" content="<%= current_page.data.meta_description %>">
-  <% else %>
+    <% else %>
     <meta property="og:description" content="We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…">
-  <% end %>
-    <meta property="og:url" content="https://labs.kollegorna.se<%= current_page.url %>">
-  <% if current_page.data.meta_image %>
-    <meta property="og:image" content="https://labs.kollegorna.se<%= image_path 'og-image.jpg' %>">
-  <% else %>
-    <meta property="og:image" content="https://labs.kollegorna.se<%= image_path 'og-image.jpg' %>">
-  <% end %>
+    <% end %>
+    <meta property="og:url" content="<%= current_page.url %>">
+    <% if current_page.data.meta_image %>
+    <meta property="og:image" content="<%= current_page.data.meta_image %>">
+    <% else %>
+    <meta property="og:image" content="<%= image_path 'og-image.jpg' %>">
+    <% end %>

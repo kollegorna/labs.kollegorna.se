@@ -1,23 +1,23 @@
-  <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Kollegorna">
-  <% if current_page.data.twitter %>
+    <% if current_page.data.twitter %>
     <meta name="twitter:creator" content="<%= current_page.data.twitter %>">
-  <% end %>
-  <% if current_page.data.meta_title %>
+    <% end %>
+    <% if current_page.data.meta_title %>
     <meta name="twitter:title" content="<%= current_page.data.meta_title %>">
-  <% elsif current_page.data.title %>
+    <% elsif current_page.data.title %>
     <meta name="twitter:title" content="<%= current_page.data.title %>">
-  <% else %>
+    <% else %>
     <meta name="twitter:title" content="Kollegorna Labs">
-  <% end %>
-    <meta name="twitter:url" content="https://labs.kollegorna.se<%= current_page.url %>">
-  <% if current_page.data.meta_description %>
+    <% end %>
+    <meta name="twitter:url" content="<%= current_page.url %>">
+    <% if current_page.data.meta_description %>
     <meta name="twitter:decription" content="<%= current_page.data.meta_description %>">
-  <% else %>
+    <% else %>
     <meta name="twitter:decription" content="We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…">
-  <% end %>
-  <% if current_page.data.meta_image %>
-    <meta name="twitter:image:src" content="https://labs.kollegorna.se<%= image_path 'twitter-image.jpg' %>">
-  <% else %>
-    <meta name="twitter:image:src" content="https://labs.kollegorna.se<%= image_path 'twitter-image.jpg' %>">
-  <% end %>
+    <% end %>
+    <% if current_page.data.meta_image %>
+    <meta name="twitter:image:src" content="<%= current_page.data.meta_image %>">
+    <% else %>
+    <meta name="twitter:image:src" content="<%= image_path 'twitter-image.jpg' %>">
+    <% end %>

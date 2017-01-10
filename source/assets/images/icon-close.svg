@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-close</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="icon-close" sketch:type="MSArtboardGroup" fill="#403E35">
-            <g sketch:type="MSLayerGroup" transform="translate(-1.000000, 0.000000)">
-                <path d="M2.8125,57.1005806 C2.5725,57.1005806 2.3325,57.0073226 2.14875,56.8227097 C1.783125,56.4496774 1.783125,55.8482581 2.14875,55.4752258 L56.52375,0.281677419 C56.89125,-0.0894516129 57.48375,-0.0894516129 57.85125,0.281677419 C58.216875,0.654709677 58.216875,1.25612903 57.85125,1.62916129 L3.47625,56.8227097 C3.2925,57.0073226 3.0525,57.1005806 2.8125,57.1005806" id="Fill-1921" sketch:type="MSShapeGroup"></path>
-                <path d="M57.1875,57.1005806 C56.9475,57.1005806 56.7075,57.0073226 56.52375,56.8227097 L2.14875,1.62916129 C1.783125,1.25612903 1.783125,0.654709677 2.14875,0.281677419 C2.51625,-0.0894516129 3.10875,-0.0894516129 3.47625,0.281677419 L57.85125,55.4752258 C58.216875,55.8482581 58.216875,56.4496774 57.85125,56.8227097 C57.6675,57.0073226 57.4275,57.1005806 57.1875,57.1005806" id="Fill-1922" sketch:type="MSShapeGroup"></path>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="58" height="58" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="i" sketch:type="MSLayerGroup" ><path d="M1.813 57.101c-.24 0-.48-.093-.664-.278-.366-.373-.366-.974 0-1.347l54.375-55.194c.367-.371.96-.371 1.328 0 .366.373.366.974 0 1.347l-54.375 55.194c-.184.185-.424.278-.664.278" sketch:type="MSShapeGroup"/><path d="M56.188 57.101c-.24 0-.48-.093-.664-.278l-54.375-55.194c-.366-.373-.366-.974 0-1.347.367-.371.96-.371 1.327 0l54.375 55.194c.366.373.366.974 0 1.347-.184.185-.424.278-.664.278" sketch:type="MSShapeGroup"/></g></svg>
