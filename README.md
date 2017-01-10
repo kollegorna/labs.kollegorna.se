@@ -30,3 +30,7 @@ Builds Middleman:
     $ middleman article NAME
 
 Will generate a file in source/posts.
+
+## Deployment
+
+The master branch is automatically deployed with Codeship.

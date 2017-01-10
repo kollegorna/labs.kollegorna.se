@@ -7,8 +7,7 @@
     "browser-sync": "~2.2.3",
     "gulp": "~3.9.0",
     "gulp-util": "~3.0.5",
-    "gulp-svgmin": "^1.2.3",
-    "rsyncwrapper": "~0.4.3"
+    "gulp-svgmin": "^1.2.3"
   },
   "dependencies": {
   }

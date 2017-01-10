@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var rsync = require('rsyncwrapper').rsync;
 var browserSync = require('browser-sync');
 var cp = require('child_process');
 var svgmin = require('gulp-svgmin');
@@ -41,27 +40,12 @@ gulp.task('watch', function() {
   gulp.watch('source/**/*.*', ['browser-reload']);
 });
 
-gulp.task('rsync', ['middleman-build'], function() {
-  rsync({
-    ssh: true,
-    src: './build/',
-    dest: 'root@178.62.13.136:/var/www/labs.kollegorna.se',
-    recursive: true,
-    syncDest: true,
-    args: ['--verbose'],
-    exclude: ['.DS_Store']
-  }, function(error, stdout, stderr, cmd) {
-      gutil.log(stdout);
-  });
-});
-
 gulp.task('middleman', function(done) {
   cp.spawn('bundle', ['exec', 'middleman'], { stdio: 'inherit' }).on('close', done);
 });
 
 gulp.task('serve', ['browser-sync', 'watch']);
 gulp.task('build', ['middleman-build']);
-gulp.task('deploy', ['rsync']);
 gulp.task('install-bower', function(done) {
   cp.spawn('bower', ['install'], { stdio: 'inherit' }).on('close', done);
 });
