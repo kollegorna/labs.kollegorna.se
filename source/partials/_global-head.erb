@@ -2,9 +2,11 @@
 <html class="no-js" lang="<%= current_page.data.lang || "en" %>">
     <head>
         <meta charset="utf-8">
+        <title><%= current_page.data.title || "Kollegorna Labs" %></title>
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
-        <title><%= current_page.data.title || "Kollegorna Labs" %></title>
+        <meta name="mobile-web-app-capable" content="yes">
 
         <% if current_page.data.meta_title %>
         <meta name="title" content="<%= current_page.data.meta_title %>">
@@ -13,17 +15,17 @@
         <% else %>
         <meta name="title" content="Kollegorna Labs">
         <% end %>
-        <% if current_page.data.meta_description %>
-        <meta name="decription" content="<%= current_page.data.meta_description %>">
-        <% else %>
-        <meta name="decription" content="We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…">
-        <% end %>
+        <meta name="decription" content="<%= current_page.data.meta_description || "We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab…" %>">
 
-        <%= partial "global-meta-facebook" %>
-        <%= partial "global-meta-twitter" %>
+        <link rel="icon" href="<%= image_path 'app-icon.png' %>">
+        <link rel="apple-touch-icon" href="<%= image_path 'app-icon.png' %>">
+        <link rel="manifest" href="/manifest.json">
+
+        <%= partial "global-meta-sm" %>
 
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
+        <%= stylesheet_link_tag "application" %>
         <script>
 
             'use strict';
@@ -37,9 +39,6 @@
             if( supportsWoff2 ) loadCSS( 'https://cloud.typography.com/6077114/7879172/css/fonts.css' );
 
         </script>
-
-        <%= stylesheet_link_tag "application" %>
-
     </head>
     <body class="<%= current_page.data.body_classes || "site" %>">
 

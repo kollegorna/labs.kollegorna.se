@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------------
 @import "normalize-scss";
 @import "kollegorna-design-system";
-@import "syntax";
+@import "partials/syntax";
 
 
 $img-url-about-hero: "about-hero.svg";
@@ -368,7 +368,7 @@ hr {
 	 color: $ds-color-text-light;
   }
 
-  .button {
+  &__btns a {
     margin: ds-rem-calc(10px);
   }
 }
