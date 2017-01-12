@@ -14,8 +14,13 @@ $img-url-about-hero: "about-hero.svg";
 .button {
 	border-color: currentColor;
 }
+
 hr {
 	border-color: darken( $ds-color-background, 5 );
+}
+
+a {
+	color: $ds-color-green;
 }
 
 .visuallyhidden {
