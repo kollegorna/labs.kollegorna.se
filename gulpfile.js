@@ -10,7 +10,13 @@ var messages = {
 
 gulp.task('minify-svg', function (){
     return gulp.src('build/assets/images/*.svg', {base: './'})
-        .pipe(svgmin())
+        .pipe(svgmin({
+          plugins: [{
+              cleanupIDs: {
+                  remove: false
+              }
+          }]
+        }))
         .pipe(gulp.dest('./'));
 });
 
