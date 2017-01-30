@@ -12,6 +12,10 @@ author:
 disable_comments: false
 ---
 
+*Every sixth week we have Personal Development Days (PDD) here at Kollegorna. This means that everyone is free to work on something on their choice that's related to our work. The PDD:s starts on Thursday and ends on Monday. So there's plenty of time to learn pick up new skills, try new technology or just get better at something you already do. You're free to work by yourself or team up and collaborate with someone else in the team.*
+
+*This is a summary of what happened this time:*
+
 ### Eduardo
 The shoemaker's children always go barefoot, the saying goes.
 That's how we've felt about our website for quite a while.
