@@ -149,7 +149,7 @@ but the big takeaway is this - you should never stop developing yourself, this i
 investment you can make, adding this to my skill set may prove to be useful in the future
 and if not at least I gave it a try and now feel more competent in that field.
 
-![blog animation](/posts/november-pdd/blog-animation.gif)
+![blog animation](/posts/november-pdd/blog-animations.gif)
 
 
 
