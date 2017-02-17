@@ -616,13 +616,15 @@ a {
 // Code boxes
 pre,
 code {
-  font-size: $ds-font-size-small;
   border-radius: 3px;
   background-color: #fff;
   padding: 3px 6px;
 }
 .highlight {
   background: #fff;
+}
+code {
+  font-size: .8em;
 }
 pre {
   overflow-x: scroll;
