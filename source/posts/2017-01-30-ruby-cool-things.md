@@ -1,17 +1,17 @@
 ---
-title: Things learned from developing Ruby and Rails in the 3+ last years
+title: Things I learned developing Ruby and Rails apps over the past 3+ years
 date: 2017-01-30 00:00:00 UTC
 author: filippos
 disable_comments: false
 ---
 
-In a random list:
+In random order:
 
 ### Use `rescue_from` in top level controller
-`rescue_from` in the root controller is very helpful to catch any exception happening
+Using `rescue_from` in the root controller is very helpful for catching any exception happening
 below.
-Given that in web apps, most code runs on a request/response cycle this becomes even more helpful
-Let's say that you build a simple API. Using `rescue_from` you can explicitly
+Given that in web apps, most code runs in a request/response cycle this becomes even more helpful
+Let's say that you build a simple API. By using `rescue_from` you can explicitly
 specify what the app should do when a record is not found (AR throws `ActiveRecord::RecordNotFound`)
 
 ```ruby
@@ -21,7 +21,7 @@ specify what the app should do when a record is not found (AR throws `ActiveReco
 ```
 
 ### Use load\_resource on controllers
-That's another pattern I have adopted since I saw it from a former colleague:
+Another pattern I have adopted after seeing a former colleague using it:
 instead of fetching the necessary resource inside the controller method, use a
 common controller filter and fetch it there depending on the action.
 
@@ -30,23 +30,23 @@ class UsersController
   before_action :load_resource
 
   def index
-    #do something with @users
+    # do something with @users
   end
 
   def show
-    #do something with @user
+    # do something with @user
   end
 
   def create
-    #do something with @user
+    # do something with @user
   end
 
   def update
-    #do something with @user
+    # do something with @user
   end
 
   def destroy
-    #do something with @user
+    # do something with @user
   end
 
   private
@@ -64,18 +64,18 @@ end
 ```
 
 Also related and more advanced is [decent_exposure](https://github.com/hashrocket/decent_exposure) although
-I didn't have the chance to use it personally.
+I haven't had the chance to use it myself yet.
 
 ### Use comments when applicable
 I kind of disagree with the saying that the "good quality code is always self-explained"
 for 2 main reasons:
 
 * Good quality code for one developer could be bad quality for another developer
-(and this is not necessarily bad, everyone has its own style)
-* We always have been in the place of writting a "just works" code just to close an issue
-because good quality in that case would require 10 times effort
+(and this is not necessarily bad, everyone has their own style)
+* We have all in situations where, due to time and/or budget constraints, you end up making a quick fix just to close an issue
+because the best (and most self-explanatory) solution would have required 10 times the effort.
 
-For those reasons, use comments in code smells and don't be ashamed :)
+For those reasons, comment your code smells and don't be ashamed :)
 
 ### Use decorators and presenters
 There was a saying in Rails community awhile ago: keep your controllers skinny by making your models fat.
@@ -94,29 +94,23 @@ This leads to 3 generic workers: `User::CreateWorker`, `User::UpdateWorker`, `Us
 Try to use those workers, if applicable, in combination with AR callbacks and `previous_changes`.
 Call a worker on `after_commit`. See [here](http://rails-bestpractices.com/posts/2012/05/02/use-after_commit/) an explanation of why.
 
-### Don't use postgres array unless it's something very simple
-Another thing that although cool, my experience has shown me that it will make you
-more problems than save you time. Every time that I have tried to use postgres
-array, for instance to hold some ids, I have knocked my head later. After all,
-tables are not expensive in databases, joins are.
+### Don't use Postgres array unless it's something very simple
+Another thing that although cool, my experience has shown me that it will generate more problems than save you time. Every time that I have tried to use Postgres array, for instance to hold some ids, I have banged my head against the table later. After all, tables are not expensive in databases, JOINs are.
 
-I would use postgres array for very small things:
+I would use Postgres array for very small things:
 
-* when I know that the table will hold a small number of elements and won't get
-large enough on average (with a small variance on that if possible)
-* when the table data don't have to do anything with ids and associations
+* When I know that the table will hold a small number of elements and won't get large enough on average (with a small variance on that if possible)
+* When the table data doesn't have anything to do with ids and associations
 
-### postgres jsonb is the cool kid in town
-On the contrary to postgres arrays, I love postgres' jsonb. We all love a database
+### Postgres JSONB is the cool kid in town
+In contrast to my feelings on Postgres arrays, I love Postgres' JSONB. We all love a database
 that has schema and we understand their advantages over schemaless databases, but
-sometimes you desperately need the easiness of a schemaless database because you
-don't know your schema beforehand. I usually use jsonb in the following cases:
+sometimes you desperately need the simpleness of a schemaless database because you
+don't know your schema beforehand. I usually use JSONB in the following cases:
 
-* when I have plenty small attributes, possibly namespaced by a parent attribute.
-Using a regular table that would need a lot of columns..
-* when I don't know what exactly I will save there or building a quick prototype
-* when I do object hydration: saving the json representation of an object in db
-while being able to rebuild it from the same json
+* When I have plenty of small attributes, possibly namespaced by a parent attribute. Using a regular table for this would require a lot of columns.
+* When I don't know what exactly I will save or when building a quick prototype
+* When I do object hydration: saving the JSON representation of an object in the DB and being able to rebuild it from the same JSON
 
 ### aasm is cool until you want to initialize in a specific state
 I love aasm gem. I mean, this thing forces you to have a state machine and it
@@ -126,38 +120,38 @@ Either you do some crazy stuff taking into account the internals of aasm or you 
 the fact that you will manually traverse to the specified state of the object (you can
 create a service for that!)
 
-### validating an email is hard, just use the gem
-It's so funny with that: everytime I search for an email validation regex on the
-internet I endup with a different regex. Well let's say that there isn't any
+### Validating email addresses is hard, just use the gem
+It's so funny: everytime I search for an email validation regex on the
+internet I endup with a different regex. Well, let's just accept that there isn't any
 perfect regex and the best thing you can do is to use the gem.
 
 ### Try to pass only a single instance variable to the view by employing decorators or presenters
-Yes, something that I am not proud of Rails: it kindof enforces you to use instance variables
+Yes, something that I am not proud of in Rails: it kind of forces you to use instance variables
 in order to pass the context from a controller to the view.
 I think this is a bad practice. We should always instantiate and pass a single object
 to the view. Sandi Metz says so!
 
-### Use exclamation mark when a model instance method saves the model!
+### Use an exclamation mark when a model instance method saves the model!
 If your model method modifies the object and saves the
-changes to the database your method should end with a band to denote that.
+changes to the database your method should always end with a bang to denote that.
 As simple as that.
 
-### Have strict class APIs: if a method is not supposed to be called from the outside, mark it as private
+### Use strict class APIs: if a method is not supposed to be called from the outside, mark it as private
 People tend to forget (including me!). Stricter APIs in the class level
 leads to better code quality.
 
 ### Don't use devise if you just want a simple authentication
-Too much magic bro.
+Too much magic, bro.
 
-### Use Virtus for defining attributes in a non AR model to add strickness
+### Use Virtus for defining attributes in a non-AR model to add strictness
 I used (and I still use) Virtus gem a lot.
-It allows me to make a simple PORO to look like a _model_ and have some strictness on its
+It allows me to make a simple PORO to look like a _model_ and have some strictness for its
 attributes. When the attributes become too many, I tend to use my own DSL for Virtus
 so that I can manipulate them, as you can see below:
 
 ```ruby
-#simple module that allows us to reuse defined attributes in serializers
-#plus some other goodies
+# simple module that allows us to reuse defined attributes in serializers
+# plus some other goodies
 module VirtusModel
   extend ActiveSupport::Concern
 
@@ -180,7 +174,7 @@ module VirtusModel
   end
 end
 
-#an example model
+# an example model
 class Model < ActiveModelSerializers::Model
   ATTRIBUTES = [
     {
@@ -218,18 +212,17 @@ with it :)
 ### Use memoization when something takes time to be computed (like talking to external API)
 Goes without saying :)
 
-### Postgress full text search is good enough for simple things.
-Using [pg_search](https://github.com/Casecommons/pg_search) it's super easy to set it up.
-However, if you have to optimize postgres full text search using tvectors and etc,
-just go with ElasticSearch. It doesn't worth it to spend more time in postgres.
+### Postgres full text search is good enough for simple things
+[pg_search](https://github.com/Casecommons/pg_search) is super easy to set up.
+However, if you have to optimize Postgres full text search using tvectors, etc,
+just go with ElasticSearch. It's not worth it to more time on Postgres.
 
 
 ### It's 2017 and we still can't define what a Service Object is :)
-Still looking for a clear definition that most people agree on what and how service
-objects should be implemented :)
+Still looking for a clear definition that most people agree on what a service object is and how they should be implemented :)
 
-In a recent project we followed a pattern that I am happy to reuse it. First
-we define a module which once included creates a _class_ method named `perform`.
+In a recent project we followed a pattern that I'd be happy to use again. First
+we defined a module which once included creates a _class_ method named `perform`.
 
 Then on any service we create, we mark the constructor (`initialize`) as private,
 which means we can ony call the public class method `perform` (of course in
@@ -268,19 +261,19 @@ UrlParser.perform('https://kollegorna.se')
 ```
 
 ### Transform AR error messages the way you want
-When building an API in Rails usually the errors will follow the JSONAPI-style,
+When building an API in Rails usually the errors will follow the JSONAPI style,
 that is, you will get a message (`can't be blank`) and the attribute (`user_id`) that the message fails.
 
-We don't use json pointers in this example, but the same idea could apply to that case as well.
+We don't use JSON pointers in this example, but the same idea could apply to that case as well.
 
-In the client side you handle those 2 the way you want: you could go to your form
-and find the `user_id` input to make it red, or you could just concatenate those
+On the client side you handle those two the way you want: you could go to your form
+and find the `user_id` input to make it red, or you could just concatenate them
 and make it one sentence, after some human-friendly transformations, like `User id can't be blank`.
 
 What happens though when the attribute related to the message makes no sense to the user?
 
-Let's say that in our app, each user can create a new post. However it' possible to
-create a new post only once a day. So in your model you will enforce uniqueness:
+Let's say that in our app, each user can create a new post. However it's only possible to
+create a new post once a day. So in your model you will enforce uniqueness:
 
 ```ruby
 validates :user_id, {
@@ -290,10 +283,10 @@ validates :user_id, {
   }
 }
 ```
-(yes yes you should enforce the same uniqueness in the db level as well, but we don't
-handle the errors in this case because user must be super (un)lucky to manage to get
-2 requests of his own landing in 2 different servers (of
-the same app talking to the same db) at the exact same time..)
+(yes, yes, you should enforce the same uniqueness on the DB level as well, but we don't
+handle the errors in this case because the user must be super (un)lucky to manage to get
+two requests of his own landing on two different servers (of
+the same app talking to the same DB) at the exact same time..)
 
 So the message will look like:
 
@@ -323,7 +316,7 @@ validates :user_id, {
 }
 ```
 
-Now the message will look like: `['user_id', 'can post only once a day']` which is
+Now the message will look look like: `['user_id', 'can post only once a day']` which is
 better but still not very useful if you use both attributes.
 
 ```
@@ -340,7 +333,7 @@ better but still not very useful if you use both attributes.
 ```
 
 Ideally we would like to move the message to the `base` because it's not dependant
-to a specific model attribute but instead it's a custom, more general, restriction.
+on a specific model attribute but instead it's a custom, more general, restriction.
 We can do that by adding a custom DSL in the message:
 
 ```ruby
@@ -382,7 +375,6 @@ end
 
 So now you get the error you need exactly under the attribute you want:
 
-
 ```
 {
   "title": "Could not process request",
@@ -397,11 +389,11 @@ So now you get the error you need exactly under the attribute you want:
 ```
 
 ### Explicitly use `return` for methods that are executed for their return value, even one-liners
-I think Ruby community has embraced to not using return statements but I feel there is
+I think the Ruby community has embraced not using return statements but I feel there is
 no reason for that. Actually I like to add a `return` statement even in one-liners,
 when they should be used for their return values and not for their side effects.
 
-Arguments like about Ruby coolness and expressiveness fall short when it comes to productivity and (kindof) safety.
+Arguments like about Ruby coolness and expressiveness fall short when it comes to productivity and (kind of) safety.
 
 
 ### Try to use parentheses unless you write some kind of DSL
@@ -430,37 +422,37 @@ development:
   enable_http_caching:  <%= booly_env[ENV["ENABLE_HTTP_CACHING"] || false] %>
 ```
 
-### Have a very good reason to use other than postgres as primary db
-MongoDB used to be the cool kid in town. People delayed to understand mongo's diffenciencies:
+### Have a very good reason if using any other DB than Postgres as the primary DB
+MongoDB used to be the cool kid in town. People took a while to learn Mongo's shortcomings:
 
-* it's schemaless. You could say it's a feature, but in fact it's a huge drawback.
+* It's schemaless. You could say it's a feature, but in fact it's a huge drawback.
 Databases with a schema, allow you to gradually change
-your schema they way you want, providing you the tools and gurrantees. For instance,
+your schema they way you want, providing you the tools and guarantees. For instance,
 if I have a column in SQL that is of type Integer, I can transform it in String or Text,
 add a default or make it non nullable. This is impossible in schemaless databases. You
 need to do this work on your own, in a higher level (using a programming language). Also,
 adding an attribute or dropping an attribute is also impossible. Basically you are stuck
-with the schema you begun and you either create a new one from the beginning and you make
+with the schema you begun with and you either create a new one from the beginning and you make
 sure that you migrate correctly, or you handle these in the application level.
 * They don't provide transactions.
 * No ACID
-* Regarding MongoDB, I can't say that it was fast enough on queries
+* I don't think it's fast enough for less trivial queries
 
 Are you sure that you would like to have those issues in your primary DB? I would not.
 Personally, I feel the only killer MongoDB feature is that of embedding many documents
-in a parent document. The rest I can probably find them in postgres (and hey! I will have to
-care for security updates of only one db system)
+in a parent document. The rest I can probably find them in Postgres (and hey! I will have to
+care for security updates for only one DB system)
 
 
-### dynamic scope is a cool pattern when nothing else works
+### Dynamic scope is a cool pattern when nothing else works
 When we define a closure in Ruby (a proc or a lambda), it encapsulates its lexical scope/environment.
 
-This means that even if you define a proc in point A in code, if you pass it around and
-call it in point B, it will still be able to reference variables and anything that is defined inside
+This means that even if you define a proc at point A in code, if you pass it around and
+call it at point B, it will still be able to reference variables and anything that is defined inside
 the lexical scope of point A (where it was defined). To put it in another way, it has "closed its environment".
 
-What if we would like to do the opposite. Say we define a proc in point A, that if we call there it makes no sense,
-but we want it to run it in point B and change the lexical scope of the closure so that what we run is reflected in
+What if we would like to do the opposite? Say we define a proc at point A, that if we call there it makes no sense,
+but we want to run it at point B and change the lexical scope of the closure so that what we run is reflected at
 point B.
 
 To give you an example:
@@ -502,7 +494,7 @@ puts Foo.new.name3 #=> undefined local variable or method `internal_name' for ma
 Makes sense that `name2` method failed because `internal_name` had not been defined when we defined the closure.
 
 
-However, it is possible to redefine proc's binding (lexical scope) using `instance_exec`:
+However, it is possible to redefine the proc's binding (lexical scope) using `instance_exec`:
 
 ```ruby
 CLOSURE = proc{puts internal_name}
@@ -539,8 +531,8 @@ puts Foo.new.name3 #=> foo
 ```
 
 Success! This means that we can write code in one part of our app and run it under totally different context. But where could this be useful?
-I have been using it in various hacks but one of most useful ones are on Rails routes. This little trick has helped me to
-remap nested routes for free.
+I have been using it in various hacks but one of most useful ones are in Rails routes. This little trick has helped me to
+re-map nested routes for free.
 
 Let's say that we have the following route:
 ```ruby
