@@ -435,12 +435,22 @@ a {
 		}
 
     h2 {
-      margin-top: ds-rem-calc(35px);
+      margin: ds-rem-calc(30px) 0 ds-rem-calc(15px) 0;
+    }
+
+    h3 {
+      margin: ds-rem-calc(20px) 0 ds-rem-calc(10px) 0;
     }
 
 		a {
 			@extend .underlined;
 			color: $ds-color-text;
+		}
+
+		p,
+		li,
+		blockquote {
+			line-height: 1.8;
 		}
 
 		ul {
