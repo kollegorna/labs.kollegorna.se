@@ -429,9 +429,23 @@ a {
   .post {
     margin: 0 auto;
     max-width: 768px;
+
+		h1 {
+			line-height: 1.2;
+		}
+
     h2 {
       margin-top: ds-rem-calc(35px);
     }
+
+		a {
+			@extend .underlined;
+			color: $ds-color-text;
+		}
+
+		ul {
+			list-style-position: outside;
+		}
   }
 }
 
@@ -564,9 +578,8 @@ a {
 
 .post-author__name {
   font-family: $ds-font-family-complementary;
-  font-style: italic;
+	font-weight: 300;
   float: left;
-  height: 50;
   line-height: 50px;
 }
 
@@ -580,7 +593,6 @@ a {
 .post-tags {
   font-size: ds-rem-calc(16px);
   font-family: $ds-font-family-complementary;
-  font-style: italic;
 }
 
 .post-date {
