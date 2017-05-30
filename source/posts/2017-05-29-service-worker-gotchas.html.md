@@ -1,6 +1,6 @@
 ---
 title: "Service Worker gotchas"
-date: 2017-06-07 09:00:00 EET
+date: 2017-05-29 09:00:00 EET
 author: osvaldas
 description: ""
 image:
