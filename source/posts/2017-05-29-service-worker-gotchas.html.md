@@ -4,7 +4,7 @@ date: 2017-05-29 09:00:00 EET
 author: osvaldas
 description: ""
 image:
-disable_listing: false
+disable_listing: true
 ---
 
 [Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome, but now that it has gone a way of improvements, bug fixes, became more easily debugable and is supported much more widely we decided to try it in production and implement in our [kollegorna.se](https://kollegorna.se) website. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
