@@ -23,20 +23,16 @@
 
         <%= partial "global-meta-sm" %>
 
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
-
+        <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="RSS">
+        <link href="https://cloud.typography.com/6077114/7879172/css/fonts.css" rel=stylesheet />
         <%= stylesheet_link_tag "application" %>
+
         <script>
 
             'use strict';
 
             // replaces html.no-js with html.js
             ;(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
-
-            // async fonts
-            !function(a){"use strict";var b=function(b,c,d){function j(a){return e.body?a():void setTimeout(function(){j(a)})}function l(){f.addEventListener&&f.removeEventListener("load",l),f.media=d||"all"}var g,e=a.document,f=e.createElement("link");if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1]}var i=e.styleSheets;f.rel="stylesheet",f.href=b,f.media="only x",j(function(){g.parentNode.insertBefore(f,c?g:g.nextSibling)});var k=function(a){for(var b=f.href,c=i.length;c--;)if(i[c].href===b)return a();setTimeout(function(){k(a)})};return f.addEventListener&&f.addEventListener("load",l),f.onloadcssdefined=k,k(l),f};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
-            var supportsWoff2 = function(a){if(!("FontFace"in a))return!1;var b=new FontFace("t",'url( "data:application/font-woff2;base64,d09GMgABAAAAAADcAAoAAAAAAggAAACWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABk4ALAoUNAE2AiQDCAsGAAQgBSAHIBtvAcieB3aD8wURQ+TZazbRE9HvF5vde4KCYGhiCgq/NKPF0i6UIsZynbP+Xi9Ng+XLbNlmNz/xIBBqq61FIQRJhC/+QA/08PJQJ3sK5TZFMlWzC/iK5GUN40psgqvxwBjBOg6JUSJ7ewyKE2AAaXZrfUB4v+hze37ugJ9d+DeYqiDwVgCawviwVFGnuttkLqIMGivmDg" ) format( "woff2" )',{});return b.load().catch(function(){}),"loading"==b.status||"loaded"==b.status}(this);
-            if( supportsWoff2 ) loadCSS( 'https://cloud.typography.com/6077114/7879172/css/fonts.css' );
 
         </script>
     </head>

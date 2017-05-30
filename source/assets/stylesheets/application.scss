@@ -567,15 +567,38 @@ a {
   }
 }
 
+.post-meta {
+  position: absolute;
+  top: 25px;
+  right: 0;
+
+	@media(max-width: 640px) {
+		text-align: center;
+		position: static;
+	}
+}
+
 .post-author {
   @extend %ds-clearfix;
-
   margin-bottom: 15px;
+
+	@media(max-width: 640px) {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	& + & {
+		margin-top: 30px;
+	}
 }
 
 .post-author__image {
   float: left;
   height: 50px;
+
+	@media(max-width: 640px) {
+		float: none;
+	}
 
   img {
     @extend .polaroid;
@@ -589,14 +612,15 @@ a {
 .post-author__name {
   font-family: $ds-font-family-complementary;
 	font-weight: 300;
+	line-height: 50px;
+	color: lighten($ds-color-text, 50);
   float: left;
-  line-height: 50px;
-}
 
-.post-meta {
-  position: absolute;
-  top: 10px;
-  right: 0;
+	@media(max-width: 640px) {
+		line-height: 1.6;
+		float: none;
+		margin-top: 10px;
+	}
 }
 
 .post-date,
@@ -643,6 +667,9 @@ code {
   padding: 3px 6px;
 }
 .highlight {
+	word-wrap: normal;
+	white-space: pre;
+	overflow: auto;
   background: #fff;
 }
 code {

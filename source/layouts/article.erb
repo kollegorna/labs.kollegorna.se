@@ -87,7 +87,13 @@
         <% end %>
 
         <footer class="post-footer">
-          <div class="post-author__name">
+
+          <div class="post-meta">
+            <time class="post-date" property="dateCreated" pubdate>
+              <%= current_article.date.strftime('%Y-%m-%d') %>
+            </time>
+          </div>
+
             <% data.colleagues.each do |author| %>
               <% if current_article.data.author.is_a?(Array) %>
                 <% current_article.data.author.each do |multiple_authors| %>
@@ -99,8 +105,13 @@
                       <div class="post-author__name">
                         <a property="email" href="mailto:<%= author['email'] %>">
                           <span property="givenName"><%= author['firstname'] %></span>
-                          <span property="familyName"><%= author['lastname'] %></span>
-                        </a>
+                          <span property="familyName"><%= author['lastname'] %></span></a>
+                          <% if author.key?('twitter') %>
+                            &middot;
+                            <a href="https://twitter.com/<%= author['twitter'] %>" target="_blank">
+                              @<%= author['twitter'] %>
+                            </a>
+                          <% end %>
                       </div>
                     </div>
                   <% end %>
@@ -113,16 +124,17 @@
                   <div class="post-author__name">
                     <a property="email" href="mailto:<%= author['email'] %>">
                       <span property="givenName"><%= author['firstname'] %></span>
-                      <span property="familyName"><%= author['lastname'] %></span>
-                    </a>
+                      <span property="familyName"><%= author['lastname'] %></span></a>
+                      <% if author.key?('twitter') %>
+                        &middot;
+                        <a href="https://twitter.com/<%= author['twitter'] %>" target="_blank">
+                          @<%= author['twitter'] %>
+                        </a>
+                      <% end %>
                   </div>
                 </div>
               <% end %>
             <% end %>
-
-            <div class="post-meta">
-              <time class="post-date" property="dateCreated" pubdate><%= current_article.date.strftime('%Y-%m-%d') %></time>
-            </div>
 
             <% if current_article.data.source_url %>
               <div class="post-via">
@@ -136,6 +148,7 @@
                 </a>
               </div>
             <% end %>
+
         </footer>
 
         <% if current_article.data.disable_comments == false %>

@@ -37,7 +37,7 @@ activate :autoprefixer
 activate :directory_indexes
 activate :syntax
 
-set :markdown, fenced_code_blocks: true
+set :markdown, fenced_code_blocks: true, with_toc_data: true
 set :markdown_engine, :redcarpet
 
 # Minimize css/js and fix assets for Build

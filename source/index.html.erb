@@ -41,7 +41,7 @@ body_classes: home
   <div class="index__list">
     <h2>Blog</h2>
     <ul>
-        <% blog.articles.each do |article| %>
+        <% blog.articles.select{|a| a.data.disable_listing != true}.each do |article| %>
         <li>
             <h3><a href="<%= article.url %>"><%= article.title %></a></h3>
             <p>
