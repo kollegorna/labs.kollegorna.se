@@ -54,7 +54,7 @@ What happens in the case when by clicking a master subscription checkbox you get
 That would mean creating manually 3 new controllers...
 
 
-## Nested UI controllers (Rail's missing option 3)
+## Nested UI controllers (Rails' missing option 3)
 The idea is that we use a tiny DSL inside our controller to create and nest UI-related controller, using a more resty approach:
 
 ```ruby
