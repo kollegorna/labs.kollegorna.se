@@ -518,7 +518,11 @@ We have enabled automated Service Workers on Trellis (Wordpress LEMP stack) and 
 
 ## Debugging Service Worker
 
-Debugging worker is quite a tricky, because you first have to unregister the current worker before testing the updated code, otherwise you’ll find yourself doing a Sisyphus work – investigating the old code. In Chrome you can unregister the workers via `DevTools → Application → Service Workers`:
+I found Chrome DevTools to be a very handy tool for debugging Service Workers. It has this nice _Network Throttling_ feature which makes it easy to simulate offline experience:
+
+![Chrome DevTools: Network Throttling](/posts/images/service-worker-gotchas/devtools-network-throttling.jpg)
+
+Debugging worker might be tricky sometimes, because you first have to unregister the current worker before testing the updated code, otherwise you’ll find yourself doing a Sisyphus work – investigating the old code. In Chrome you can unregister the worker manually via `DevTools → Application → Service Workers`:
 
 ![Chrome DevTools: Service Workers](/posts/images/service-worker-gotchas/devtools-service-workers.jpg)
 
