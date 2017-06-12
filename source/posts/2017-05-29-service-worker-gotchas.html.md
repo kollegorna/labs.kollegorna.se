@@ -329,7 +329,7 @@ And so here the resource versioning kicks in. It begins by defining a version nu
 ```javascript
 const version            = '1-',
       criticalsCacheName = `${version}critical`,
-      pagesCacheName     = `${version}pages`,
+      otherCacheName     = `${version}other`,
       imagesCacheName    = `${version}images`;
 ```
 
@@ -402,7 +402,7 @@ const trimCache = (cacheName, maxItems) => {
 
 self.addEventListener('message', event => {
   if(event.data.command == 'trimCache') {
-    trimCache(pagesCacheName, 50);
+    trimCache(otherCacheName, 50);
     trimCache(imagesCacheName, 25);
   }
 });
@@ -418,8 +418,32 @@ if(criticalResources.includes(url.pathname))
 else if(type.startsWith('image'))
   addToCache(imagesCacheName, request, responseCopy);
 else
-  addToCache(pagesCacheName, request, responseCopy);
+  addToCache(otherCacheName, request, responseCopy);
 ```
+
+### Omitting thrid-party resources
+
+Websites usually contain various thrid-party resources like JS, CSS, image files, etc. Combine those kilobytes throughout the entire site and you may find yourself trying put an elephant into a canary’s cage. Therefore omitting those resources by default and having a list of exceptions if needed is a good practice:
+
+```javascript
+var thirdPartyExceptions = [
+      'https://code.jquery.com/jquery.min.js'
+    ];
+
+// ...
+
+event.respondWith(fetch(request).then(response => { // network
+  // cache only resources from this domain as well as the exceptions
+  if(location.origin === url.origin || thirdPartyExceptions.includes(url.href)) {
+    // addToCache use
+  }
+  return response;
+}))
+
+// ...
+```
+
+`location` is a global variable associated with the worker.
 
 ### Forcing serviceworker.js file renewal
 
