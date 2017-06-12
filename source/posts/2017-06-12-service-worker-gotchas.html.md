@@ -1,10 +1,9 @@
 ---
 title: "Service Worker gotchas"
-date: 2017-05-29 09:00:00 EET
+date: 2017-06-12 17:00:00 EET
 author: osvaldas
-description: ""
-image:
-disable_listing: true
+meta_description: "We’ve learned there quite a few gotchas to grasp in order to get Service Worker working correctly…"
+meta_image: /posts/images/service-worker-gotchas/kollegorna-offline-page.jpg
 ---
 
 [Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome/Opera and if compared to what we have today it has gone a promising way of improvements, bug fixes, became more easily debuggable and is supported much widely (hello Firefox). That led us into using the technology in production and implementing it in our [kollegorna.se](https://kollegorna.se) website, as well as some client projects. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
