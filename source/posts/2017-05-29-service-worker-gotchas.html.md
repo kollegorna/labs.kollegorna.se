@@ -7,7 +7,7 @@ image:
 disable_listing: true
 ---
 
-[Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome, but now that it has gone a way of improvements, bug fixes, became more easily debugable and is supported much more widely we decided to try it in production and implement in our [kollegorna.se](https://kollegorna.se) website. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
+[Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome, but now that it has gone a way of improvements, bug fixes, became more easily debuggable and is supported much more widely we decided to try it in production and implement in our [kollegorna.se](https://kollegorna.se) website. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
 
 Here is the list of what I’ll be overviewing in the article:
 
@@ -181,7 +181,7 @@ const otherResources = [
 
       cacheCriticals = () => {
         return caches.open(version).then( cache => {
-          cache.addAll(otherResources); // _important, but not critical resources_
+          cache.addAll(otherResources); // important, but not critical resources
           return cache.addAll(criticalResources); // critical resources
         });
       };
@@ -276,7 +276,7 @@ Actually there are at least two ways of implementing the “offline” image:
 
 ### 1\. Inlined in worker’s file
 
-If the image is technically simple you can Base64 it or ideally have it in SVG format which is a complete win: the image is resolution-independent, styleable, easily maintainable.
+If the image is technically simple you can Base64 it or ideally have it in SVG format which is a complete win: the image is resolution-independent, style-able, easily maintainable.
 
 ```javascript
 event.respondWith(caches.match(request).then(response => {
@@ -322,7 +322,7 @@ It’s a sign of a really bad UX if your users are disturbed with error messages
 
 ### Versioning
 
-And so here the resource versioning kicks in. It begins by defining a version number or a key that will be used for caching new and deleting old stuff. Instead of putting everything into a single place we will distribute different resource types accors their own cache “rooms”:
+And so here the resource versioning kicks in. It begins by defining a version number or a key that will be used for caching new and deleting old stuff. Instead of putting everything into a single place we will distribute different resource types across their own cache “rooms”:
 
 ```javascript
 const version            = '1-',
@@ -339,7 +339,7 @@ const addToCache = (cacheName, request, response) => {
 };
 ```
 
-The version number should be incremented along with every website update. Well, maybe not always “with every” – this depends on your Service Worker strategy. So with every increment pushed a new cache party is created in the browser. To visualise the cache, resources are grouped by version numbers:
+The version number should be incremented along with every website update. Well, maybe not always “with every” – this depends on your Service Worker strategy. So with every increment pushed a new cache party is created in the browser. To visualize the cache, resources are grouped by version numbers:
 
 ```javascript
 '1-critical': [
@@ -421,7 +421,7 @@ else
 
 ### Forcing serviceworker.js file renewal
 
-Remember when I mentioned that the browser tries to redownload serviceworker.js file on every page request made by the user? Well, that’s the theory. But in practice serviceworker.js file updates does not necessarily always have an instanct reflection in the browser. Consequently, a chance exists that some of your users will see the outdated content even if there’s fresh stuff available. In order to overcome this and have a new Service Worker lifecycle started as soon as the file is updated, I added a server-level configuration targeted to `serviceworker.js` file which tells the browser and the computer do not ever cache this file.
+Remember when I mentioned that the browser tries to redownload serviceworker.js file on every page request made by the user? Well, that’s the theory. But in practice serviceworker.js file updates does not necessarily always have an instant reflection in the browser. Consequently, a chance exists that some of your users will see the outdated content even if there’s fresh stuff available. In order to overcome this and have a new Service Worker lifecycle started as soon as the file is updated, I added a server-level configuration targeted to `serviceworker.js` file which tells the browser and the computer do not ever cache this file.
 
 Apache way:
 
@@ -475,7 +475,7 @@ event.respondWith(
 
 ## Service Worker and DOM
 
-Service Worker does not have a direct access to DOM at all, which means manipulating it is not possible. No `window` nor `document` variables are present, meanwhile gobally available `self` variable points to `WorkerGlobalScope`, not `Window` like we are used to.
+Service Worker does not have a direct access to DOM at all, which means manipulating it is not possible. No `window` nor `document` variables are present, meanwhile globally available `self` variable points to `WorkerGlobalScope`, not `Window` like we are used to.
 
 Anyway, just like we have proved before, we can still make a website and a Service Worker to communicate directly. `postMessage` does this in _“to Service Worker”_ direction and looks like it is also [possible](http://craig-russell.co.uk/2016/01/29/service-worker-messaging.html#.WRnuDFKB2Rs) to do it in _“to website”_ direction as well.
 
@@ -527,7 +527,7 @@ You may adapt this accordingly to your multilingual URL strategy. My example rel
 
 ## Service Worker is backend-dependent
 
-In one of the previous sections of the article we realised the importance of versioning. The method of updating a value for `version` variable depends on your backend system and Service Worker strategy. If you are not looking to automate everything or got a simple static website that does not rely on a CMS, you may just edit Service Worker file manually and increment the variable’s value or enter something random when updating the site.
+In one of the previous sections of the article we realized the importance of versioning. The method of updating a value for `version` variable depends on your backend system and Service Worker strategy. If you are not looking to automate everything or got a simple static website that does not rely on a CMS, you may just edit Service Worker file manually and increment the variable’s value or enter something random when updating the site.
 
 The real fun begins if you prefer to have everything fully automated. For example, you’ve got a Wordpress based website and gone the offline-first approach way. In order to always serve the fresh content you can write a custom hook function called when saving/updating a post:
 
@@ -550,7 +550,7 @@ In some cases I find `Clear Storage` to work better for me as it completely wipe
 
 ![Chrome DevTools: Clear Storage](/posts/images/service-worker-gotchas/devtools-clear-storage.jpg)
 
-Since Service Worker is a relatively new technology it could not do without alteration on interpreting variuos rules and directives. Therefore always be sure to test your worker on the future browser releases like [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/).
+Since Service Worker is a relatively new technology it could not do without alteration on interpreting various rules and directives. Therefore always be sure to test your worker on the future browser releases like [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/).
 
 Once you have your worker up and running, you can reasonably hope for 100/100 score on Chrome’s website performance evaluation tool – [Lighthouse](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwit69ai4orUAhXC2CwKHXVXBMgQFggvMAA&url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Flighthouse%2Fblipmdconlkpinefehnmjammfjpmpbjk%3Fhl%3Den&usg=AFQjCNFvomjeSTNsyil51bzJfvzQWOp_lA&sig2=Zo4u5jzNkdhXR0pkoXNiHg):
 
