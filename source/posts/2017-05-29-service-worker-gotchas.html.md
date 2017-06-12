@@ -443,7 +443,7 @@ event.respondWith(fetch(request).then(response => { // network
 // ...
 ```
 
-`location` is a global variable associated with the worker.
+`location` is a global variable associated with the worker. With the code above we only allow resources from the server the website is hosted at as well as the exceptions.
 
 ### Forcing serviceworker.js file renewal
 
