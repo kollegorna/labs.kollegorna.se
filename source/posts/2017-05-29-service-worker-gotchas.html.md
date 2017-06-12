@@ -7,7 +7,7 @@ image:
 disable_listing: true
 ---
 
-[Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome, but now that it has gone a way of improvements, bug fixes, became more easily debuggable and is supported much more widely we decided to try it in production and implement in our [kollegorna.se](https://kollegorna.se) website. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
+[Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) has already been here for a while: since 2015-09 it has been fully supported in Chrome/Opera and if compared to what we have today it has gone a promising way of improvements, bug fixes, became more easily debuggable and is supported much widely (hello Firefox). That led us into using the technology in production and implementing it in our [kollegorna.se](https://kollegorna.se) website, as well as some client projects. We’ve learned there quite a few gotchas to grasp in order to get Service Worker working _correctly_…
 
 Here is the list of what I’ll be overviewing in the article:
 
@@ -23,7 +23,6 @@ Here is the list of what I’ll be overviewing in the article:
 * [Service Worker strategies](#service-worker-strategies)
 * [Serving “offline” image](#serving-“offline”-image)
 * [Garbage in cache is your problem](#garbage-in-cache-is-your-problem)
-* [The “trailing slash” issue](#the-trailing-slash-issue)
 * [Service Worker and DOM](#service-worker-and-dom)
 * [Service Worker for multilingual website](#service-worker-for-multilingual-website)
 * [Service Worker is backend-dependent](#service-worker-is-backend-dependent)
@@ -95,7 +94,7 @@ Another _gotcha_ is that in order to get the Service Worker going your website m
 
 The location of `serviceworker.js` file on the server is a _gotcha_ as well: the worker will only operate on its current and child paths. In other words if the location of Service Worker file is `kollegorna.se/serviceworker.js`, it will work on the entire site (origin), even if I am browsing here `kollegorna.se/` or there `kollegorna.se/i/am/here`.
 
-As you might have realised having the file on `kollegorna.se/about/serviceworker.js` won’t invoke the worker when browsing on `kollegorna.se/` nor `kollegorna.se/contact`.
+As you might have realized having the file on `kollegorna.se/about/serviceworker.js` won’t invoke the worker when browsing on `kollegorna.se/` nor `kollegorna.se/contact`.
 
 Note that domains and subdomains all are different origins, so for example the worker on `kollegorna.se/serviceworker.js` will _not_ operate when browsing on `labs.kollegorna.se`. Placing multiple worker files will get you going.
 
@@ -135,7 +134,7 @@ self.addEventListener('activate', event => {
 });
 ```
 
-Finally – `fetch`. It’s so powerful that it lets you kinda intercept HTTP requests and return relatively anything you want. It is fired on each HTTP request and for each request separately, for example: say you have a tiny website which consists only of `index.html`, `app.css`, `app.js`. files. When the user navigates to the website, the fetch event is triggered three times for each resource and you can choose what to return, be it a fresh page/asset or a copy from the cache.
+Finally – `fetch`. It’s so powerful that it lets you kinda intercept HTTP requests and return relatively anything you want. It is fired on each HTTP request and for each request separately, for example: say you have a tiny website which consists only of `index.html`, `app.css`, `app.js`. files. When the user navigates to the website, the fetch event is triggered for each resource (three times in total) where you can choose what to return, be it a fresh page/asset or a copy from the cache.
 
 ```javascript
 self.addEventListener('fetch', event => {
@@ -145,9 +144,11 @@ self.addEventListener('fetch', event => {
 
 ## Critical and non-critical resources
 
-Service Worker is installed only when the initial resources are downloaded by a browser, consequently it is very important not to overload the process with too many files. Otherwise if the user spends a very small amount of time on the website and/or also has a slow internet connection the worker might not get installed at all.
+You can choose to cache the initial resources along with the worker’s installation. It’s up to you picking a few most important ones, but usually they are a homepage, a pair of main CSS, JS files and of course “offline” page – this is enough for a basic _offline_ experience.
 
-It’s up to you picking a few most important resources, but usually they are a homepage, a pair of main CSS, JS files and of course “offline” page. Now let’s make a use of `install` event:
+The _gotcha_ here is that Service Worker is installed only when the initial resources are downloaded by a browser, consequently it is very important not to overload the process with too many files. Otherwise if the user spends a very small amount of time on the website and/or also has a slow internet connection the worker might not get installed at all.
+
+Now let’s make a use of `install` event:
 
 ```javascript
 const criticalResources = [
@@ -168,9 +169,9 @@ self.addEventListener('install', event => {
 });
 ```
 
-Here we have `criticalResources` array of the stuff we want to always be available for our worker (and thus users). Then there is a function `cacheCriticals` which is executed in an asynchronous manner. The function kinda opens a cache room for the resources and puts them in there. The sign text on the door is a value of a custom variable `version` which I ellaborate on later in the article.
+Here we have `criticalResources` array of the stuff we want to always be available for our worker (and thus users). Then there is a function `cacheCriticals` which is executed in an asynchronous manner. The function kinda opens a cache room for the resources and puts them in there. The sign text on the door is a value of a custom variable `version` which I elaborate on later in the article.
 
-Even though it is recommended to have a very limited amount of critical resources, we can have an additional array of files that does _not_ block an installation of our worker. Therefore we can enrich our strategy for `install` event with _“critical”_ and _“important, but not critical”_ lists. Benefits are we get the worker installed as soon as possible along with the _criticals_ cached whereas the resources from the new array will be cached asynchronously and only if/when possible. In order to achieve this, let’s create an additional array and modify the function:
+Since it is recommended to have a very limited amount of critical resources, we can have an additional array of files that does _not_ block an installation of our worker. Therefore we can enrich our strategy for `install` event with _“critical”_ and _“important, but not critical”_ lists. Benefits are we get the worker installed as soon as possible along with the _criticals_ cached whereas the resources from the new array will be cached asynchronously and only if/when possible. In order to achieve this, let’s create an additional array and modify the function:
 
 ```javascript
 const otherResources = [
@@ -191,7 +192,7 @@ The `return` statment is important here as it labels a prerequisite for the work
 
 ## Service Worker strategies
 
-Let’s move over to `fetch` event. As I mentioned, there are two ways to operate when the request for a resouce knocks on – it’s **online**-first and **offline**-first. The _gotcha_ here is that you can choose different _give-it-to-me_ strategies for each type of resource. I’d exclude three common Service Worker strategies:
+Let’s move over to `fetch` event which is a cornerstone. As I mentioned, there are two ways to operate when the request for a resource knocks on – it’s **online**-first and **offline**-first. The _gotcha_ here is that you can choose different _give-it-to-me_ strategies for each type of resource. I’d exclude three common Service Worker strategies:
 
 ### Online-first everything
 
@@ -200,6 +201,7 @@ This means serving resources from the network first and falling back to the cach
 ```javascript
 self.addEventListener('fetch', event => {
   event.respondWith(
+    // try fetching a resource from the network
     fetch(event.request).then(response => {
       // cache the resource and serve it
       let responseCopy = response.clone();
@@ -217,7 +219,7 @@ self.addEventListener('fetch', event => {
 
 ### Offline-first everything
 
-It’s serving resources from cache first but falling back to network request if the resource hasn’t been cached previously. The advantage here is that your website loads faster if cached: there’s no need for network requests as things are pulled out right from the user’s device.
+It’s serving resources from cache first but falling back to network request if the resource hasn’t been cached previously. The advantage here is that your website loads faster if cached: there will be no need for some network requests as things are pulled out right from the user’s device.
 
 ```javascript
 self.addEventListener('fetch', event => {
@@ -226,7 +228,7 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(response => {
       // serve the resource if cached, otherwise fetch it through the network
       return response || fetch(event.request).then(response => {
-        // cache the resource and serve it
+        // cache the newly fetched resource and serve it
         let responseCopy = response.clone();
         addToCache(event.request, responseCopy); // this is a custom function, I'll elaborate on it later
         return response;
@@ -240,11 +242,11 @@ self.addEventListener('fetch', event => {
 });
 ```
 
-Performance gains are visible to the naked eye, but every bean has its black: a chance exists your users may be served with outdated content. When the user comes to your website for the first time our Service Worker is installed and the critical resources along with a version number are stashed into the browser’s cache. After a while the user returns to your homepage which presents a list of your latest blog posts. The worker then immediately checks if the requested HTML document had been cached previously and serves it from there if the answer is true. So in that case if you published a new blog post before the user returned to your website they would **not** be able to see the post in the list because the homepage was served from the cache. After rendering the homepage our worker then detects that there is a change in the resource’s version number and deletes the HTML document from cache. Therefore in order to see the updated page the user has to _refresh_ it. This may not be a huge problem for representative websites, but vise-versa for frequently updates ones.
+Performance gains are visible to the naked eye, but every bean has its black: a chance exists your users may be served with an outdated content. When the user comes to your website for the first time our Service Worker is installed and the critical resources along with a version number are stashed into the browser’s cache. After a while the user returns to your homepage which, let’s say, displays a list of your latest blog posts. The worker then immediately checks if the requested HTML document had been cached previously and serves it from there if the answer is true. So in that case if you published a new blog post before the user returned to your website they would **not** be able to see the post in the list because the homepage was served from the cache. After rendering the homepage our worker then detects that there is a change in the resource’s version number and deletes the HTML document from cache. Therefore in order to see the updated page the user should _refresh_ it. This may not be a huge problem for representative websites, but vise-versa for frequently updates ones.
 
 ### Offline-first assets and online-first HTML documents
 
-It’s a combination of the first two strategies, but differentiated accross resource types: offline-first assets and online-first HTML documents. The strategy partly solves the offline-first’s _refresh_ problem and so makes sure the users are always entertained with the latest content. The good thing is that you can check the request headers and so determine a type of the resource:
+It’s a combination of the first two strategies, but differentiated per resource types: offline-first assets and online-first HTML documents. The strategy partly solves the offline-first’s _refresh_ problem and so makes sure the users are always entertained with the latest content. The good thing is that you can check the request headers and so determine a type of the resource:
 
 ```javascript
 self.addEventListener('fetch', event => {
@@ -264,7 +266,7 @@ self.addEventListener('fetch', event => {
 });
 ```
 
-This could be very suitable for CMS-based websites as you don’t need to manage cache on every database update. That’s exactly what we adopted to our client’s WordPress based site.
+This could be very suitable for CMS-based websites as you don’t need to manage cache on every database update (content insertion). That’s exactly what we adopted to our client’s WordPress based site.
 
 ## Serving “offline” image
 
@@ -297,7 +299,7 @@ event.respondWith(caches.match(request).then(response => {
 
 ### 2\. Standalone file
 
-If the image is more like a photo and Base64 or SVG conversion would not be rational, you have it as a separate file placed on the server. Of course you should cache it as a critical resource and then it can be served like a typical resource:
+If the image is more like a photo and Base64 or SVG conversion would not be rational, you ought to have it as a separate file placed on a server. Of course you should cache it as a critical resource when `install` event occurs and then it can be served like a typical resource:
 
 ```javascript
 event.respondWith(caches.match(request).then(response => {
@@ -322,7 +324,7 @@ It’s a sign of a really bad UX if your users are disturbed with error messages
 
 ### Versioning
 
-And so here the resource versioning kicks in. It begins by defining a version number or a key that will be used for caching new and deleting old stuff. Instead of putting everything into a single place we will distribute different resource types across their own cache “rooms”:
+And so here the resource versioning kicks in. It begins by defining a version number or a key that will be used for caching new and deleting the old stuff. Instead of putting everything into a single place we will distribute different resource types across their own cache “rooms”:
 
 ```javascript
 const version            = '1-',
@@ -331,7 +333,7 @@ const version            = '1-',
       imagesCacheName    = `${version}images`;
 ```
 
-Remember the `addToCache` function we used under the `fetch` event? Let’s improve it by making it accept an additional parameter – cache room name. It uses `version` variable for caching new stuff:
+Remember the `addToCache` function we used under the `fetch` event? Let’s improve it by making it to accept an additional parameter – cache room name:
 
 ```javascript
 const addToCache = (cacheName, request, response) => {
@@ -339,7 +341,7 @@ const addToCache = (cacheName, request, response) => {
 };
 ```
 
-The version number should be incremented along with every website update. Well, maybe not always “with every” – this depends on your Service Worker strategy. So with every increment pushed a new cache party is created in the browser. To visualize the cache, resources are grouped by version numbers:
+The version number should be incremented along with every website update. Well, maybe not always “with every” – this depends on your Service Worker strategy. So with every increment pushed a new cache party is created in the browser. Resources are grouped by version numbers like this:
 
 ```javascript
 '1-critical': [
@@ -357,7 +359,7 @@ The version number should be incremented along with every website update. Well, 
 //...
 ```
 
-In order to keep the cache lean, we should aways delete previous groups. Let’s take an advantage of the `activate` event and clear the old stuff:
+In order to keep the cache lean, we should aways delete groups from previous lifecycles of the worker. Let’s take an advantage of the `activate` event and clean up the old stuff:
 
 ```javascript
 const clearOldCaches = () => {
@@ -375,7 +377,7 @@ In our case, having the current version key equal to `2-critical` will delete th
 
 ### Additional cache control
 
-However, as I mentioned previously, this event is fired only once in a worker’s lifecycle. The worker can live a long life therefore there is an increased chance the cache size may get exceed. A really good mechanism for wiping the dust was suggested by [Jeremy Keith](https://adactio.com/journal/9888). We can kinda create a custom event and send a trigger-like signal from the website to our Service Worker. An additional code next to worker’s file registration:
+As I mentioned previously, this event is fired only once in a worker’s lifecycle. The worker can live a long life therefore there is an increased chance the cache size may get exceed. A really good mechanism for wiping the dust was suggested by [Jeremy Keith](https://adactio.com/journal/9888). We can kinda create a custom event and send a trigger-like signal from the website to our Service Worker. An additional code next to worker’s file registration:
 
 ```javascript
 if('serviceWorker' in navigator) {
@@ -406,9 +408,9 @@ self.addEventListener('message', event => {
 });
 ```
 
-We’re not just keeping the cache size sane, but also ensuring we have the critical resources available since the corresponding cache room is not trimmed.
+We’re not just keeping the cache size sane, but also ensuring we have the critical resources available since we do not apply trimming for `criticalResources` room.
 
-Since we’re separating our cache into several rooms, it’s important to make sure the resources go where they have to. An improvement on how we cache things under `fetch` event:
+Since we’re separating our cache into several rooms, it’s important to make sure the resources go where they are supposed to. Here’s an improvement on how we cache things under `fetch` event:
 
 ```javascript
 if(criticalResources.includes(url.pathname))
@@ -447,32 +449,6 @@ server {
 }
 ```
 
-## The “trailing slash” issue
-
-Another _gotcha_ is the difference between, for example, `/about` and `/about/` pages. Most of the websites have server-level `301` redirects for SEO reasons (avoiding duplicate content) where requests for `/about` are redirected to `/about/` or vice-versa. Even though these pages are identical content wise, they are treated as different ones by Service Worker because they, well, have different URL’s. However, despite of the server-level backup you cannot prevent users from initially requesting the _wrong_ URL. As a result there are at least two bad things that can happen if overlooked:
-
-1.  Wasting cache memory with duplicate content. Despite these pages being identical, both them of will be stashed into cache resulting in exceeding the memory limit 2x faster.
-2.  Serving “offline” page even if the requested page was previously cached. Checking the cache for an equivalent for `/about` page will fail if `/about/` was cached instead.
-
-To get the issue solved we need to add a complementary check for a cached copy of the resource with or without the trailing slash in its URL:
-
-```javascript
-var url = new URL(event.request.url);
-event.respondWith(
-  fetch(event.request).then(response => {
-    // ...
-    return response;
-  })
-  .catch(function() {
-    return caches.match(event.request).then(response => {
-      if(response) return response;
-      url = url.href.slice(-1) == '/' ? url.href.slice(0, -1) : (url.href+'/');
-      return caches.match(url).then(response => response || caches.match('/offline/'));
-    });
-  })
-);
-```
-
 ## Service Worker and DOM
 
 Service Worker does not have a direct access to DOM at all, which means manipulating it is not possible. No `window` nor `document` variables are present, meanwhile globally available `self` variable points to `WorkerGlobalScope`, not `Window` like we are used to.
@@ -502,7 +478,7 @@ const criticalResources = [
       ];
 ```
 
-But the _gotcha_ lies behind the “offline” page: wouldn’t it be nice to have “offline” pages for all the languages and enable them through Service Worker?
+But the _gotcha_ lies behind the “offline” page: wouldn’t it be nice to have an “offline” page enabled for each language?
 
 ```javascript
 const appLangs = ['en', 'sv'],
@@ -523,13 +499,13 @@ event.respondWith(
 
 Before serving the “offline” page the code above checks the first two characters of URL of the requested resource for a language code. It also verifies if this code is available in the languages list otherwise it picks the first entry from the list which is treated as a default.
 
-You may adapt this accordingly to your multilingual URL strategy. My example relates on what we have here at Kollegorna: all of the page addresses start with language code.
+You may adapt this accordingly to your multilingual URL strategy. My example relies on what we have here at Kollegorna: all of the page addresses start with language code.
 
 ## Service Worker is backend-dependent
 
 In one of the previous sections of the article we realized the importance of versioning. The method of updating a value for `version` variable depends on your backend system and Service Worker strategy. If you are not looking to automate everything or got a simple static website that does not rely on a CMS, you may just edit Service Worker file manually and increment the variable’s value or enter something random when updating the site.
 
-The real fun begins if you prefer to have everything fully automated. For example, you’ve got a Wordpress based website and gone the offline-first approach way. In order to always serve the fresh content you can write a custom hook function called when saving/updating a post:
+The real fun begins if you prefer to have everything fully automated. For example, you’ve got a Wordpress based website and gone the offline-first approach way. In order to get the version number incremented on content updates you can write a custom hook function called when inserting or updating a post:
 
 ```javascript
 function update_sw_version() {
@@ -558,4 +534,4 @@ Once you have your worker up and running, you can reasonably hope for 100/100 sc
 
 * * *
 
-To end up with, let me give you an advice: don’t ever take Service Worker code advices for granted. Always test them, because adaptations are very individual and what worked for one doesn’t automatically mean it will work for you.
+Let me end up the article with an advice: don’t ever take Service Worker code advices for granted. Always test them, because adaptations are very individual and what worked for one doesn’t automatically mean it will work for you.
