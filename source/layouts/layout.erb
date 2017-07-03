@@ -1,6 +1,49 @@
-<%= partial "global-head" %>
+<!DOCTYPE html>
+<html class="no-js" lang="<%= current_page.data.lang || "en" %>">
+    <head>
+        <meta charset="utf-8">
+        <title><%= "#{current_page.data.title} | " if current_page.data.title %> Kollegorna Labs</title>
 
-<%= yield %>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
 
-<%= javascript_include_tag "application", :async => true %>
-<%= partial "global-footer" %>
+        <%= partial "global-meta-sm" %>
+
+        <link rel="icon" href="<%= image_path 'app-icon.png' %>">
+        <link rel="apple-touch-icon" href="<%= image_path 'app-icon.png' %>">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="RSS">
+        <link href="https://cloud.typography.com/6077114/7879172/css/fonts.css" rel=stylesheet />
+        <%= stylesheet_link_tag "application" %>
+
+        <script>
+
+            'use strict';
+
+            // replaces html.no-js with html.js
+            ;(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+
+        </script>
+    </head>
+    <body class="<%= current_page.data.body_classes || "site" %>">
+
+
+      <!-- Google Tag Manager -->
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDZKDQ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KDZKDQ');</script>
+      <!-- End Google Tag Manager -->
+
+      <%= yield %>
+
+      <%= javascript_include_tag "application", :async => true %>
+
+
+    </body>
+</html>

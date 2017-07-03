@@ -15,14 +15,14 @@ We also deployed using the Ruby 2.1.3 since 2.1.2 had some [memory issues](https
 
 Enough with theory! Let's see that in practice with screenshots from our monitoring tools:
 
-![Paradox Accounts](/posts/paradox-accounts.png)
+![Paradox Accounts](/posts/images/puma-is-cool/paradox-accounts.png)
 
 The first drop in the graph shows the Puma installation whereas the second one is by using Ruby 2.1.3
 
-![wizard wars 1](/posts/wizardwars1.png)
+![wizard wars 1](/posts/images/puma-is-cool/wizardwars1.png)
 
 Here the first one is by using Ruby 2.1.3 and the second one (which happened almost immediately) by using Puma server. Overall results after 1 day:
 
-![wizard wars 2](/posts/wizardwars2.png)
+![wizard wars 2](/posts/images/puma-is-cool/wizardwars2.png)
 
 In one word: Success :-D

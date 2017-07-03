@@ -8,7 +8,7 @@
 ;( function() {
 
   var url = window.location.origin + window.location.pathname;
-  console.log(url);
+
   $.disqusLoader( '.disqus', {
     scriptUrl: '//kollegornalabs.disqus.com/embed.js',
     disqusConfig: function() {

@@ -86,7 +86,7 @@ First it records all errors that happen in a middleware below (even the applicat
 code is considered a middleware for Rack). So you don't have to check the logs
 all the time:
 
-![exceptions](/posts/rack-reqorder/exceptions.png)
+![exceptions](/posts/images/rack-reqorder/exceptions.png)
 
 Once an exception takes places, rack-reqorder will record both the request that
 caused the exception and information about the error, like the exact lines that
@@ -114,7 +114,7 @@ with the api token of the client). By enabling this feature, rack-reqorder will
 record all requests and responses in a continued timeline for better understanding of
 the flow.
 
-![recordings](/posts/rack-reqorder/recordings.png)
+![recordings](/posts/images/rack-reqorder/recordings.png)
 
 You have a clear view on the requests flow (which came first, which came last) along with
 the request and their associated responses objects.

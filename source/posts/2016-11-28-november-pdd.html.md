@@ -111,7 +111,7 @@ the world of material design is used to describe spatial relationships, function
 and intention with beauty and fluidity.”
 
 #### The process
-![meetup 1](/posts/november-pdd/meetup1.jpg)
+![meetup 1](/posts/images/november-pdd/meetup1.jpg)
 
 Armed with the knowledge of what I want to work on now opens up the path for more
 technical research - what tools do I need to start building animated designs, how
@@ -137,7 +137,7 @@ a dribbble meet up that I had the chance to attend. This included a couple of ta
 different topics such as motion design (yup, a hot thing right now) and design systems
 (such as Atomic Design by Brad Frost).
 
-![meetup 2](/posts/november-pdd/meetup2.jpg)
+![meetup 2](/posts/images/november-pdd/meetup2.jpg)
 
 #### The takeaway
 
@@ -149,11 +149,11 @@ but the big takeaway is this - you should never stop developing yourself, this i
 investment you can make, adding this to my skill set may prove to be useful in the future
 and if not at least I gave it a try and now feel more competent in that field.
 
-![blog animation](/posts/november-pdd/blog-animations.gif)
+![blog animation](/posts/images/november-pdd/blog-animations.gif)
 
 
 
-![new-k](/posts/november-pdd/new-k.gif)
+![new-k](/posts/images/november-pdd/new-k.gif)
 
 ### Filippos
 

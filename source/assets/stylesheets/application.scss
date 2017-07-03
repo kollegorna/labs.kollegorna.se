@@ -229,6 +229,14 @@ a {
   display: block;
   margin: 0 auto ds-rem-calc(35px);
 
+	a {
+		display: block;
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+
   img {
     width: 100%;
     display: block;
@@ -422,6 +430,14 @@ a {
 .logo {
   width: ds-rem-calc(140px);
   margin: ds-rem-calc(35px) auto;
+
+	a {
+		display: block;
+
+		&:hover {
+			opacity: .8;
+		}
+	}
 }
 
 .blog-post {
