@@ -1,49 +1,95 @@
-<!DOCTYPE html>
+<%
+
+  meta_name        = "Kollegorna Labs"
+  meta_title       = "Science and progress will lead to happiness"
+  meta_description = current_page.data.description || "We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab&hellip;"
+  meta_og_img      = "https://labs.kollegorna.se#{image_path current_page.data.share_image || "meta/og.jpg"}"
+  meta_og_title    = current_page.data.title || meta_title
+
+%><!DOCTYPE html>
 <html class="no-js" lang="<%= current_page.data.lang || "en" %>">
-    <head>
-        <meta charset="utf-8">
-        <title><%= "#{current_page.data.title} | " if current_page.data.title %> Kollegorna Labs</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <title><%= current_page.data.title ? "#{current_page.data.title} | #{meta_name}" : "#{meta_name} | #{meta_title}" %></title>
+    <meta name="description" content="<%= meta_description %>">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="<%= image_path "meta/favicon.ico" %>">
+    <link rel="icon" href="<%= image_path "meta/icon-256.png" %>">
 
-        <%= partial "global-meta-sm" %>
+    <!-- Chrome -->
+    <meta name="theme-color" content="#00C66B"><!-- green -->
+    <link rel="manifest" href="/manifest.json">
 
-        <link rel="icon" href="<%= image_path 'app-icon.png' %>">
-        <link rel="apple-touch-icon" href="<%= image_path 'app-icon.png' %>">
-        <link rel="manifest" href="/manifest.json">
+    <!-- Safari -->
+    <link rel="mask-icon" color="#222222" href="<%= image_path "meta/safari-pinned-tab.svg" %>">
+    <link rel="apple-touch-icon" href="<%= image_path "meta/apple-touch-icon.png" %>">
 
-        <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="RSS">
-        <link href="https://cloud.typography.com/6077114/7879172/css/fonts.css" rel=stylesheet />
-        <%= stylesheet_link_tag "application" %>
+    <!-- IE -->
+    <meta name="application-name" content="<%= meta_name %>">
+    <meta name="msapplication-TileImage" content="<%= image_path "meta/icon-256.png" %>">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
 
-        <script>
+    <!-- Google+, Schema.org -->
+    <meta itemprop="name" content="<%= meta_og_title %>">
+    <meta itemprop="description" content="<%= meta_description %>">
+    <meta itemprop="image" content="<%= meta_og_img %>">
 
-            'use strict';
+    <!-- Facebook -->
+    <meta property="fb:app_id" content="327184264341676">
+    <meta property="og:type" content="website" />
+    <meta property="og:meta_name" content="<%= meta_name %>" />
+    <meta property="og:title" content="<%= meta_og_title %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:image" content="<%= meta_og_img %>" />
 
-            // replaces html.no-js with html.js
-            ;(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= meta_og_title %>" />
+    <meta name="twitter:description" content="<%= meta_description %>" />
+    <meta name="twitter:image:src" content="<%= meta_og_img %>" />
+    <meta name="twitter:site" content="@kollegorna">
+    <meta name="twitter:creator" content="@kollegorna">
 
-        </script>
-    </head>
-    <body class="<%= current_page.data.body_classes || "site" %>">
+    <!-- Other social networks -->
+    <link rel="image_src" href="<%= meta_og_img %>" />
+
+    <!--  RSS -->
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="RSS">
+
+    <!--  CSS -->
+    <link href="https://cloud.typography.com/6077114/7879172/css/fonts.css" rel=stylesheet />
+    <%= stylesheet_link_tag "application" %>
+
+    <!-- JS -->
+    <script>
+
+      'use strict';
+
+      // replaces html.no-js with html.js
+      ;(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+
+    </script>
+  </head>
+  <body class="<%= current_page.data.body_classes || "site" %>">
 
 
-      <!-- Google Tag Manager -->
-      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDZKDQ"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-KDZKDQ');</script>
-      <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDZKDQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KDZKDQ');</script>
+    <!-- End Google Tag Manager -->
 
-      <%= yield %>
+    <%= yield %>
 
-      <%= javascript_include_tag "application", :async => true %>
+    <%= javascript_include_tag "application", :async => true %>
 
 
-    </body>
+  </body>
 </html>
