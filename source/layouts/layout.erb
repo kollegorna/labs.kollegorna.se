@@ -3,7 +3,7 @@
   meta_name        = "Kollegorna Labs"
   meta_title       = "Science and progress will lead to happiness"
   meta_description = current_page.data.description || "We build stuff with Rails, Ember.js, Node.js and Go. This is our messy lab&hellip;"
-  meta_og_img      = "https://labs.kollegorna.se#{image_path current_page.data.share_image || "meta/og.jpg"}"
+  meta_og_img      = "https://labs.kollegorna.se#{image_path(current_page.data.share_image || "meta/og.jpg")}"
   meta_og_title    = current_page.data.title || meta_title
 
 %><!DOCTYPE html>
@@ -74,7 +74,6 @@
     </script>
   </head>
   <body class="<%= current_page.data.body_classes || "site" %>">
-
 
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDZKDQ"

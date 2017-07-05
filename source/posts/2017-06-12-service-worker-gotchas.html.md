@@ -3,7 +3,7 @@ title: "Service Worker gotchas"
 date: 2017-06-12 16:00:00 EET
 author: osvaldas
 meta_description: "We’ve learned there quite a few gotchas to grasp in order to get Service Worker working correctly…"
-meta_image: /posts/images/service-worker-gotchas/kollegorna-offline-page.jpg
+share_image: /posts/images/service-worker-gotchas/kollegorna-offline-page.jpg
 disable_comments: false
 ---
 
