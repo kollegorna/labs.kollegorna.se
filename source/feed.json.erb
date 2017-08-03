@@ -1,0 +1,13 @@
+<%=
+
+  # only used for fetching posts on kollegorna.se
+
+  blog.articles.select{|a| a.data.disable_listing != true}[0..5].collect{ |item|
+  {
+    :title     => item.title,
+    :url       => "https://labs.kollegorna.se#{item.url}",
+    # :published => item.date.to_time.iso8601,
+  }}
+  .to_json
+
+%>

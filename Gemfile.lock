@@ -144,6 +144,7 @@ PLATFORMS
 DEPENDENCIES
   builder (~> 3.2.2)
   jasmine (~> 2.2.0)
+  json
   middleman (~> 3.3.10)
   middleman-autoprefixer (~> 2.4.3)
   middleman-blog
@@ -153,4 +154,4 @@ DEPENDENCIES
   redcarpet (~> 3.2.3)
 
 BUNDLED WITH
-   1.11.2
+   1.13.6

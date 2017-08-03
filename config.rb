@@ -1,3 +1,5 @@
+require 'json'
+
 # Configure path for assets
 config[:css_dir] = 'assets/stylesheets'
 config[:js_dir] = 'assets/javascripts'
