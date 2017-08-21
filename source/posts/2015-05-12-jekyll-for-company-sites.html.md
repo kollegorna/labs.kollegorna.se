@@ -3,6 +3,7 @@ title: "Jekyll for Company Websites"
 date: 2015-05-12 00:00 UTC
 author: urban
 disable_comments: false
+share_image: /posts/images/jekyll-for-company-sites/file-edit.png
 ---
 
 Recently we made two small company websites for Blendow Group – [blendow.se](http://www.blendow.se/) and [bgpublishing.se](http://www.bgpublishing.se). We decided to build them using [Jekyll](http://jekyllrb.com/) and host them on [GitHub Pages](https://pages.github.com/). Since our client is pretty tech-savvy and knows their way around Markdown and HTML we could choose this solution knowing they could update and edit their sites easily themselves. Both sites also require very little change as they're basically just promoting the digital products that Blendow offers (like [BG Play](https://www.bgplay.se) and [Legal Career](https://www.legalcareer.se) that we've previously built for them).
@@ -19,14 +20,14 @@ GitHub Pages are public web pages hosted for free through [GitHub](https://githu
 + Fast and easy deployment
 
 ### Any downsides?
-+ [Not all Jekyll plugins are supported](https://pages.github.com/versions/). Such as our favorite plugin [Jekyll Assets](https://github.com/ixti/jekyll-assets). 
++ [Not all Jekyll plugins are supported](https://pages.github.com/versions/). Such as our favorite plugin [Jekyll Assets](https://github.com/ixti/jekyll-assets).
 + SSL is not fully supported. You can use https on project pages with the ``*.github.io`` domain. But you can't use a custom domain name with a fully secured HTTPS connection. At least not yet.
 
 ## gh-pages branch
 
 For serving content via GitHub Pages you need to create a branch called ``gh-pages`` and set this as default.
 
-![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-branch.png)
+![Screenshot](/posts/images/jekyll-for-company-sites/branch.png)
 
 This branch will hold all of your website files.
 
@@ -72,13 +73,13 @@ We just run ``$ gulp`` and fire up a browser at http://localhost:3000 and/or the
 
 First you will need to create a new file in your GitHub repo called ``CNAME`` that contains the domain name (or subdomain) that you wish to use. This file should be placed in the gh-pages branch, which we created earlier.
 
-If you want to use a root domain (such as mywebsite.se) for your website you will need to setup a new A record that points to the IP address ``192.30.252.153``. 
+If you want to use a root domain (such as mywebsite.se) for your website you will need to setup a new A record that points to the IP address ``192.30.252.153``.
 
 [Read more](https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider/).
 
 
 ## Deploy to GitHub pages
-	
+
 	git push origin gh-pages
 
 Easy as pie!
@@ -87,17 +88,17 @@ Easy as pie!
 
 For editing content Markdown and HTML files, we just edit the files in our text editor and push to GitHub. But what about our client?
 
-GitHub has a good editor for this, making this easy. Clicking the pencil icon takes us to the editor. 
+GitHub has a good editor for this, making this easy. Clicking the pencil icon takes us to the editor.
 
-![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-icon-edit.png)
+![Screenshot](/posts/images/jekyll-for-company-sites/icon-edit.png)
 
-![Screenshot](/posts/2015-05-12-jekyll-for-company-sites-file-edit.png)
+![Screenshot](/posts/images/jekyll-for-company-sites/file-edit.png)
 
-When finished, clicking the "commit changes" will commit directly to the ``gh-pages`` branch. 
+When finished, clicking the "commit changes" will commit directly to the ``gh-pages`` branch.
 
 [Prose](http://prose.io/) is another alternative – a content editor for GitHub. Prose provides a beatifully simple content authoring environment for CMS-free websites Prose has advanced support for Jekyll sites and Markdown content. Prose detects Markdown posts in Jekyll sites and provides syntax highlighting, a formatting toolbar, and draft previews in the site's full layout.
 
-![Prose](/posts/2015-05-12-jekyll-for-company-sites-prose.png)
+![Prose](/posts/images/jekyll-for-company-sites/prose.png)
 
 Overall we're very happy with what we get by using Jekyll directly on GitHub Pages. This is not the last time we'll be using it as we're big fans of static site generators like Jekyll and Middleman.
 
