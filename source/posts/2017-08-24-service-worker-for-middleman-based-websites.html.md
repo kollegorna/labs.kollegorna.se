@@ -1,6 +1,6 @@
 ---
 title: "Service Worker for Middleman based websites"
-date: 2017-08-24 18:00:00 EET
+date: 2017-08-24 16:00:00 EET
 author: osvaldas
 meta_description: "Middleman is a Ruby based static site generator which we use heavily both for prototyping (checkout our Middleman boilerplate) and production sites..."
 share_image: /posts/images/service-worker-for-middleman-based-websites/middleman.jpg
