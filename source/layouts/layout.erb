@@ -86,7 +86,13 @@
     <!-- End Google Tag Manager -->
 
     <script type="text/javascript">
-      window.location.replace("http://blog.kollegorna.se");
+      var path = window.location.pathname;
+
+      if (path === "/") {
+        window.location.replace("https://www.kollegorna.se/en/blog");
+      } else {
+        window.location.replace("https://www.kollegorna.se/en/" + path.substr(5));
+      }
     </script>
 
     <%= yield %>

@@ -99,3 +99,10 @@
   title: Frontend-utvecklare
   does: "UI/UX design, front end"
   twitter: osvaldas
+
+- ricardo:
+  firstname: Ricardo
+  lastname: Marques
+  email: ricardo@kollegorna.se
+  title: Utvecklare
+  does: "Ruby, Rails, Javascript"
